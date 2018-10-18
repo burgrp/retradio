@@ -16,13 +16,17 @@
 extern const char* retradio_log_tag;
 
 #define LOG_INFO(format, ...) ESP_LOGI(retradio_log_tag, format, ##__VA_ARGS__)
+#define LOG_ERROR(format, ...) ESP_LOGE(retradio_log_tag, format, ##__VA_ARGS__)
 #define DEFAULT_STACK_SIZE 8192
 
-void init_nvs();
-void init_wifi();
+void nvs_init();
+
+void wifi_init();
 void wifi_wait_connected();
-void init_http();
 
+void http_init();
 
+void mp3_init();
+void mp3_push_data(unsigned char* data, int len);
 
 #endif
