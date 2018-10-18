@@ -27,7 +27,9 @@ void mp3_push_data(unsigned char *data, int len)
         buffer[inBuffer][size[inBuffer]++] = data[c];
     }
     log_buffer("push exit");
-    xEventGroupSetBits(mp3_event_group, CHECK_BUFFER_BIT);
+    if (size[inBuffer] > 2000) {
+        xEventGroupSetBits(mp3_event_group, CHECK_BUFFER_BIT);
+    }
 }
 
 unsigned char out_buffer[sizeof(buffer)];
@@ -41,6 +43,7 @@ static enum mad_flow mp3_decoder_input(void *data, struct mad_stream *stream)
     log_buffer("MP3 input - pull enter");
 
     inBuffer = outBuffer;
+    size[inBuffer] = 0;
     mad_stream_buffer(stream, buffer[outBuffer], size[outBuffer]);
 
     return MAD_FLOW_CONTINUE;
