@@ -1,41 +1,30 @@
 #include "main.h"
 #include "mad.h"
 
-unsigned char buffer[1024 * 20];
-int head = 0;
-int tail = 0; // = next free position
-bool full = false;
+
+#define BUFFER_SIZE (20 * 1024)
+
+unsigned char buffer[2][BUFFER_SIZE];
+int size[2];
+int inBuffer = 0; 
+
+#define outBuffer (~inBuffer & 1)
 
 static EventGroupHandle_t mp3_event_group;
 const int CHECK_BUFFER_BIT = BIT0;
 
 void log_buffer(char *condition)
 {
-    LOG_INFO("MP3 buffer %s: %d-%d %s", condition, head, tail, full ? " full" : "");
+    LOG_INFO("MP3 buffer %s: IN(%d):%d OUT(%d):%d", condition, inBuffer, size[inBuffer], outBuffer, size[outBuffer]);
 }
 
 void mp3_push_data(unsigned char *data, int len)
 {
     log_buffer("push enter");
-    for (int c = 0; c < len; c++)
+
+    for (int c = 0; c < len && size[inBuffer] < BUFFER_SIZE; c++)
     {
-        if (!full)
-        {
-            buffer[tail] = data[c];
-            tail++;
-            if (tail == sizeof(buffer))
-            {
-                tail = 0;
-            }
-            if (tail == head)
-            {
-                full = true;
-            }
-        }
-        if (full)
-        {
-            break;
-        }
+        buffer[inBuffer][size[inBuffer]++] = data[c];
     }
     log_buffer("push exit");
     xEventGroupSetBits(mp3_event_group, CHECK_BUFFER_BIT);
@@ -51,19 +40,8 @@ static enum mad_flow mp3_decoder_input(void *data, struct mad_stream *stream)
     
     log_buffer("MP3 input - pull enter");
 
-    int c = 0;
-    while(head != tail || full) {
-        out_buffer[c] = buffer[head];
-        c++;
-        head++;
-        if (head == sizeof(buffer)) {
-            head = 0;
-        }
-    }
-
-    log_buffer("MP3 input - pull exit");
-
-    mad_stream_buffer(stream, out_buffer, c);
+    inBuffer = outBuffer;
+    mad_stream_buffer(stream, buffer[outBuffer], size[outBuffer]);
 
     return MAD_FLOW_CONTINUE;
 }
