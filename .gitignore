@@ -1,0 +1,4 @@
+.vscode
+build
+env
+sdkconfig.old
