@@ -1,6 +1,7 @@
 #include "main.h"
 
-#define URL "http://icecast5.play.cz/cro3-128.mp3"
+//#define URL "http://icecast5.play.cz/cro3-128.mp3"
+#define URL "http://167.114.244.122:80"
 
 esp_err_t handle_http_event(esp_http_client_event_t *evt)
 {

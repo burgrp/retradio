@@ -15,7 +15,9 @@
 
 extern const char* retradio_log_tag;
 
+#define LOG_DEBUG(format, ...) ESP_LOGD(retradio_log_tag, format, ##__VA_ARGS__)
 #define LOG_INFO(format, ...) ESP_LOGI(retradio_log_tag, format, ##__VA_ARGS__)
+#define LOG_WARN(format, ...) ESP_LOGW(retradio_log_tag, format, ##__VA_ARGS__)
 #define LOG_ERROR(format, ...) ESP_LOGE(retradio_log_tag, format, ##__VA_ARGS__)
 #define DEFAULT_STACK_SIZE 8192
 
