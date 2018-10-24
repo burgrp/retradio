@@ -12,6 +12,7 @@
 #include "esp_wifi.h"
 #include "nvs_flash.h"
 #include "esp_http_client.h"
+#include "driver/i2s.h"
 
 extern const char* retradio_log_tag;
 
@@ -30,5 +31,8 @@ void http_init();
 
 void mp3_init();
 void mp3_push_data(unsigned char* data, int len);
+
+void pcm_init();
+void pcm_push_data(int channels, int hz, short* data, int len);
 
 #endif
