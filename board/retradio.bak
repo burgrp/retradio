@@ -192,6 +192,7 @@ NoConn ~ 9900 2700
 NoConn ~ 9900 2800
 NoConn ~ 9900 2900
 NoConn ~ 9900 3100
+NoConn ~ 9900 3300
 NoConn ~ 9900 2000
 NoConn ~ 9900 1900
 NoConn ~ 9900 1700
@@ -912,14 +913,4 @@ Text Label 9900 3600 0    60   ~ 0
 EN4_DT
 Text Label 9900 3500 0    60   ~ 0
 EN4_SW
-Text Label 7100 1700 2    60   ~ 0
-BTN1
-Text Label 7100 1800 2    60   ~ 0
-BTN2
-Text Label 7100 2000 2    60   ~ 0
-BTN3
-Text Label 7100 2100 2    60   ~ 0
-BTN4
-Text Label 9900 3300 0    60   ~ 0
-BTN5
 $EndSCHEMATC

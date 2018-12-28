@@ -1,4 +1,4 @@
-update=Tue 23 Oct 2018 04:29:42 PM CEST
+update=Fri 28 Dec 2018 01:52:24 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -59,5 +61,5 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
-[general]
-version=1
+LibName33=/home/paul/df/hw-kicad/device.farm
+LibName34=PAM8320
