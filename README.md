@@ -1,3 +1,3 @@
-# ESP32 based retro radio
+# Orange Pi Zero based web radio
 
 
