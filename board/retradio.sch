@@ -38,7 +38,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 16
+Sheet 1 1
 Title ""
 Date ""
 Rev ""
@@ -309,13 +309,13 @@ $EndComp
 $Comp
 L Conn_01x02 J2
 U 1 1 5C26458B
-P 6000 5950
-F 0 "J2" H 6000 6050 50  0000 C CNN
-F 1 "Speaker" H 6250 5900 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6000 5950 50  0001 C CNN
-F 3 "" H 6000 5950 50  0001 C CNN
-	1    6000 5950
-	1    0    0    -1  
+P 6000 6050
+F 0 "J2" H 6000 6150 50  0000 C CNN
+F 1 "Speaker" H 6250 6000 50  0000 C CNN
+F 2 "device.farm:DG301-5.0-02" H 6000 6050 50  0001 C CNN
+F 3 "" H 6000 6050 50  0001 C CNN
+	1    6000 6050
+	1    0    0    1   
 $EndComp
 $Comp
 L GND #PWR06
@@ -662,7 +662,7 @@ U 1 1 5C26B058
 P 1350 1250
 F 0 "J1" H 1350 1350 50  0000 C CNN
 F 1 "Power" H 1550 1200 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1350 1250 50  0001 C CNN
+F 2 "device.farm:DG301-5.0-02" H 1350 1250 50  0001 C CNN
 F 3 "" H 1350 1250 50  0001 C CNN
 	1    1350 1250
 	-1   0    0    1   
@@ -689,15 +689,6 @@ F 3 "" H 1550 1150 50  0001 C CNN
 	1    1550 1150
 	0    1    1    0   
 $EndComp
-$Sheet
-S 2800 2150 550  300 
-U 5C26BC0F
-F0 "encoder1" 60
-F1 "encoder-port.sch" 60
-F2 "CL" O R 3350 2200 60 
-F3 "DT" O R 3350 2300 60 
-F4 "SW" O R 3350 2400 60 
-$EndSheet
 $Comp
 L +3V3 #PWR020
 U 1 1 5C26CABF
@@ -714,176 +705,192 @@ Wire Wire Line
 Wire Wire Line
 	9950 1350 9900 1350
 Connection ~ 9900 1350
-$Sheet
-S 2800 2700 550  300 
-U 5C2702EF
-F0 "encoder2" 60
-F1 "encoder-port.sch" 60
-F2 "CL" O R 3350 2750 60 
-F3 "DT" O R 3350 2850 60 
-F4 "SW" O R 3350 2950 60 
-$EndSheet
-$Sheet
-S 2800 3250 550  300 
-U 5C270598
-F0 "encoder3" 60
-F1 "encoder-port.sch" 60
-F2 "CL" O R 3350 3300 60 
-F3 "DT" O R 3350 3400 60 
-F4 "SW" O R 3350 3500 60 
-$EndSheet
-Text Label 3350 2200 0    60   ~ 0
-EN1_CL
-Text Label 3350 2300 0    60   ~ 0
-EN1_DT
-Text Label 3350 2400 0    60   ~ 0
-EN1_SW
-Text Label 3350 2750 0    60   ~ 0
-EN2_CL
-Text Label 3350 2850 0    60   ~ 0
-EN2_DT
-Text Label 3350 2950 0    60   ~ 0
-EN2_SW
-Text Label 3350 3300 0    60   ~ 0
-EN3_CL
-Text Label 3350 3400 0    60   ~ 0
-EN3_DT
-Text Label 3350 3500 0    60   ~ 0
-EN3_SW
-Text Label 7100 2300 2    60   ~ 0
-EN1_CL
-Text Label 7100 2400 2    60   ~ 0
-EN1_DT
-Text Label 7100 2600 2    60   ~ 0
-EN1_SW
-Text Label 7100 2800 2    60   ~ 0
-EN2_DT
-Text Label 7100 2700 2    60   ~ 0
-EN2_CL
-Text Label 7100 3100 2    60   ~ 0
-EN2_SW
-Text Label 7100 3200 2    60   ~ 0
-EN3_CL
-Text Label 7100 2900 2    60   ~ 0
-EN3_DT
-Text Label 7100 3300 2    60   ~ 0
-EN3_SW
-$Sheet
-S 4800 1650 550  200 
-U 5C27248A
-F0 "button1" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 1750 60 
-$EndSheet
-Text Label 5350 1750 0    60   ~ 0
-BTN1
-$Sheet
-S 4800 2050 550  200 
-U 5C273411
-F0 "button2" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 2150 60 
-$EndSheet
-Text Label 5350 2150 0    60   ~ 0
-BTN2
-$Sheet
-S 4800 2450 550  200 
-U 5C273557
-F0 "button3" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 2550 60 
-$EndSheet
-Text Label 5350 2550 0    60   ~ 0
-BTN3
-$Sheet
-S 4800 2850 550  200 
-U 5C2736A9
-F0 "button4" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 2950 60 
-$EndSheet
-Text Label 5350 2950 0    60   ~ 0
-BTN4
-$Sheet
-S 4800 3250 550  200 
-U 5C27393D
-F0 "button5" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 3350 60 
-$EndSheet
-Text Label 5350 3350 0    60   ~ 0
-BTN5
-$Sheet
-S 4800 3650 550  200 
-U 5C274B1F
-F0 "button6" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 3750 60 
-$EndSheet
-Text Label 5350 3750 0    60   ~ 0
-BTN6
-$Sheet
-S 4800 4050 550  200 
-U 5C274C89
-F0 "button7" 60
-F1 "button-port.sch" 60
-F2 "BTN" O R 5350 4150 60 
-$EndSheet
-Text Label 5350 4150 0    60   ~ 0
-BTN7
-$Sheet
-S 2800 3800 550  300 
-U 5C275CC7
-F0 "encoder4" 60
-F1 "encoder-port.sch" 60
-F2 "CL" O R 3350 3850 60 
-F3 "DT" O R 3350 3950 60 
-F4 "SW" O R 3350 4050 60 
-$EndSheet
-Text Label 3350 3850 0    60   ~ 0
-EN4_CL
-Text Label 3350 3950 0    60   ~ 0
-EN4_DT
-Text Label 3350 4050 0    60   ~ 0
-EN5_SW
-Text Label 7100 3400 2    60   ~ 0
-EN4_CL
-Text Label 9900 3600 0    60   ~ 0
-EN4_DT
-Text Label 9900 3500 0    60   ~ 0
-EN4_SW
 Text Label 7100 1700 2    60   ~ 0
-BTN1
+SDA
 Text Label 7100 1800 2    60   ~ 0
-BTN2
-Text Label 7100 2000 2    60   ~ 0
-BTN3
-Text Label 7100 2100 2    60   ~ 0
-BTN4
-Text Label 9900 3300 0    60   ~ 0
-BTN5
-$Sheet
-S 1100 2250 550  200 
-U 5C27D3CA
-F0 "led1" 60
-F1 "led-port.sch" 60
-$EndSheet
-$Sheet
-S 1100 2650 550  200 
-U 5C27E615
-F0 "led2" 60
-F1 "led-port.sch" 60
-$EndSheet
-$Sheet
-S 1100 3050 550  200 
-U 5C27E75F
-F0 "led3" 60
-F1 "led-port.sch" 60
-$EndSheet
-$Sheet
-S 1100 3450 550  200 
-U 5C27E8A9
-F0 "led4" 60
-F1 "led-port.sch" 60
-$EndSheet
+SCL
+$Comp
+L I2C-6P X1
+U 1 1 5C2CD93A
+P 4600 2450
+F 0 "X1" H 4600 2950 60  0000 C CNN
+F 1 "I2C-6P" H 4600 2100 60  0000 C CNN
+F 2 "Connectors:IDC_Header_Straight_6pins" H 4750 2600 60  0001 C CNN
+F 3 "" H 4750 2600 60  0001 C CNN
+	1    4600 2450
+	1    0    0    -1  
+$EndComp
+Text Label 4950 2400 0    60   ~ 0
+SDA
+Text Label 4950 2500 0    60   ~ 0
+SCL
+$Comp
+L GND #PWR021
+U 1 1 5C2CDA83
+P 4950 2650
+F 0 "#PWR021" H 4950 2400 50  0001 C CNN
+F 1 "GND" H 4950 2500 50  0000 C CNN
+F 2 "" H 4950 2650 50  0001 C CNN
+F 3 "" H 4950 2650 50  0001 C CNN
+	1    4950 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR022
+U 1 1 5C2CDADC
+P 4950 2150
+F 0 "#PWR022" H 4950 2000 50  0001 C CNN
+F 1 "+5V" V 4950 2350 50  0000 C CNN
+F 2 "" H 4950 2150 50  0001 C CNN
+F 3 "" H 4950 2150 50  0001 C CNN
+	1    4950 2150
+	0    1    1    0   
+$EndComp
+$Comp
+L +3V3 #PWR023
+U 1 1 5C2CDB35
+P 4950 2250
+F 0 "#PWR023" H 4950 2100 50  0001 C CNN
+F 1 "+3V3" V 4950 2450 50  0000 C CNN
+F 2 "" H 4950 2250 50  0001 C CNN
+F 3 "" H 4950 2250 50  0001 C CNN
+	1    4950 2250
+	0    1    1    0   
+$EndComp
+Text Label 4950 2050 0    60   ~ 0
+ALERT
+Text Label 7100 2300 2    60   ~ 0
+ALERT
+NoConn ~ 7100 2000
+NoConn ~ 7100 2100
+NoConn ~ 7100 2400
+NoConn ~ 7100 2600
+NoConn ~ 7100 2700
+NoConn ~ 7100 2800
+NoConn ~ 7100 2900
+NoConn ~ 7100 3100
+NoConn ~ 7100 3200
+NoConn ~ 7100 3300
+NoConn ~ 7100 3400
+NoConn ~ 9900 3600
+NoConn ~ 9900 3500
+NoConn ~ 9900 3300
+$Comp
+L PWR_FLAG #FLG024
+U 1 1 5C2CE227
+P 2000 1850
+F 0 "#FLG024" H 2000 1925 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2150 50  0000 C CNN
+F 2 "" H 2000 1850 50  0001 C CNN
+F 3 "" H 2000 1850 50  0001 C CNN
+	1    2000 1850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +12V #PWR025
+U 1 1 5C2CE2EF
+P 2000 1850
+F 0 "#PWR025" H 2000 1700 50  0001 C CNN
+F 1 "+12V" V 2000 2050 50  0000 C CNN
+F 2 "" H 2000 1850 50  0001 C CNN
+F 3 "" H 2000 1850 50  0001 C CNN
+	1    2000 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L PWR_FLAG #FLG026
+U 1 1 5C2CE564
+P 2000 2300
+F 0 "#FLG026" H 2000 2375 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2600 50  0000 C CNN
+F 2 "" H 2000 2300 50  0001 C CNN
+F 3 "" H 2000 2300 50  0001 C CNN
+	1    2000 2300
+	0    -1   -1   0   
+$EndComp
+Text Label 2000 2300 0    60   ~ 0
+AVCC
+Text Label 4550 6000 0    60   ~ 0
+AVCC
+Text Label 2400 6250 0    30   ~ 0
+VCLAMP
+$Comp
+L PWR_FLAG #FLG027
+U 1 1 5C2CF089
+P 2000 2400
+F 0 "#FLG027" H 2000 2475 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2700 50  0000 C CNN
+F 2 "" H 2000 2400 50  0001 C CNN
+F 3 "" H 2000 2400 50  0001 C CNN
+	1    2000 2400
+	0    -1   -1   0   
+$EndComp
+Text Label 2000 2400 0    60   ~ 0
+VCLAMP
+$Comp
+L PWR_FLAG #FLG028
+U 1 1 5C2CF372
+P 2000 1950
+F 0 "#FLG028" H 2000 2025 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2250 50  0000 C CNN
+F 2 "" H 2000 1950 50  0001 C CNN
+F 3 "" H 2000 1950 50  0001 C CNN
+	1    2000 1950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L PWR_FLAG #FLG029
+U 1 1 5C2CF3CB
+P 2000 2050
+F 0 "#FLG029" H 2000 2125 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2350 50  0000 C CNN
+F 2 "" H 2000 2050 50  0001 C CNN
+F 3 "" H 2000 2050 50  0001 C CNN
+	1    2000 2050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L PWR_FLAG #FLG030
+U 1 1 5C2CF4B1
+P 2000 2150
+F 0 "#FLG030" H 2000 2225 50  0001 C CNN
+F 1 "PWR_FLAG" V 2000 2450 50  0000 C CNN
+F 2 "" H 2000 2150 50  0001 C CNN
+F 3 "" H 2000 2150 50  0001 C CNN
+	1    2000 2150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +5V #PWR031
+U 1 1 5C2CF572
+P 2000 1950
+F 0 "#PWR031" H 2000 1800 50  0001 C CNN
+F 1 "+5V" V 2000 2150 50  0000 C CNN
+F 2 "" H 2000 1950 50  0001 C CNN
+F 3 "" H 2000 1950 50  0001 C CNN
+	1    2000 1950
+	0    1    1    0   
+$EndComp
+$Comp
+L +3V3 #PWR032
+U 1 1 5C2CF5CB
+P 2000 2050
+F 0 "#PWR032" H 2000 1900 50  0001 C CNN
+F 1 "+3V3" V 2000 2250 50  0000 C CNN
+F 2 "" H 2000 2050 50  0001 C CNN
+F 3 "" H 2000 2050 50  0001 C CNN
+	1    2000 2050
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR033
+U 1 1 5C2CF624
+P 2000 2150
+F 0 "#PWR033" H 2000 1900 50  0001 C CNN
+F 1 "GND" V 2000 1950 50  0000 C CNN
+F 2 "" H 2000 2150 50  0001 C CNN
+F 3 "" H 2000 2150 50  0001 C CNN
+	1    2000 2150
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
