@@ -1,0 +1,12 @@
+{
+  "name": "retradio-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "retradio.js",
+  "author": "Pavel Burgr <pb@drake.cz>",
+  "license": "ISC",
+  "dependencies": {
+    "speaker": "^0.4.1",
+    "web-audio-api": "^0.2.2"
+  }
+}

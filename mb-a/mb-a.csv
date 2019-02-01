@@ -1,0 +1,16 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"C1";"C_0805";1;"470n";;;
+2;"C2,C3,C12,C13";"C_0805";4;"1u";;;
+3;"C4,C6,C9,C17";"C_0805";4;"10u";;;
+4;"C5,C10,C11";"CP_Elec_8x10";3;"470u/16V";;;
+5;"C7,C8,C16";"C_0805";3;"100n";;;
+6;"C14,C15";"C_0805";2;"1n";;;
+7;"L1,L2";"L_0805";2;"600R";;;
+8;"M1";"Orange-Pi-Zero";1;"Orange-Pi-Zero";;;
+9;"R1";"R_0805";1;"10R";;;
+10;"U1";"SOT-223-3Lead_TabPin2";1;"NCP1117-5.0_SOT223";;;
+11;"U2";"SOIC-16_3.9x9.9mm_Pitch1.27mm";1;"PAM8320";;;
+12;"X1";"IDC_Header_Straight_6pins";1;"I2C-6P";;;
+13;"J1";"DG301-5.0-02";1;"Power";;;
+14;"J2";"DG301-5.0-02";1;"Speaker";;;
+15;"R2,R3,R4";"R_0805";3;"1k5";;;
