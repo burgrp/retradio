@@ -87,7 +87,7 @@ class Encoder : public DebouncedGpio
 	}
 };
 
-class Device : public ButtonListener, public EncoderListener
+class Device : public i2c::hw::BufferedSlave, ButtonListener, EncoderListener
 {
 
 	iwdg::Driver iwdg;
@@ -102,12 +102,10 @@ class Device : public ButtonListener, public EncoderListener
 	Button button;
 	Encoder encoder;
 
-	i2c::hw::BufferedSlave i2c;
-
 	void init(target::i2c::Peripheral *peripheral, int address)
 	{
 		iwdg.init();
-		i2c.init(peripheral, address, NULL, 0, (unsigned char *)&data, sizeof(data));
+		i2c::hw::BufferedSlave::init(peripheral, address, NULL, 0, (unsigned char *)&data, sizeof(data));
 		button.init(&target::GPIOA, 2, this);
 		encoder.init(&target::GPIOA, 0, 1, this);
 	}
@@ -128,7 +126,7 @@ class Device : public ButtonListener, public EncoderListener
 		alert(true);
 	}
 
-	virtual void onRxComplete()
+	virtual void onTxComplete()
 	{
 		data.flags = 0;
 		data.position = 0;
@@ -140,7 +138,7 @@ Device device;
 
 void interruptHandlerI2C1()
 {
-	device.i2c.handleInterrupt();
+	device.handleInterrupt();
 }
 
 void interruptHandlerEXTI0_1()
