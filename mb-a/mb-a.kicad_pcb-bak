@@ -312,7 +312,7 @@
     (descr "6 pins through hole IDC header")
     (tags "IDC header socket VASCH AVR ISP")
     (path /5C2CD93A)
-    (fp_text reference X1 (at 3 -7.5 270) (layer F.SilkS)
+    (fp_text reference X1 (at -3.936 0.132 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value I2C-6P (at 3 5 270) (layer F.Fab)
@@ -1333,7 +1333,7 @@
     )
   )
 
-  (gr_text I2C (at 99.5 54.5) (layer F.SilkS) (tstamp 5C2D60A9)
+  (gr_text I2C (at 94.36 54.524) (layer F.SilkS) (tstamp 5C2D60A9)
     (effects (font (size 1.2 1.2) (thickness 0.3)))
   )
   (gr_text "RR-MB-A v1.1" (at 116 55.5) (layer F.SilkS) (tstamp 5C2D3A13)
