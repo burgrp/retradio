@@ -10,7 +10,11 @@
 	},
 	"silicon": {
 		"sources": [
-			"encoder.cpp"
+			"debounced-gpio.cpp",
+			"alert.cpp",
+			"button.cpp",
+			"encoder.cpp",
+			"device.cpp"
 		],
 		"symbols": {
 			"ROM_START": "0x08000000",
