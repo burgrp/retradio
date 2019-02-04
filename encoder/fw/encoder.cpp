@@ -112,14 +112,27 @@ class Device : public ButtonListener, public EncoderListener
 		encoder.init(&target::GPIOA, 0, 1, this);
 	}
 
+	void alert(bool state)
+	{
+	}
+
 	void onButtonChange(bool state)
 	{
 		data.flags |= 1 << state;
+		alert(true);
 	}
 
 	virtual void onEncoderChange(int change)
 	{
 		data.position += change;
+		alert(true);
+	}
+
+	virtual void onRxComplete()
+	{
+		data.flags = 0;
+		data.position = 0;
+		alert(false);
 	}
 };
 
