@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "encoder/fw"
+		},
+		{
+			"path": "encoder/test"
+		}
+	]
+}

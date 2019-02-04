@@ -1,9 +1,3 @@
-struct
-{
-	int position = 0xFF;
-	unsigned char flags = 1;
-} __attribute__((packed)) data;
-
 class DebouncedGpio : public genericTimer::Timer
 {
 	virtual void onChange(int state) = 0;
@@ -38,27 +32,46 @@ class DebouncedGpio : public genericTimer::Timer
 	}
 };
 
-class Button : public DebouncedGpio
+class ButtonListener
 {
   public:
-	void init(target::gpio_a::Peripheral *port, int pin)
+	virtual void onButtonChange(bool state) = 0;
+};
+
+class Button : public DebouncedGpio
+{
+	ButtonListener *listener;
+
+  public:
+	void init(target::gpio_a::Peripheral *port, int pin, ButtonListener *listener)
 	{
+		this->listener = listener;
 		DebouncedGpio::init(port, pin);
 	}
 
 	virtual void onChange(int state)
 	{
-		data.flags++;
+		listener->onButtonChange(state);
 	}
+};
+
+class EncoderListener
+{
+  public:
+	virtual void onEncoderChange(int change) = 0;
 };
 
 class Encoder : public DebouncedGpio
 {
 	int dataPin;
+	EncoderListener *encoderListener;
+
   public:
-	void init(target::gpio_a::Peripheral *port, int clkPin, int dataPin)
+	void init(target::gpio_a::Peripheral *port, int clkPin, int dataPin, EncoderListener *encoderListener)
 	{
 		this->dataPin = dataPin;
+		this->encoderListener = encoderListener;
+
 		port->MODER.setMODER(dataPin, 0);
 		port->PUPDR.setPUPDR(dataPin, 1);
 
@@ -67,21 +80,23 @@ class Encoder : public DebouncedGpio
 
 	virtual void onChange(int state)
 	{
-		if (state) {
-			if (port->IDR.getIDR(dataPin)) {
-				data.position++;
-			} else {
-				data.position--;
-			}
-			
+		if (state)
+		{
+			encoderListener->onEncoderChange(port->IDR.getIDR(dataPin) ? -1 : 1);
 		}
 	}
 };
 
-class Device
+class Device : public ButtonListener, public EncoderListener
 {
 
 	iwdg::Driver iwdg;
+
+	struct
+	{
+		short position = 0;
+		unsigned char flags = 0;
+	} __attribute__((packed)) data;
 
   public:
 	Button button;
@@ -93,8 +108,18 @@ class Device
 	{
 		iwdg.init();
 		i2c.init(peripheral, address, NULL, 0, (unsigned char *)&data, sizeof(data));
-		button.init(&target::GPIOA, 2);
-		encoder.init(&target::GPIOA, 0, 1);
+		button.init(&target::GPIOA, 2, this);
+		encoder.init(&target::GPIOA, 0, 1, this);
+	}
+
+	void onButtonChange(bool state)
+	{
+		data.flags |= 1 << state;
+	}
+
+	virtual void onEncoderChange(int change)
+	{
+		data.position += change;
 	}
 };
 
