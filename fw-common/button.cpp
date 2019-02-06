@@ -16,7 +16,8 @@ class Button : public DebouncedGpio
 		alert->alert();
 	}
 
-	int readFlags() {
+	int readFlags()
+	{
 		int f = flags;
 		flags = 0;
 		return f;

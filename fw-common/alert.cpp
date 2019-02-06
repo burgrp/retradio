@@ -1,5 +1,5 @@
 class Alert
 {
-  public:
-	virtual void alert() = 0;
+public:
+  virtual void alert() = 0;
 };

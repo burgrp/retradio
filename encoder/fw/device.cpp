@@ -3,8 +3,8 @@ class Device : public i2c::hw::BufferedSlave, Alert
 
 	iwdg::Driver iwdg;
 
-	const int pinEncClk = 0;
-	const int pinEncData = 1;
+	const int pinEncA = 0;
+	const int pinEncB = 1;
 	const int pinEncButton = 2;
 
 	const int pinAddrAB = 3;
@@ -45,7 +45,7 @@ class Device : public i2c::hw::BufferedSlave, Alert
 		i2c::hw::BufferedSlave::init(&target::I2C1, address, NULL, 0, (unsigned char *)&data, sizeof(data));
 
 		button.init(&target::GPIOA, pinEncButton, this);
-		encoder.init(&target::GPIOA, pinEncClk, pinEncData, this);
+		encoder.init(&target::GPIOA, pinEncA, pinEncB, this);
 	}
 
 	void alert()
@@ -53,11 +53,11 @@ class Device : public i2c::hw::BufferedSlave, Alert
 		target::GPIOA.BSRR.setBR(pinAlert, 1);
 	}
 
-	virtual void onTxComplete()
+	virtual void onTxStart()
 	{
-		target::GPIOA.BSRR.setBS(pinAlert, 1);
 		data.flags = button.readFlags();
 		data.position = encoder.readPosition();
+		target::GPIOA.BSRR.setBS(pinAlert, 1);
 	}
 };
 

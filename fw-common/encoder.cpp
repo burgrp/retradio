@@ -1,31 +1,32 @@
 class Encoder : public DebouncedGpio
 {
-	int dataPin;
+	int pinB;
 	int position;
 	Alert *alert;
 
   public:
-	void init(target::gpio_a::Peripheral *port, int clkPin, int dataPin, Alert *alert)
+	void init(target::gpio_a::Peripheral *port, int pinA, int pinB, Alert *alert)
 	{
-		this->dataPin = dataPin;
+		this->pinB = pinB;
 		this->alert = alert;
 
-		port->MODER.setMODER(dataPin, 0);
-		port->PUPDR.setPUPDR(dataPin, 1);
+		port->MODER.setMODER(pinB, 0);
+		port->PUPDR.setPUPDR(pinB, 1);
 
-		DebouncedGpio::init(port, clkPin);
+		DebouncedGpio::init(port, pinA);
 	}
 
 	virtual void onChange(int state)
 	{
 		if (state)
 		{
-			position += port->IDR.getIDR(dataPin) ? -1 : 1;
+			position += port->IDR.getIDR(pinB) ? -1 : 1;
 			alert->alert();
 		}
 	}
 
-	int readPosition() {
+	int readPosition()
+	{
 		int p = position;
 		position = 0;
 		return p;

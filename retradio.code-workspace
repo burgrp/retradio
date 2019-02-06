@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "fw-common"
+		},
+		{
+			"path": "/home/paul/df/hw-USB-I2C/fw"
+		},
+		{
+			"path": "/home/paul/df/hw-USB-I2C/driver-js"
 		}
 	]
 }

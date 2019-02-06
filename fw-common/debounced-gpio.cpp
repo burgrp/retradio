@@ -1,11 +1,6 @@
-class DebouncedGpio : public genericTimer::Timer
+class DebouncedGpio
 {
 	virtual void onChange(int state) = 0;
-
-	void onTimer()
-	{
-		onChange(port->IDR.getIDR(pin));
-	}
 
   public:
 	int pin;
@@ -22,12 +17,15 @@ class DebouncedGpio : public genericTimer::Timer
 		target::EXTI.RTSR.setTR(pin, 1);
 		target::EXTI.IMR.setMR(pin, 1);
 	}
+
 	void handleInterrupt()
 	{
 		if (target::EXTI.PR.getPR(pin))
 		{
+			for (volatile int w = 0; w < 1000; w++)
+				;
 			target::EXTI.PR.setPR(pin, 1);
-			start(1);
+			onChange(port->IDR.getIDR(pin));
 		}
 	}
 };
