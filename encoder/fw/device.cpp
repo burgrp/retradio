@@ -16,9 +16,10 @@ class Device : public i2c::hw::BufferedSlave, Alert
 
 	struct
 	{
+		unsigned char protocol = 1;
 		short position = 0;
 		unsigned char flags = 0;
-	} __attribute__((packed)) data;
+	} __attribute__((packed)) txData;
 
   public:
 	Button button;
@@ -42,7 +43,7 @@ class Device : public i2c::hw::BufferedSlave, Alert
 		target::NVIC.ISER.setSETENA(1 << target::interrupts::External::I2C1);
 
 		int address = 0x40 + probeTriStateInput(&target::GPIOA, pinAddrAB) + 3 * probeTriStateInput(&target::GPIOA, pinAddrCD);
-		i2c::hw::BufferedSlave::init(&target::I2C1, address, NULL, 0, (unsigned char *)&data, sizeof(data));
+		i2c::hw::BufferedSlave::init(&target::I2C1, address, NULL, 0, (unsigned char *)&txData, sizeof(txData));
 
 		button.init(&target::GPIOA, pinEncButton, this);
 		encoder.init(&target::GPIOA, pinEncA, pinEncB, this);
@@ -55,8 +56,8 @@ class Device : public i2c::hw::BufferedSlave, Alert
 
 	virtual void onTxStart()
 	{
-		data.flags = button.readFlags();
-		data.position = encoder.readPosition();
+		txData.flags = button.readFlags();
+		txData.position = encoder.readPosition();
 		target::GPIOA.BSRR.setBS(pinAlert, 1);
 	}
 };
