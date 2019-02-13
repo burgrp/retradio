@@ -6,7 +6,8 @@
   "author": "Pavel Burgr <pb@drake.cz>",
   "license": "ISC",
   "dependencies": {
-    "speaker": "^0.4.1",
-    "web-audio-api": "^0.2.2"
+    "@device.farm/appglue": "^1.0.10",
+    "@device.farm/usb-i2c-driver": "^1.0.2",
+    "debug": "^4.1.1"
   }
 }

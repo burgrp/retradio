@@ -1,0 +1,49 @@
+{
+    "player": {
+        "module": "./mplayer.js",
+        "stations": {
+            "module": "./stations.js"
+        }
+    },
+    "i2c": {
+        "module": "./i2c.js",
+        "player": "-> player",
+        "drivers": {
+            "0x40": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeVolume",
+                "onPush": "toggleAperture"
+            },
+            "0x41": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeBalance",
+                "onPush": "resetBalance"
+            },
+            "0x42": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeTreble",
+                "onPush": "resetTreble"
+            },
+            "0x43": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeBass",
+                "onPush": "resetBass"
+            },
+            "0x44": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeAperture",
+                "onPush": "resetAperture"
+            },
+            "0x45": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeTuning",
+                "onPush": "resetTuning"
+            },
+            "0x46": {
+                "module": "./drv-encoder.js",
+                "onRotate": "changeBand",
+                "onPush": "resetBand"
+            }
+        }
+    }
+}

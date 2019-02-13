@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "/home/paul/df/hw-USB-I2C/driver-js"
+		},
+		{
+			"path": "app"
 		}
 	]
 }

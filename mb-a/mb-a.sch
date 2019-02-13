@@ -1,40 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:device.farm
-LIBS:PAM8320
+EESchema Schematic File Version 4
 LIBS:mb-a-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -49,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Orange-Pi-Zero M1
+L mb-a-rescue:Orange-Pi-Zero-mb-a-rescue M1
 U 1 1 5C2617B0
 P 8500 2600
 F 0 "M1" H 8500 3750 60  0000 C CNN
@@ -60,7 +26,7 @@ F 3 "" H 7700 3600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PAM8320 U2
+L mb-a-rescue:PAM8320-mb-a-rescue U2
 U 1 1 5C261D45
 P 3200 6000
 F 0 "U2" H 3200 5900 50  0000 C CNN
@@ -71,7 +37,7 @@ F 3 "DOCUMENTATION" H 3200 6000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C2
+L mb-a-rescue:C-mb-a-rescue C2
 U 1 1 5C262007
 P 2250 5950
 F 0 "C2" H 2275 6050 50  0000 L CNN
@@ -82,7 +48,7 @@ F 3 "" H 2250 5950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR01
+L mb-a-rescue:GND-mb-a-rescue #PWR01
 U 1 1 5C262101
 P 2000 6100
 F 0 "#PWR01" H 2000 5850 50  0001 C CNN
@@ -93,7 +59,7 @@ F 3 "" H 2000 6100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C3
+L mb-a-rescue:C-mb-a-rescue C3
 U 1 1 5C2621FC
 P 2250 6250
 F 0 "C3" H 2275 6350 50  0000 L CNN
@@ -104,7 +70,7 @@ F 3 "" H 2250 6250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C7
+L mb-a-rescue:C-mb-a-rescue C7
 U 1 1 5C26234F
 P 3200 5250
 F 0 "C7" V 3150 5100 50  0000 L CNN
@@ -115,7 +81,7 @@ F 3 "" H 3200 5250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C6
+L mb-a-rescue:C-mb-a-rescue C6
 U 1 1 5C2623B0
 P 3200 5000
 F 0 "C6" V 3150 4850 50  0000 L CNN
@@ -126,7 +92,7 @@ F 3 "" H 3200 5000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CP C5
+L mb-a-rescue:CP-mb-a-rescue C5
 U 1 1 5C2623D4
 P 3200 4750
 F 0 "C5" V 3250 4850 50  0000 L CNN
@@ -137,7 +103,7 @@ F 3 "" H 3200 4750 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C C8
+L mb-a-rescue:C-mb-a-rescue C8
 U 1 1 5C26255D
 P 3200 6750
 F 0 "C8" V 3150 6600 50  0000 L CNN
@@ -148,7 +114,7 @@ F 3 "" H 3200 6750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C9
+L mb-a-rescue:C-mb-a-rescue C9
 U 1 1 5C2625C9
 P 3200 7000
 F 0 "C9" V 3150 6850 50  0000 L CNN
@@ -159,7 +125,7 @@ F 3 "" H 3200 7000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CP C10
+L mb-a-rescue:CP-mb-a-rescue C10
 U 1 1 5C2625FE
 P 3200 7250
 F 0 "C10" V 3250 7300 50  0000 L CNN
@@ -170,7 +136,7 @@ F 3 "" H 3200 7250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C C1
+L mb-a-rescue:C-mb-a-rescue C1
 U 1 1 5C262ACC
 P 1850 5850
 F 0 "C1" H 1875 5950 50  0000 L CNN
@@ -195,7 +161,7 @@ NoConn ~ 9900 1900
 NoConn ~ 9900 1700
 NoConn ~ 9900 1600
 $Comp
-L GND #PWR02
+L mb-a-rescue:GND-mb-a-rescue #PWR02
 U 1 1 5C26312D
 P 8500 4250
 F 0 "#PWR02" H 8500 4000 50  0001 C CNN
@@ -206,7 +172,7 @@ F 3 "" H 8500 4250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR03
+L mb-a-rescue:+5V-mb-a-rescue #PWR03
 U 1 1 5C2632BB
 P 7050 1400
 F 0 "#PWR03" H 7050 1250 50  0001 C CNN
@@ -217,7 +183,7 @@ F 3 "" H 7050 1400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L L L1
+L mb-a-rescue:L-mb-a-rescue L1
 U 1 1 5C26357A
 P 4650 5650
 F 0 "L1" V 4600 5650 50  0000 C CNN
@@ -228,7 +194,7 @@ F 3 "" H 4650 5650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C C12
+L mb-a-rescue:C-mb-a-rescue C12
 U 1 1 5C2635DF
 P 4250 5850
 F 0 "C12" V 4300 5950 50  0000 L CNN
@@ -239,7 +205,7 @@ F 3 "" H 4250 5850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C14
+L mb-a-rescue:C-mb-a-rescue C14
 U 1 1 5C26373B
 P 4850 5450
 F 0 "C14" H 4900 5350 50  0000 L CNN
@@ -250,7 +216,7 @@ F 3 "" H 4850 5450 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR04
+L mb-a-rescue:GND-mb-a-rescue #PWR04
 U 1 1 5C263DC5
 P 4850 5300
 F 0 "#PWR04" H 4850 5050 50  0001 C CNN
@@ -261,7 +227,7 @@ F 3 "" H 4850 5300 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C C13
+L mb-a-rescue:C-mb-a-rescue C13
 U 1 1 5C263F13
 P 4250 6150
 F 0 "C13" V 4200 6250 50  0000 L CNN
@@ -272,7 +238,7 @@ F 3 "" H 4250 6150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L L L2
+L mb-a-rescue:L-mb-a-rescue L2
 U 1 1 5C263F5C
 P 4650 6350
 F 0 "L2" V 4600 6350 50  0000 C CNN
@@ -283,7 +249,7 @@ F 3 "" H 4650 6350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L C C15
+L mb-a-rescue:C-mb-a-rescue C15
 U 1 1 5C263FAA
 P 4850 6550
 F 0 "C15" H 4900 6650 50  0000 L CNN
@@ -294,7 +260,7 @@ F 3 "" H 4850 6550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR05
+L mb-a-rescue:GND-mb-a-rescue #PWR05
 U 1 1 5C264334
 P 4850 6700
 F 0 "#PWR05" H 4850 6450 50  0001 C CNN
@@ -305,7 +271,7 @@ F 3 "" H 4850 6700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J2
+L mb-a-rescue:Conn_01x02-mb-a-rescue J2
 U 1 1 5C26458B
 P 6000 6050
 F 0 "J2" H 6000 6150 50  0000 C CNN
@@ -316,7 +282,7 @@ F 3 "" H 6000 6050 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR06
+L mb-a-rescue:GND-mb-a-rescue #PWR06
 U 1 1 5C264C05
 P 4000 5000
 F 0 "#PWR06" H 4000 4750 50  0001 C CNN
@@ -327,7 +293,7 @@ F 3 "" H 4000 5000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR07
+L mb-a-rescue:GND-mb-a-rescue #PWR07
 U 1 1 5C264C46
 P 4000 7000
 F 0 "#PWR07" H 4000 6750 50  0001 C CNN
@@ -338,7 +304,7 @@ F 3 "" H 4000 7000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +12V #PWR08
+L mb-a-rescue:+12V-mb-a-rescue #PWR08
 U 1 1 5C264F39
 P 2450 5000
 F 0 "#PWR08" H 2450 4850 50  0001 C CNN
@@ -349,7 +315,7 @@ F 3 "" H 2450 5000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +12V #PWR09
+L mb-a-rescue:+12V-mb-a-rescue #PWR09
 U 1 1 5C264F71
 P 2450 7000
 F 0 "#PWR09" H 2450 6850 50  0001 C CNN
@@ -360,7 +326,7 @@ F 3 "" H 2450 7000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R1
+L mb-a-rescue:R-mb-a-rescue R1
 U 1 1 5C26504B
 P 5050 6000
 F 0 "R1" V 4950 5900 50  0000 C CNN
@@ -371,7 +337,7 @@ F 3 "" H 5050 6000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C16
+L mb-a-rescue:C-mb-a-rescue C16
 U 1 1 5C265151
 P 5050 5800
 F 0 "C16" V 5000 5650 50  0000 L CNN
@@ -382,7 +348,7 @@ F 3 "" H 5050 5800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C17
+L mb-a-rescue:C-mb-a-rescue C17
 U 1 1 5C2651C5
 P 5050 6200
 F 0 "C17" V 5000 6050 50  0000 L CNN
@@ -395,21 +361,21 @@ $EndComp
 Wire Wire Line
 	2400 5950 2450 5950
 Wire Wire Line
-	2000 6100 2450 6100
+	2000 6100 2050 6100
 Wire Wire Line
-	2050 5950 2050 6250
+	2050 5950 2050 6100
 Wire Wire Line
 	2050 5950 2100 5950
 Wire Wire Line
 	2050 6250 2100 6250
 Connection ~ 2050 6100
 Wire Wire Line
-	2450 6050 2450 6150
+	2450 6050 2450 6100
 Connection ~ 2450 6100
 Wire Wire Line
 	2400 6250 2450 6250
 Wire Wire Line
-	2450 6350 2450 7250
+	2450 6350 2450 6750
 Wire Wire Line
 	2450 7250 3050 7250
 Connection ~ 2450 7000
@@ -419,23 +385,23 @@ Connection ~ 2450 6750
 Wire Wire Line
 	3350 6750 3950 6750
 Wire Wire Line
-	3950 6350 3950 7250
+	3950 6350 3950 6750
 Wire Wire Line
 	3950 7250 3350 7250
 Connection ~ 3950 6750
 Wire Wire Line
-	3350 7000 4000 7000
+	3350 7000 3950 7000
 Connection ~ 3950 7000
 Wire Wire Line
-	2450 4750 2450 5650
+	2450 4750 2450 5000
 Wire Wire Line
 	2450 4750 3050 4750
 Wire Wire Line
-	3950 4750 3950 5650
+	3950 4750 3950 5000
 Wire Wire Line
 	3950 4750 3350 4750
 Wire Wire Line
-	3350 5000 4000 5000
+	3350 5000 3950 5000
 Connection ~ 3950 5000
 Wire Wire Line
 	3350 5250 3950 5250
@@ -449,7 +415,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 5850 1550 5850
 Wire Wire Line
-	8250 4150 8750 4150
+	8250 4150 8350 4150
 Connection ~ 8650 4150
 Connection ~ 8550 4150
 Connection ~ 8450 4150
@@ -458,7 +424,7 @@ Wire Wire Line
 	8500 4150 8500 4250
 Connection ~ 8500 4150
 Wire Wire Line
-	7100 1300 7100 1500
+	7100 1300 7100 1400
 Wire Wire Line
 	7100 1400 7050 1400
 Connection ~ 7100 1400
@@ -469,14 +435,14 @@ Wire Wire Line
 Wire Wire Line
 	3950 5850 4100 5850
 Wire Wire Line
-	4100 5650 4500 5650
+	4100 5650 4450 5650
 Wire Wire Line
 	4450 5650 4450 5850
 Wire Wire Line
 	4450 5850 4400 5850
 Connection ~ 4450 5650
 Wire Wire Line
-	4800 5650 5800 5650
+	4800 5650 4850 5650
 Wire Wire Line
 	4850 5650 4850 5600
 Connection ~ 4850 5650
@@ -487,14 +453,14 @@ Wire Wire Line
 Wire Wire Line
 	4100 6250 4100 6350
 Wire Wire Line
-	4100 6350 4500 6350
+	4100 6350 4450 6350
 Wire Wire Line
 	4450 6350 4450 6150
 Wire Wire Line
 	4450 6150 4400 6150
 Connection ~ 4450 6350
 Wire Wire Line
-	4800 6350 5800 6350
+	4800 6350 4850 6350
 Wire Wire Line
 	4850 6350 4850 6400
 Connection ~ 4850 6350
@@ -503,7 +469,7 @@ Wire Wire Line
 Wire Wire Line
 	4200 5950 4200 6000
 Wire Wire Line
-	4200 6000 4900 6000
+	4200 6000 4850 6000
 Wire Wire Line
 	5800 5650 5800 5950
 Wire Wire Line
@@ -513,7 +479,7 @@ Wire Wire Line
 Wire Wire Line
 	3050 7000 2450 7000
 $Comp
-L +12V #PWR010
+L mb-a-rescue:+12V-mb-a-rescue #PWR010
 U 1 1 5C265745
 P 5350 6000
 F 0 "#PWR010" H 5350 5850 50  0001 C CNN
@@ -526,12 +492,12 @@ $EndComp
 Wire Wire Line
 	4900 5800 4850 5800
 Wire Wire Line
-	4850 5800 4850 6200
+	4850 5800 4850 6000
 Connection ~ 4850 6000
 Wire Wire Line
 	4850 6200 4900 6200
 $Comp
-L GND #PWR011
+L mb-a-rescue:GND-mb-a-rescue #PWR011
 U 1 1 5C265A9C
 P 5200 5800
 F 0 "#PWR011" H 5200 5550 50  0001 C CNN
@@ -542,7 +508,7 @@ F 3 "" H 5200 5800 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR012
+L mb-a-rescue:GND-mb-a-rescue #PWR012
 U 1 1 5C265B2B
 P 5200 6200
 F 0 "#PWR012" H 5200 5950 50  0001 C CNN
@@ -555,7 +521,7 @@ $EndComp
 Wire Wire Line
 	3050 5000 2450 5000
 $Comp
-L CP C11
+L mb-a-rescue:CP-mb-a-rescue C11
 U 1 1 5C268B83
 P 3500 1200
 F 0 "C11" H 3550 1300 50  0000 L CNN
@@ -566,7 +532,7 @@ F 3 "" H 3500 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L NCP1117-5.0_SOT223 U1
+L mb-a-rescue:NCP1117-5.0_SOT223-mb-a-rescue U1
 U 1 1 5C268E1B
 P 3000 950
 F 0 "U1" H 2850 1075 50  0000 C CNN
@@ -577,7 +543,7 @@ F 3 "" H 3100 700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L mb-a-rescue:C-mb-a-rescue C4
 U 1 1 5C269BBD
 P 2500 1200
 F 0 "C4" H 2350 1100 50  0000 L CNN
@@ -588,15 +554,15 @@ F 3 "" H 2500 1200 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	2350 950  2700 950 
+	2350 950  2500 950 
 Wire Wire Line
 	2500 950  2500 1050
 Wire Wire Line
-	3300 950  3650 950 
+	3300 950  3500 950 
 Wire Wire Line
 	3500 950  3500 1050
 $Comp
-L GND #PWR013
+L mb-a-rescue:GND-mb-a-rescue #PWR013
 U 1 1 5C26A0A1
 P 2500 1350
 F 0 "#PWR013" H 2500 1100 50  0001 C CNN
@@ -607,7 +573,7 @@ F 3 "" H 2500 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR014
+L mb-a-rescue:GND-mb-a-rescue #PWR014
 U 1 1 5C26A0F4
 P 3000 1350
 F 0 "#PWR014" H 3000 1100 50  0001 C CNN
@@ -618,7 +584,7 @@ F 3 "" H 3000 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR015
+L mb-a-rescue:GND-mb-a-rescue #PWR015
 U 1 1 5C26A147
 P 3500 1350
 F 0 "#PWR015" H 3500 1100 50  0001 C CNN
@@ -633,7 +599,7 @@ Wire Wire Line
 Connection ~ 2500 950 
 Connection ~ 3500 950 
 $Comp
-L +5V #PWR016
+L mb-a-rescue:+5V-mb-a-rescue #PWR016
 U 1 1 5C26A449
 P 3650 950
 F 0 "#PWR016" H 3650 800 50  0001 C CNN
@@ -644,7 +610,7 @@ F 3 "" H 3650 950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR017
+L mb-a-rescue:+12V-mb-a-rescue #PWR017
 U 1 1 5C26A664
 P 2350 950
 F 0 "#PWR017" H 2350 800 50  0001 C CNN
@@ -655,7 +621,7 @@ F 3 "" H 2350 950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Conn_01x02 J1
+L mb-a-rescue:Conn_01x02-mb-a-rescue J1
 U 1 1 5C26B058
 P 1350 1250
 F 0 "J1" H 1350 1350 50  0000 C CNN
@@ -666,7 +632,7 @@ F 3 "" H 1350 1250 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR018
+L mb-a-rescue:GND-mb-a-rescue #PWR018
 U 1 1 5C26B450
 P 1550 1250
 F 0 "#PWR018" H 1550 1000 50  0001 C CNN
@@ -677,7 +643,7 @@ F 3 "" H 1550 1250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +12V #PWR019
+L mb-a-rescue:+12V-mb-a-rescue #PWR019
 U 1 1 5C26B4A6
 P 1550 1150
 F 0 "#PWR019" H 1550 1000 50  0001 C CNN
@@ -688,7 +654,7 @@ F 3 "" H 1550 1150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3V3 #PWR020
+L mb-a-rescue:+3V3-mb-a-rescue #PWR020
 U 1 1 5C26CABF
 P 9950 1350
 F 0 "#PWR020" H 9950 1200 50  0001 C CNN
@@ -699,7 +665,7 @@ F 3 "" H 9950 1350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9900 1300 9900 1400
+	9900 1300 9900 1350
 Wire Wire Line
 	9950 1350 9900 1350
 Connection ~ 9900 1350
@@ -708,7 +674,7 @@ SDA
 Text Label 7100 1800 2    60   ~ 0
 SCL
 $Comp
-L I2C-6P X1
+L mb-a-rescue:I2C-6P-mb-a-rescue X1
 U 1 1 5C2CD93A
 P 4600 2450
 F 0 "X1" H 4600 2950 60  0000 C CNN
@@ -723,7 +689,7 @@ SDA
 Text Label 4950 2500 0    60   ~ 0
 SCL
 $Comp
-L GND #PWR021
+L mb-a-rescue:GND-mb-a-rescue #PWR021
 U 1 1 5C2CDA83
 P 4950 2650
 F 0 "#PWR021" H 4950 2400 50  0001 C CNN
@@ -734,7 +700,7 @@ F 3 "" H 4950 2650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR022
+L mb-a-rescue:+5V-mb-a-rescue #PWR022
 U 1 1 5C2CDADC
 P 4950 2150
 F 0 "#PWR022" H 4950 2000 50  0001 C CNN
@@ -745,7 +711,7 @@ F 3 "" H 4950 2150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3V3 #PWR023
+L mb-a-rescue:+3V3-mb-a-rescue #PWR023
 U 1 1 5C2CDB35
 P 4950 2250
 F 0 "#PWR023" H 4950 2100 50  0001 C CNN
@@ -774,7 +740,7 @@ NoConn ~ 9900 3600
 NoConn ~ 9900 3500
 NoConn ~ 9900 3300
 $Comp
-L PWR_FLAG #FLG024
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG024
 U 1 1 5C2CE227
 P 2000 1850
 F 0 "#FLG024" H 2000 1925 50  0001 C CNN
@@ -785,7 +751,7 @@ F 3 "" H 2000 1850 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +12V #PWR025
+L mb-a-rescue:+12V-mb-a-rescue #PWR025
 U 1 1 5C2CE2EF
 P 2000 1850
 F 0 "#PWR025" H 2000 1700 50  0001 C CNN
@@ -796,7 +762,7 @@ F 3 "" H 2000 1850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L PWR_FLAG #FLG026
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG026
 U 1 1 5C2CE564
 P 2000 2300
 F 0 "#FLG026" H 2000 2375 50  0001 C CNN
@@ -813,7 +779,7 @@ AVCC
 Text Label 2400 6250 0    30   ~ 0
 VCLAMP
 $Comp
-L PWR_FLAG #FLG027
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG027
 U 1 1 5C2CF089
 P 2000 2400
 F 0 "#FLG027" H 2000 2475 50  0001 C CNN
@@ -826,7 +792,7 @@ $EndComp
 Text Label 2000 2400 0    60   ~ 0
 VCLAMP
 $Comp
-L PWR_FLAG #FLG028
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG028
 U 1 1 5C2CF372
 P 2000 1950
 F 0 "#FLG028" H 2000 2025 50  0001 C CNN
@@ -837,7 +803,7 @@ F 3 "" H 2000 1950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L PWR_FLAG #FLG029
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG029
 U 1 1 5C2CF3CB
 P 2000 2050
 F 0 "#FLG029" H 2000 2125 50  0001 C CNN
@@ -848,7 +814,7 @@ F 3 "" H 2000 2050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L PWR_FLAG #FLG030
+L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG030
 U 1 1 5C2CF4B1
 P 2000 2150
 F 0 "#FLG030" H 2000 2225 50  0001 C CNN
@@ -859,7 +825,7 @@ F 3 "" H 2000 2150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +5V #PWR031
+L mb-a-rescue:+5V-mb-a-rescue #PWR031
 U 1 1 5C2CF572
 P 2000 1950
 F 0 "#PWR031" H 2000 1800 50  0001 C CNN
@@ -870,7 +836,7 @@ F 3 "" H 2000 1950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3V3 #PWR032
+L mb-a-rescue:+3V3-mb-a-rescue #PWR032
 U 1 1 5C2CF5CB
 P 2000 2050
 F 0 "#PWR032" H 2000 1900 50  0001 C CNN
@@ -881,7 +847,7 @@ F 3 "" H 2000 2050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR033
+L mb-a-rescue:GND-mb-a-rescue #PWR033
 U 1 1 5C2CF624
 P 2000 2150
 F 0 "#PWR033" H 2000 1900 50  0001 C CNN
@@ -892,7 +858,7 @@ F 3 "" H 2000 2150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R2
+L mb-a-rescue:R-mb-a-rescue R2
 U 1 1 5C2E3068
 P 5450 2050
 F 0 "R2" V 5350 2000 50  0000 C CNN
@@ -903,7 +869,7 @@ F 3 "" H 5450 2050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R3
+L mb-a-rescue:R-mb-a-rescue R3
 U 1 1 5C2E32B9
 P 5450 2400
 F 0 "R3" V 5350 2350 50  0000 C CNN
@@ -914,7 +880,7 @@ F 3 "" H 5450 2400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R4
+L mb-a-rescue:R-mb-a-rescue R4
 U 1 1 5C2E3327
 P 5450 2500
 F 0 "R4" V 5550 2450 50  0000 C CNN
@@ -931,7 +897,7 @@ Wire Wire Line
 Wire Wire Line
 	4950 2500 5300 2500
 $Comp
-L +3V3 #PWR034
+L mb-a-rescue:+3V3-mb-a-rescue #PWR034
 U 1 1 5C2E35B7
 P 5600 2050
 F 0 "#PWR034" H 5600 1900 50  0001 C CNN
@@ -942,7 +908,7 @@ F 3 "" H 5600 2050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3V3 #PWR035
+L mb-a-rescue:+3V3-mb-a-rescue #PWR035
 U 1 1 5C2E3619
 P 5600 2400
 F 0 "#PWR035" H 5600 2250 50  0001 C CNN
@@ -953,7 +919,7 @@ F 3 "" H 5600 2400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3V3 #PWR036
+L mb-a-rescue:+3V3-mb-a-rescue #PWR036
 U 1 1 5C2E367B
 P 5600 2500
 F 0 "#PWR036" H 5600 2350 50  0001 C CNN
@@ -964,7 +930,7 @@ F 3 "" H 5600 2500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR037
+L mb-a-rescue:GND-mb-a-rescue #PWR037
 U 1 1 5C548ADA
 P 3950 6050
 F 0 "#PWR037" H 3950 5800 50  0001 C CNN
@@ -976,4 +942,60 @@ F 3 "" H 3950 6050 50  0001 C CNN
 $EndComp
 Text Label 2450 5750 2    60   ~ 0
 AVCC
+Wire Wire Line
+	2050 6100 2450 6100
+Wire Wire Line
+	2050 6100 2050 6250
+Wire Wire Line
+	2450 6100 2450 6150
+Wire Wire Line
+	2450 7000 2450 7250
+Wire Wire Line
+	2450 6750 2450 7000
+Wire Wire Line
+	3950 6750 3950 7000
+Wire Wire Line
+	3950 7000 4000 7000
+Wire Wire Line
+	3950 7000 3950 7250
+Wire Wire Line
+	3950 5000 3950 5250
+Wire Wire Line
+	3950 5000 4000 5000
+Wire Wire Line
+	3950 5250 3950 5650
+Wire Wire Line
+	2450 5250 2450 5650
+Wire Wire Line
+	2450 5000 2450 5250
+Wire Wire Line
+	8650 4150 8750 4150
+Wire Wire Line
+	8550 4150 8650 4150
+Wire Wire Line
+	8450 4150 8500 4150
+Wire Wire Line
+	8350 4150 8450 4150
+Wire Wire Line
+	8500 4150 8550 4150
+Wire Wire Line
+	7100 1400 7100 1500
+Wire Wire Line
+	4450 5650 4500 5650
+Wire Wire Line
+	4850 5650 5800 5650
+Wire Wire Line
+	4450 6350 4500 6350
+Wire Wire Line
+	4850 6350 5800 6350
+Wire Wire Line
+	4850 6000 4900 6000
+Wire Wire Line
+	4850 6000 4850 6200
+Wire Wire Line
+	2500 950  2700 950 
+Wire Wire Line
+	3500 950  3650 950 
+Wire Wire Line
+	9900 1350 9900 1400
 $EndSCHEMATC

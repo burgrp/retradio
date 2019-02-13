@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# mb-a-rescue_+12V-mb-a-rescue
+# +12V-mb-a-rescue
 #
-DEF mb-a-rescue_+12V-mb-a-rescue #PWR 0 0 Y Y 1 F P
+DEF +12V-mb-a-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "mb-a-rescue_+12V-mb-a-rescue" 0 140 50 H V C CNN
+F1 "+12V-mb-a-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -16,11 +16,11 @@ X +12V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_+3V3-mb-a-rescue
+# +3V3-mb-a-rescue
 #
-DEF mb-a-rescue_+3V3-mb-a-rescue #PWR 0 0 Y Y 1 F P
+DEF +3V3-mb-a-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "mb-a-rescue_+3V3-mb-a-rescue" 0 140 50 H V C CNN
+F1 "+3V3-mb-a-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -31,11 +31,11 @@ X +3V3 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_+5V-mb-a-rescue
+# +5V-mb-a-rescue
 #
-DEF mb-a-rescue_+5V-mb-a-rescue #PWR 0 0 Y Y 1 F P
+DEF +5V-mb-a-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "mb-a-rescue_+5V-mb-a-rescue" 0 140 50 H V C CNN
+F1 "+5V-mb-a-rescue" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -46,11 +46,11 @@ X +5V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_C-mb-a-rescue
+# C-mb-a-rescue
 #
-DEF mb-a-rescue_C-mb-a-rescue C 0 10 N Y 1 F N
+DEF C-mb-a-rescue C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "mb-a-rescue_C-mb-a-rescue" 25 -100 50 H V L CNN
+F1 "C-mb-a-rescue" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -64,11 +64,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_CP-mb-a-rescue
+# CP-mb-a-rescue
 #
-DEF mb-a-rescue_CP-mb-a-rescue C 0 10 N Y 1 F N
+DEF CP-mb-a-rescue C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "mb-a-rescue_CP-mb-a-rescue" 25 -100 50 H V L CNN
+F1 "CP-mb-a-rescue" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -87,11 +87,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_Conn_01x02-mb-a-rescue
+# Conn_01x02-mb-a-rescue
 #
-DEF mb-a-rescue_Conn_01x02-mb-a-rescue J 0 40 Y N 1 F N
+DEF Conn_01x02-mb-a-rescue J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "mb-a-rescue_Conn_01x02-mb-a-rescue" 0 -200 50 H V C CNN
+F1 "Conn_01x02-mb-a-rescue" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -111,11 +111,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_GND-mb-a-rescue
+# GND-mb-a-rescue
 #
-DEF mb-a-rescue_GND-mb-a-rescue #PWR 0 0 Y Y 1 F P
+DEF GND-mb-a-rescue #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "mb-a-rescue_GND-mb-a-rescue" 0 -150 50 H V C CNN
+F1 "GND-mb-a-rescue" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -124,11 +124,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_I2C-6P-mb-a-rescue
+# I2C-6P-mb-a-rescue
 #
-DEF mb-a-rescue_I2C-6P-mb-a-rescue X 0 40 Y Y 1 F N
+DEF I2C-6P-mb-a-rescue X 0 40 Y Y 1 F N
 F0 "X" 0 500 60 H V C CNN
-F1 "mb-a-rescue_I2C-6P-mb-a-rescue" 0 -350 60 H V C CNN
+F1 "I2C-6P-mb-a-rescue" 0 -350 60 H V C CNN
 F2 "" 150 150 60 H I C CNN
 F3 "" 150 150 60 H I C CNN
 DRAW
@@ -144,11 +144,11 @@ X ALERT 6 350 400 200 L 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_L-mb-a-rescue
+# L-mb-a-rescue
 #
-DEF mb-a-rescue_L-mb-a-rescue L 0 40 N N 1 F N
+DEF L-mb-a-rescue L 0 40 N N 1 F N
 F0 "L" -50 0 50 V V C CNN
-F1 "mb-a-rescue_L-mb-a-rescue" 75 0 50 V V C CNN
+F1 "L-mb-a-rescue" 75 0 50 V V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -167,11 +167,11 @@ X 2 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_NCP1117-5.0_SOT223-mb-a-rescue
+# NCP1117-5.0_SOT223-mb-a-rescue
 #
-DEF mb-a-rescue_NCP1117-5.0_SOT223-mb-a-rescue U 0 10 Y Y 1 F N
+DEF NCP1117-5.0_SOT223-mb-a-rescue U 0 10 Y Y 1 F N
 F0 "U" -150 125 50 H V C CNN
-F1 "mb-a-rescue_NCP1117-5.0_SOT223-mb-a-rescue" 0 125 50 H V L CNN
+F1 "NCP1117-5.0_SOT223-mb-a-rescue" 0 125 50 H V L CNN
 F2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" 0 200 50 H I C CNN
 F3 "" 100 -250 50 H I C CNN
 $FPLIST
@@ -185,11 +185,11 @@ X VI 3 -300 0 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_Orange-Pi-Zero-mb-a-rescue
+# Orange-Pi-Zero-mb-a-rescue
 #
-DEF mb-a-rescue_Orange-Pi-Zero-mb-a-rescue M 0 40 Y Y 1 F N
+DEF Orange-Pi-Zero-mb-a-rescue M 0 40 Y Y 1 F N
 F0 "M" 0 1150 60 H V C CNN
-F1 "mb-a-rescue_Orange-Pi-Zero-mb-a-rescue" 0 1300 60 H V C CNN
+F1 "Orange-Pi-Zero-mb-a-rescue" 0 1300 60 H V C CNN
 F2 "" -800 1000 60 H I C CNN
 F3 "" -800 1000 60 H I C CNN
 DRAW
@@ -236,11 +236,11 @@ X GND 9 -150 -1550 200 U 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_PAM8320-mb-a-rescue
+# PAM8320-mb-a-rescue
 #
-DEF mb-a-rescue_PAM8320-mb-a-rescue U 0 40 Y Y 1 F N
+DEF PAM8320-mb-a-rescue U 0 40 Y Y 1 F N
 F0 "U" 0 -100 50 H V C CNN
-F1 "mb-a-rescue_PAM8320-mb-a-rescue" 0 100 50 H V C CNN
+F1 "PAM8320-mb-a-rescue" 0 100 50 H V C CNN
 F2 "MODULE" 0 0 50 H I C CNN
 F3 "DOCUMENTATION" 0 0 50 H I C CNN
 DRAW
@@ -264,11 +264,11 @@ X PGNDP 9 750 -350 300 L 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_PWR_FLAG-mb-a-rescue
+# PWR_FLAG-mb-a-rescue
 #
-DEF mb-a-rescue_PWR_FLAG-mb-a-rescue #FLG 0 0 N N 1 F P
+DEF PWR_FLAG-mb-a-rescue #FLG 0 0 N N 1 F P
 F0 "#FLG" 0 75 50 H I C CNN
-F1 "mb-a-rescue_PWR_FLAG-mb-a-rescue" 0 150 50 H V C CNN
+F1 "PWR_FLAG-mb-a-rescue" 0 150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -277,11 +277,11 @@ X pwr 1 0 0 0 U 50 50 0 0 w
 ENDDRAW
 ENDDEF
 #
-# mb-a-rescue_R-mb-a-rescue
+# R-mb-a-rescue
 #
-DEF mb-a-rescue_R-mb-a-rescue R 0 0 N Y 1 F N
+DEF R-mb-a-rescue R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "mb-a-rescue_R-mb-a-rescue" 0 0 50 V V C CNN
+F1 "R-mb-a-rescue" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
