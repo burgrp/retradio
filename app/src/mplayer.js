@@ -22,6 +22,10 @@ module.exports = async config => {
         return levels.map(l => l / 2 - 6).join(":");
     }
 
+    let mpErrors = 0;
+
+    setInterval(() => mpErrors -= mpErrors ? 1 : 0, 1000);
+
     function mpStart() {
 
         let params = [
@@ -43,7 +47,14 @@ module.exports = async config => {
         });
 
         mplayer.stderr.on("data", (data) => {
-            mplayerErr(data.toString());
+            let msg = data.toString().trim();
+            mplayerErr(msg);
+            mpErrors++;
+            if (mpErrors > 10) {
+                mpErrors = 0;
+                error(msg, "- killing mplayer...");
+                mplayer.kill();
+            }
         });
 
         mplayer.on("close", (code) => {
