@@ -3,6 +3,9 @@
         "module": "./mplayer.js",
         "stations": {
             "module": "./stations.js"
+        },
+        "board": {
+            "channels": 1
         }
     },
     "i2c": {
