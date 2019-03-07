@@ -2,9 +2,9 @@ https://text-to-speech-demo.ng.bluemix.net
 
 <speak>Hi, this is your radio speaking. it looks like there is no Internet connection. To configure Wi-Fi, please follow instructions on 
 <break strength="weak"></break>www.
-<break strength="weak"></break>r
-<break strength="weak"></break>e
-<break strength="weak"></break>t
+<break strength="weak"></break><say-as interpret-as="letters">R</say-as>
+<break strength="weak"></break><say-as interpret-as="letters">E</say-as>
+<break strength="weak"></break><say-as interpret-as="letters">T</say-as>
 <break strength="weak"></break>radio
 <break strength="weak"></break>.net
 <break strength="weak"></break>slash
@@ -13,6 +13,6 @@ https://text-to-speech-demo.ng.bluemix.net
 
 <speak>I've just found Wi-Fi configuration on your flash disk. Please give me a second, I will try to connect to Internet...</speak>
 
-<speak><express-as type="Apology">I'm sorry, I could not connect to your Wi-Fi. Please check your Wi-Fi settings and find "failed-wifi.txt" file on your flash disk. This file contains more information about the problem we are facing.</express-as></speak>
+<speak><express-as type="Apology">I'm sorry, I could not connect to your Wi-Fi. Please check your Wi-Fi settings and find "failed-wi-fi.txt" file on your flash disk. This file contains more information about the problem we are facing.</express-as></speak>
 
 <speak><express-as type="GoodNews">Great, we have Internet connection now. Enjoy your radio!</express-as></speak>

@@ -51,6 +51,7 @@
         }
     },
     "wifi": {
-        "module": "./wifi.js"
+        "module": "./wifi.js",
+        "player": "-> player"
     }
 }

@@ -25,6 +25,10 @@ module.exports = async config => {
     }
 
     let mpErrors = 0;
+    let oneshotMedia;
+    let resumeAfterOneshot;
+
+    let currentMedia = () => oneshotMedia ? oneshotMedia : stations[bandIndex][stationIndex];
 
     setInterval(() => mpErrors -= mpErrors ? 1 : 0, 1000);
 
@@ -38,24 +42,27 @@ module.exports = async config => {
             "-slave",
             "-af",
             "equalizer=" + getEqualizer() + ",stats,volnorm",
-            stations[bandIndex][stationIndex]
+            currentMedia()
         ];
 
         info("mplayer", ...params);
         mplayer = spawn("mplayer", params);
 
-        mplayer.stdout.on("data", (data) => {
+        mplayer.stdout.on("data", data => {
             mplayerOut(data.toString());
         });
 
-        mplayer.stderr.on("data", (data) => {
+        mplayer.stderr.on("data", data => {
             let msg = data.toString().trim();
             mplayerErr(msg);
             mpErrors++;
             if (mpErrors > 10) {
                 mpErrors = 0;
                 error(msg, "- killing mplayer...");
-                mplayer.kill();
+                if (mplayer) {
+                    mplayer.kill();
+                    mplayer = undefined;
+                }
                 if (checkNetwork) {
                     checkNetwork();
                 }
@@ -64,8 +71,21 @@ module.exports = async config => {
 
         mplayer.on("close", (code) => {
             error(`mplayer closed with code ${code}`);
-            mpStart();
+            mplayer = undefined;
+            let restart = true;
+            if (oneshotMedia) {
+                oneshotMedia = undefined;
+                restart = resumeAfterOneshot;
+            }
+            if (restart) {
+                setTimeout(() => {
+                    if (!mplayer) {
+                        mpStart();
+                    }
+                }, 1000);
+            }
         });
+
     }
 
     function asyncWait(ms) {
@@ -79,9 +99,13 @@ module.exports = async config => {
         }
     }
 
-    async function changeStation() {
-        await mpDo("loadfile", stations[bandIndex][stationIndex]);
-        await asyncWait(2000);
+    async function changeMedia() {
+        if (mplayer) {
+            await mpDo("loadfile", currentMedia());
+            await asyncWait(2000);
+        } else {
+            mpStart();
+        }
     }
 
     async function changeEqualizer() {
@@ -97,24 +121,36 @@ module.exports = async config => {
     return {
         setCheckNetwork: value => checkNetwork = value,
 
+        async playOneshot(media, resume) {
+            oneshotMedia = media;
+            resumeAfterOneshot = resume;
+            await changeMedia();
+        },
+
         async changeVolume(change) {
             await mpDo("volume", change);
         },
 
         async changeTuning(change) {
             stationIndex = changeValue(stationIndex, change, 0, stations[bandIndex].length - 1);
-            await changeStation();
+            await changeMedia();
         },
 
         async resetTuning() {
             stationIndex = 0;
-            await changeStation();
+            await changeMedia();
         },
 
         async changeBand(change) {
             stationIndex = 0;
             bandIndex = changeValue(bandIndex, change, 0, stations.length - 1);
-            await changeStation();
+            await changeMedia();
+        },
+
+        async resetBand() {
+            stationIndex = 0;
+            bandIndex = 0;
+            await changeMedia();
         },
 
         async changeTreble(change) {
@@ -135,12 +171,6 @@ module.exports = async config => {
         async resetBass() {
             bassLevel = 0;
             await changeEqualizer();
-        },
-
-        async resetBand() {
-            stationIndex = 0;
-            bandIndex = 0;
-            await changeStation();
         },
 
         async toggleAperture() {
