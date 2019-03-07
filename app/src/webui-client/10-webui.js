@@ -10,9 +10,12 @@ wg.common = {
         document.title = pageTitle;
 
         return DIV([
-            DIV("navigation", Object.entries(navigation).map(([key, title]) => 
+            DIV("navigation",[ 
+            DIV("title").text("Retradio"),
+            ...Object.entries(navigation).map(([key, title]) => 
                 AHREF(key === navigationKey? "active": "", {href: key}).text(title)
-            )), 
+            )
+            ]), 
             DIV("content", content)
         ]);
     }
