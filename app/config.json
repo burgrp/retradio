@@ -63,7 +63,8 @@
         "modules": [
             {
                 "module": "./webui-server.js",
-                "stations": "-> stations"
+                "stations": "-> stations",
+                "player": "-> player"
             }
         ]
     }

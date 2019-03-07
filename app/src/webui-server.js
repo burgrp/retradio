@@ -5,6 +5,9 @@ module.exports = async config => {
             webui: {
                 async getStations() {
                     return await config.stations.getStations();
+                },
+                async playStation(bandIndex, stationIndex) {
+                    await config.player.playStation(bandIndex, stationIndex);
                 }
             }
         }

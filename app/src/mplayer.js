@@ -179,6 +179,13 @@ module.exports = async config => {
             trebleLevel = aperture ? -3 : +10;
             bassLevel = aperture ? -12 : +12;
             await changeEqualizer();
+        },
+
+        async playStation(bi, si) {
+            bandIndex = bi;
+            stationIndex = si;
+            await changeMedia();
         }
+
     }
 }
