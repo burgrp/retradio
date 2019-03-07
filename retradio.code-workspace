@@ -17,6 +17,12 @@
 		},
 		{
 			"path": "app"
+		},
+		{
+			"path": "/home/paul/json-pad"
+		},
+		{
+			"path": "/home/paul/df/appglue"
 		}
 	]
 }

@@ -6,8 +6,11 @@
   "author": "Pavel Burgr <pb@drake.cz>",
   "license": "ISC",
   "dependencies": {
-    "@device.farm/appglue": "^1.0.10",
+    "@device.farm/appglue": "^1.0.12",
     "@device.farm/usb-i2c-driver": "^1.0.2",
-    "debug": "^4.1.1"
+    "@device.farm/webglue": "^1.0.2",
+    "debug": "^4.1.1",
+    "flash-config": "^1.0.5",
+    "json-pad": "^1.0.1"
   }
 }

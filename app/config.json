@@ -6,7 +6,8 @@
         },
         "board": {
             "channels": 1
-        }
+        },
+        "checkNetwork": "=> wifi.checkNetwork"
     },
     "i2c": {
         "module": "./i2c.js",
@@ -48,5 +49,8 @@
                 "onPush": "resetBand"
             }
         }
+    },
+    "wifi": {
+        "module": "./wifi.js"
     }
 }

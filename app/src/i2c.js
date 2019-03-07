@@ -46,12 +46,15 @@ module.exports = async config => {
     }
 
     async function handleAlert() {
-        await forEachDevice(async device => {
-            await device.handleAlert();
-        });
-        await bus.alert();
-        await handleAlert();
+        while (true) {
+            await forEachDevice(async device => {
+                await device.handleAlert();
+            });
+            await bus.alert();
+        }
     }
 
-    await handleAlert();
+    handleAlert().catch(e => {
+        error("Error in I2C handleAlert loop");
+    });
 }
