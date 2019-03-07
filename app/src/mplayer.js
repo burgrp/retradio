@@ -8,7 +8,7 @@ module.exports = async config => {
 
     let mplayer;
 
-    let stations = config.stations;
+    let stations = await config.stations.getStations();
     let bandIndex = 0;
     let stationIndex = 1;
     let trebleLevel = 0;
@@ -28,7 +28,7 @@ module.exports = async config => {
     let oneshotMedia;
     let resumeAfterOneshot;
 
-    let currentMedia = () => oneshotMedia ? oneshotMedia : stations[bandIndex][stationIndex];
+    let currentMedia = () => oneshotMedia ? oneshotMedia : stations[bandIndex][stationIndex].url;
 
     setInterval(() => mpErrors -= mpErrors ? 1 : 0, 1000);
 
@@ -73,6 +73,7 @@ module.exports = async config => {
             error(`mplayer closed with code ${code}`);
             mplayer = undefined;
             let restart = true;
+            // clear oneshotMedia only if played successfully 
             if (oneshotMedia) {
                 oneshotMedia = undefined;
                 restart = resumeAfterOneshot;

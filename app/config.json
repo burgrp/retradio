@@ -1,9 +1,13 @@
 {
+    "stations": {
+        "module": "./stations.js",
+        "default": {
+            "module": "./default-stations.js"
+        }
+    },
     "player": {
         "module": "./mplayer.js",
-        "stations": {
-            "module": "./stations.js"
-        },
+        "stations": "-> stations",
         "board": {
             "channels": 1
         },
@@ -53,5 +57,14 @@
     "wifi": {
         "module": "./wifi.js",
         "player": "-> player"
+    },
+    "webglue": {
+        "module": "@device.farm/webglue",
+        "modules": [
+            {
+                "module": "./webui-server.js",
+                "stations": "-> stations"
+            }
+        ]
     }
 }
