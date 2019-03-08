@@ -6,6 +6,8 @@ const mplayerErr = require("debug")("mplayer:err");
 
 module.exports = async config => {
 
+    let events = config.events;
+
     let mplayer;
 
     let stations = await config.stations.getStations();
@@ -103,6 +105,7 @@ module.exports = async config => {
     async function changeMedia() {
         if (mplayer) {
             await mpDo("loadfile", currentMedia());
+            await events.emit("stationChanged", bandIndex, stationIndex);
             await asyncWait(2000);
         } else {
             mpStart();

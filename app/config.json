@@ -1,4 +1,7 @@
 {
+    "events": {
+        "module": "./events.js"
+    },
     "stations": {
         "module": "./stations.js",
         "default": {
@@ -11,6 +14,7 @@
         "board": {
             "channels": 1
         },
+        "events": "-> events",
         "checkNetwork": "=> wifi.checkNetwork"
     },
     "i2c": {
@@ -64,7 +68,8 @@
             {
                 "module": "./webui-server.js",
                 "stations": "-> stations",
-                "player": "-> player"
+                "player": "-> player",
+                "events": "-> events"
             }
         ]
     }
