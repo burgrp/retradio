@@ -12,7 +12,7 @@ ROOT_PASSWORD=$TARGET_HOSTNAME
 GIT_URL=https://github.com/burgrp/retradio.git
 GIT_PATH=/opt/$TARGET_HOSTNAME
 APP_PATH=$GIT_PATH/app
-
+SERVICE_FILE=$GIT_PATH/app/retradio.service
 
 MOUNT_POINT=/tmp/$TARGET_HOSTNAME
 
@@ -49,6 +49,8 @@ function cleanup
     host kpartx -dv $TARGET_IMAGE 2>>/dev/null >>/dev/null
     set -e
 }
+if [ -z "X" ]
+then
 
 cleanup
 set +e
@@ -103,3 +105,8 @@ host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components
 
 target git clone $GIT_URL $GIT_PATH
 target npm --prefix $APP_PATH install
+fi
+
+target ln -s $SERVICE_FILE /etc/systemd/system/$(basename $SERVICE_FILE)
+target systemctl daemon-reload
+target systemctl enable $(basename $SERVICE_FILE)

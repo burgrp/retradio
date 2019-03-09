@@ -1,0 +1,11 @@
+[Unit]
+Description=RETRADIO
+
+[Service]
+Environment="DEBUG=*"
+WorkingDirectory=/opt/retradio/app
+ExecStart=node src/retradio.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
