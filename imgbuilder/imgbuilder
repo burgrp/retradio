@@ -1,0 +1,80 @@
+#!/bin/bash
+
+set -e
+
+SOURCE_IMAGE=/home/paul/Downloads/Armbian_5.75_Orangepizero_Ubuntu_bionic_next_4.19.20.img
+NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
+TARGET_IMAGE=/home/paul/Downloads/retradio.img
+TARGET_HOSTNAME=retradio
+EXTRA_SPACE_MB=500
+EXTRA_PACKAGES="mc htop tree"  # mplayer"
+ROOT_PASSWORD=$TARGET_HOSTNAME
+
+MOUNT_POINT=/tmp/$TARGET_HOSTNAME
+
+COLOR_HOST_CMD="\e[93m"
+COLOR_TARGET_CMD="\e[94m"
+COLOR_CMD_OUT="\e[90m"
+COLOR_RESET="\e[0m"
+
+function host
+{
+    echo -e $COLOR_HOST_CMD$@$COLOR_CMD_OUT
+    $@
+    echo -en $COLOR_RESET
+}
+
+function target
+{
+    echo -e $COLOR_TARGET_CMD$@$COLOR_CMD_OUT
+    chroot $MOUNT_POINT bash <<EOF
+    $@
+EOF
+    echo -en $COLOR_RESET
+}
+
+function cleanup
+{
+    set +e
+    for sfs in sys dev proc 
+    do
+        host umount $MOUNT_POINT/$sfs 2>>/dev/null
+    done
+    host umount $MOUNT_POINT 2>>/dev/null
+
+    host kpartx -dv $TARGET_IMAGE 2>>/dev/null >>/dev/null
+    set -e
+}
+
+cleanup
+set +e
+host rm $TARGET_IMAGE 2>>/dev/null
+set -e
+
+host dd bs=1M if=$SOURCE_IMAGE of=$TARGET_IMAGE
+host truncate --size=+${EXTRA_SPACE_MB}M $TARGET_IMAGE
+host parted $TARGET_IMAGE resizepart 1 100%
+
+MAPPER_PATH=/dev/mapper/$(sudo kpartx -slav /home/paul/Downloads/retradio.img | sed -r 's/^add map (\w+) .*$/\1/')
+host resize2fs -p $MAPPER_PATH
+
+host mkdir -p $MOUNT_POINT
+host mount $MAPPER_PATH $MOUNT_POINT
+for sfs in sys dev proc 
+do
+    host mount --bind /$sfs $MOUNT_POINT/$sfs
+done
+
+host cp /usr/bin/qemu-arm-static $MOUNT_POINT/usr/bin
+
+target "echo $TARGET_HOSTNAME >/etc/hostname"
+
+target rm /root/.not_logged_in_yet
+target "echo "root:$ROOT_PASSWORD" | chpasswd"
+
+target apt update
+target apt -y install git avahi-daemon $EXTRA_PACKAGES
+
+target wget -O /root/node.gz $NODE_GZ_URL
+target tar -xf /root/node.gz --directory /usr/local --strip-components 1
+target rm /root/node.gz
