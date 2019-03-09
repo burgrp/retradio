@@ -2,13 +2,17 @@
 
 set -e
 
-SOURCE_IMAGE=/home/paul/Downloads/Armbian_5.75_Orangepizero_Ubuntu_bionic_next_4.19.20.img
+ARMBIAN_7Z_URL=https://dl.armbian.com/orangepizero/archive/Armbian_5.75_Orangepizero_Ubuntu_bionic_next_4.19.20.7z
 NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
 TARGET_IMAGE=/home/paul/Downloads/retradio.img
 TARGET_HOSTNAME=retradio
 EXTRA_SPACE_MB=500
 EXTRA_PACKAGES="mc htop tree"  # mplayer"
 ROOT_PASSWORD=$TARGET_HOSTNAME
+GIT_URL=https://github.com/burgrp/retradio.git
+GIT_PATH=/opt/$TARGET_HOSTNAME
+APP_PATH=$GIT_PATH/app
+
 
 MOUNT_POINT=/tmp/$TARGET_HOSTNAME
 
@@ -46,35 +50,56 @@ function cleanup
     set -e
 }
 
-cleanup
-set +e
-host rm $TARGET_IMAGE 2>>/dev/null
-set -e
+# cleanup
+# set +e
+# host rm $TARGET_IMAGE 2>>/dev/null
+# set -e
 
-host dd bs=1M if=$SOURCE_IMAGE of=$TARGET_IMAGE
-host truncate --size=+${EXTRA_SPACE_MB}M $TARGET_IMAGE
-host parted $TARGET_IMAGE resizepart 1 100%
+# NODE_GZ_PATH=/tmp/$(basename $NODE_GZ_URL)
+# if [ ! -f $NODE_GZ_PATH ]
+# then
+#     host curl -o $NODE_GZ_PATH $NODE_GZ_URL 
+# fi
 
-MAPPER_PATH=/dev/mapper/$(sudo kpartx -slav /home/paul/Downloads/retradio.img | sed -r 's/^add map (\w+) .*$/\1/')
-host resize2fs -p $MAPPER_PATH
+# ARMBIAN_7Z_PATH=/tmp/$(basename $ARMBIAN_7Z_URL)
+# ARMBIAN_IMG_FILE=$(basename $ARMBIAN_7Z_PATH | sed s/\.7z/.img/ )
+# ARMBIAN_IMG_PATH=/tmp/$ARMBIAN_IMG_FILE
 
-host mkdir -p $MOUNT_POINT
-host mount $MAPPER_PATH $MOUNT_POINT
-for sfs in sys dev proc 
-do
-    host mount --bind /$sfs $MOUNT_POINT/$sfs
-done
+# if [ ! -f $ARMBIAN_7Z_PATH ]
+# then
+#     host curl -L -o $ARMBIAN_7Z_PATH $ARMBIAN_7Z_URL
+# fi
 
-host cp /usr/bin/qemu-arm-static $MOUNT_POINT/usr/bin
+# if [ ! -f $ARMBIAN_IMG_PATH ]
+# then
+#     host 7z -o/tmp e $ARMBIAN_7Z_PATH $ARMBIAN_IMG_FILE
+# fi
 
-target "echo $TARGET_HOSTNAME >/etc/hostname"
+# host dd bs=1M if=$ARMBIAN_IMG_PATH of=$TARGET_IMAGE
+# host truncate --size=+${EXTRA_SPACE_MB}M $TARGET_IMAGE
+# host parted $TARGET_IMAGE resizepart 1 100%
 
-target rm /root/.not_logged_in_yet
-target "echo "root:$ROOT_PASSWORD" | chpasswd"
+# MAPPER_PATH=/dev/mapper/$(sudo kpartx -slav $TARGET_IMAGE | sed -r 's/^add map (\w+) .*$/\1/')
+# host resize2fs -p $MAPPER_PATH
 
-target apt update
-target apt -y install git avahi-daemon $EXTRA_PACKAGES
+# host mkdir -p $MOUNT_POINT
+# host mount $MAPPER_PATH $MOUNT_POINT
+# for sfs in sys dev proc 
+# do
+#     host mount --bind /$sfs $MOUNT_POINT/$sfs
+# done
 
-target wget -O /root/node.gz $NODE_GZ_URL
-target tar -xf /root/node.gz --directory /usr/local --strip-components 1
-target rm /root/node.gz
+# host cp /usr/bin/qemu-arm-static $MOUNT_POINT/usr/bin
+
+# target "echo $TARGET_HOSTNAME >/etc/hostname"
+
+# target rm /root/.not_logged_in_yet
+# target "echo "root:$ROOT_PASSWORD" | chpasswd"
+
+# target apt update
+# target apt -y install git avahi-daemon $EXTRA_PACKAGES
+
+# host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
+
+# target git clone $GIT_URL $GIT_PATH
+target npm --prefix $APP_PATH install
