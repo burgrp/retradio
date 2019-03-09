@@ -7,7 +7,7 @@ NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
 TARGET_IMAGE=/home/paul/Downloads/retradio.img
 TARGET_HOSTNAME=retradio
 EXTRA_SPACE_MB=500
-EXTRA_PACKAGES="mc htop tree"  # mplayer"
+EXTRA_PACKAGES="mc htop tree python"  # mplayer"
 ROOT_PASSWORD=$TARGET_HOSTNAME
 GIT_URL=https://github.com/burgrp/retradio.git
 GIT_PATH=/opt/$TARGET_HOSTNAME
@@ -50,56 +50,56 @@ function cleanup
     set -e
 }
 
-# cleanup
-# set +e
-# host rm $TARGET_IMAGE 2>>/dev/null
-# set -e
+cleanup
+set +e
+host rm $TARGET_IMAGE 2>>/dev/null
+set -e
 
-# NODE_GZ_PATH=/tmp/$(basename $NODE_GZ_URL)
-# if [ ! -f $NODE_GZ_PATH ]
-# then
-#     host curl -o $NODE_GZ_PATH $NODE_GZ_URL 
-# fi
+NODE_GZ_PATH=/tmp/$(basename $NODE_GZ_URL)
+if [ ! -f $NODE_GZ_PATH ]
+then
+    host curl -o $NODE_GZ_PATH $NODE_GZ_URL 
+fi
 
-# ARMBIAN_7Z_PATH=/tmp/$(basename $ARMBIAN_7Z_URL)
-# ARMBIAN_IMG_FILE=$(basename $ARMBIAN_7Z_PATH | sed s/\.7z/.img/ )
-# ARMBIAN_IMG_PATH=/tmp/$ARMBIAN_IMG_FILE
+ARMBIAN_7Z_PATH=/tmp/$(basename $ARMBIAN_7Z_URL)
+ARMBIAN_IMG_FILE=$(basename $ARMBIAN_7Z_PATH | sed s/\.7z/.img/ )
+ARMBIAN_IMG_PATH=/tmp/$ARMBIAN_IMG_FILE
 
-# if [ ! -f $ARMBIAN_7Z_PATH ]
-# then
-#     host curl -L -o $ARMBIAN_7Z_PATH $ARMBIAN_7Z_URL
-# fi
+if [ ! -f $ARMBIAN_7Z_PATH ]
+then
+    host curl -L -o $ARMBIAN_7Z_PATH $ARMBIAN_7Z_URL
+fi
 
-# if [ ! -f $ARMBIAN_IMG_PATH ]
-# then
-#     host 7z -o/tmp e $ARMBIAN_7Z_PATH $ARMBIAN_IMG_FILE
-# fi
+if [ ! -f $ARMBIAN_IMG_PATH ]
+then
+    host 7z -o/tmp e $ARMBIAN_7Z_PATH $ARMBIAN_IMG_FILE
+fi
 
-# host dd bs=1M if=$ARMBIAN_IMG_PATH of=$TARGET_IMAGE
-# host truncate --size=+${EXTRA_SPACE_MB}M $TARGET_IMAGE
-# host parted $TARGET_IMAGE resizepart 1 100%
+host dd bs=1M if=$ARMBIAN_IMG_PATH of=$TARGET_IMAGE
+host truncate --size=+${EXTRA_SPACE_MB}M $TARGET_IMAGE
+host parted $TARGET_IMAGE resizepart 1 100%
 
-# MAPPER_PATH=/dev/mapper/$(sudo kpartx -slav $TARGET_IMAGE | sed -r 's/^add map (\w+) .*$/\1/')
-# host resize2fs -p $MAPPER_PATH
+MAPPER_PATH=/dev/mapper/$(sudo kpartx -slav $TARGET_IMAGE | sed -r 's/^add map (\w+) .*$/\1/')
+host resize2fs -p $MAPPER_PATH
 
-# host mkdir -p $MOUNT_POINT
-# host mount $MAPPER_PATH $MOUNT_POINT
-# for sfs in sys dev proc 
-# do
-#     host mount --bind /$sfs $MOUNT_POINT/$sfs
-# done
+host mkdir -p $MOUNT_POINT
+host mount $MAPPER_PATH $MOUNT_POINT
+for sfs in sys dev proc 
+do
+    host mount --bind /$sfs $MOUNT_POINT/$sfs
+done
 
-# host cp /usr/bin/qemu-arm-static $MOUNT_POINT/usr/bin
+host cp /usr/bin/qemu-arm-static $MOUNT_POINT/usr/bin
 
-# target "echo $TARGET_HOSTNAME >/etc/hostname"
+target "echo $TARGET_HOSTNAME >/etc/hostname"
 
-# target rm /root/.not_logged_in_yet
-# target "echo "root:$ROOT_PASSWORD" | chpasswd"
+target rm /root/.not_logged_in_yet
+target "echo "root:$ROOT_PASSWORD" | chpasswd"
 
-# target apt update
-# target apt -y install git avahi-daemon $EXTRA_PACKAGES
+target apt update
+target apt -y install git avahi-daemon $EXTRA_PACKAGES
 
-# host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
+host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
 
-# target git clone $GIT_URL $GIT_PATH
+target git clone $GIT_URL $GIT_PATH
 target npm --prefix $APP_PATH install

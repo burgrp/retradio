@@ -7,10 +7,12 @@
   "license": "ISC",
   "dependencies": {
     "@device.farm/appglue": "^1.0.12",
-    "@device.farm/usb-i2c-driver": "^1.0.2",
     "@device.farm/webglue": "^1.0.2",
     "debug": "^4.1.1",
     "flash-config": "^1.0.5",
     "json-pad": "^1.0.1"
+  },
+  "optionalDependencies": {
+    "@device.farm/usb-i2c-driver": "^1.0.2"
   }
 }
