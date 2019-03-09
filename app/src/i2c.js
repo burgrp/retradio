@@ -1,6 +1,28 @@
-const driver = require("@device.farm/usb-i2c-driver");
 const error = require("debug")("app:error");
 const info = require("debug")("app:info");
+
+
+let driver;
+
+try {
+    driver = require("@device.farm/usb-i2c-driver");
+} catch {
+    driver = {
+        async open() {
+            return {
+                async read() {
+                    throw new "Dummy driver does not read";
+                },
+                async write() {
+                    throw new "Dummy driver does not read";
+                },
+                alert() {
+                    return new Promise();
+                }
+            }
+        }
+    }
+}
 
 module.exports = async config => {
 

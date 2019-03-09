@@ -49,8 +49,6 @@ function cleanup
     host kpartx -dv $TARGET_IMAGE 2>>/dev/null >>/dev/null
     set -e
 }
-if [ -z "X" ]
-then
 
 cleanup
 set +e
@@ -105,7 +103,6 @@ host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components
 
 target git clone $GIT_URL $GIT_PATH
 target npm --prefix $APP_PATH install
-fi
 
 target ln -s $SERVICE_FILE /etc/systemd/system/$(basename $SERVICE_FILE)
 target systemctl daemon-reload
