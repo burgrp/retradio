@@ -7,7 +7,7 @@ NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
 TARGET_IMAGE=/home/paul/Downloads/retradio.img
 TARGET_HOSTNAME=retradio
 EXTRA_SPACE_MB=500
-EXTRA_PACKAGES="mc htop tree python"  # mplayer"
+EXTRA_PACKAGES="mc htop tree python mplayer"
 ROOT_PASSWORD=$TARGET_HOSTNAME
 GIT_URL=https://github.com/burgrp/retradio.git
 GIT_PATH=/opt/$TARGET_HOSTNAME
@@ -104,6 +104,12 @@ host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components
 target git clone $GIT_URL $GIT_PATH
 target npm --prefix $APP_PATH install
 
+target "cat /boot/armbianEnv.txt | sed 's/^overlays=.*/overlays=analog-codec i2c0/' >/boot/armbianEnv.txt2"
+target mv /boot/armbianEnv.txt2 /boot/armbianEnv.txt
+
 target ln -s $SERVICE_FILE /etc/systemd/system/$(basename $SERVICE_FILE)
 target systemctl daemon-reload
 target systemctl enable $(basename $SERVICE_FILE)
+
+cleanup
+echo "Done, $TARGET_IMAGE is ready."
