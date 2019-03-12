@@ -64,6 +64,7 @@
     },
     "webglue": {
         "module": "@device.farm/webglue",
+        "httpPort": "-> $.HTTP_PORT || 8080",
         "modules": [
             {
                 "module": "./webui-server.js",

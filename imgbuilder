@@ -97,7 +97,7 @@ target rm /root/.not_logged_in_yet
 target "echo "root:$ROOT_PASSWORD" | chpasswd"
 
 target apt update
-target apt -y install git avahi-daemon $EXTRA_PACKAGES
+target apt -y install git avahi-daemon usbmount $EXTRA_PACKAGES
 
 host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
 
@@ -106,6 +106,9 @@ target npm --prefix $APP_PATH install
 
 target "cat /boot/armbianEnv.txt | sed 's/^overlays=.*/overlays=analog-codec i2c0/' >/boot/armbianEnv.txt2"
 target mv /boot/armbianEnv.txt2 /boot/armbianEnv.txt
+
+target "cat /lib/systemd/system/systemd-udevd.service | sed 's/^MountFlags=.*/MountFlags=shared/' >/lib/systemd/system/systemd-udevd.service2"
+target mv /lib/systemd/system/systemd-udevd.service2 /lib/systemd/system/systemd-udevd.service
 
 target ln -s $SERVICE_FILE /etc/systemd/system/$(basename $SERVICE_FILE)
 target systemctl daemon-reload

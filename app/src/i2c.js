@@ -2,24 +2,16 @@ const error = require("debug")("app:error");
 const info = require("debug")("app:info");
 
 
-let driver;
-
-try {
-    driver = require("@device.farm/usb-i2c-driver");
-} catch {
-    driver = {
-        async open() {
-            return {
-                async read() {
-                    throw new "Dummy driver does not read";
-                },
-                async write() {
-                    throw new "Dummy driver does not read";
-                },
-                alert() {
-                    return new Promise();
-                }
-            }
+function createDummyDriver() {
+    return {
+        async read() {
+            throw new "Dummy driver does not read";
+        },
+        async write() {
+            throw new "Dummy driver does not read";
+        },
+        alert() {
+            return new Promise(() => {});
         }
     }
 }
@@ -44,7 +36,15 @@ module.exports = async config => {
         }
     }
 
-    let bus = await driver.open();
+    let bus;
+
+    try {
+        bus = await require("@device.farm/usb-i2c-driver").open();
+    } catch (e) {
+        error("No suitable I2C driver found, falling back to dummy driver.");
+        bus = createDummyDriver();
+    }
+
     let devices = {};
 
     for (let address = 0x40; address < 0x78; address++) {
@@ -77,6 +77,6 @@ module.exports = async config => {
     }
 
     handleAlert().catch(e => {
-        error("Error in I2C handleAlert loop");
+        error("Error in I2C handleAlert loop", e);
     });
 }
