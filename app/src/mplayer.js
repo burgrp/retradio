@@ -39,6 +39,8 @@ module.exports = async config => {
         let params = [
             "-ao",
             "alsa",
+	    "-mixer-channel",
+	    "Line Out",
             "-quiet",
             "-nolirc",
             "-slave",
