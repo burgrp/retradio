@@ -16,10 +16,7 @@ div, span {
 
 a {
     text-decoration: none;
-}
-
-a:visited {
-    color: unset;
+    color: unset !important;
 }
 
 input {
@@ -35,7 +32,7 @@ button {
     border-radius: 5px;
     color: #EEE;
     background-color: #545454;
-
+    cursor: pointer;
 }
 
 button.confirm {
@@ -145,4 +142,35 @@ button.confirm {
 
 .bands .list .band .station .editor .buttons>*:not(:last-child) {
     margin-right: 0.5em;
+}
+
+.settings .section .caption {
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.settings .section .working {
+    color: #5e5e5e;
+}
+
+.settings .section .updates .log .line {
+    flex-direction: row;
+}
+
+.settings .section .updates .log .line>* {
+    margin-right: 1em;
+}
+
+.settings .section .updates .log .line .date {
+    color: #5e5e5e;
+    font-size: smaller;    
+}
+
+.settings .section .updates .log {
+    margin-bottom: 0.5em;
+}
+
+.settings .section .error {
+    color: #d62242;
 }

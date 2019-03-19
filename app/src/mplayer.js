@@ -12,7 +12,7 @@ module.exports = async config => {
 
     let stations = await config.stations.getStations();
     let bandIndex = 0;
-    let stationIndex = 1;
+    let stationIndex = 0;
     let trebleLevel = 0;
     let bassLevel = 0;
     let aperture;

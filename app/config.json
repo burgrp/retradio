@@ -70,7 +70,10 @@
                 "module": "./webui-server.js",
                 "stations": "-> stations",
                 "player": "-> player",
-                "events": "-> events"
+                "events": "-> events",
+                "update": {
+                    "module": "./update.js"
+                }
             }
         ]
     }

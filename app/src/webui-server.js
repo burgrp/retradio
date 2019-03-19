@@ -8,12 +8,17 @@ module.exports = async config => {
         client: __dirname + "/webui-client",
         api: {
             webui: {
-                async getStations() {
-                    return await config.stations.getStations();
-                },
-                async playStation(bandIndex, stationIndex) {
-                    await config.player.playStation(bandIndex, stationIndex);
-                }
+                // async getStations() {
+                //     return await config.stations.getStations();
+                // },
+                // async playStation(bandIndex, stationIndex) {
+                //     await config.player.playStation(bandIndex, stationIndex);
+                // },
+
+                getStations: config.stations.getStations,
+                playStation: config.player.playStation,
+                checkForUpdates: config.update.check,
+                downloadUpdates: config.update.download
             }
         }
     }
