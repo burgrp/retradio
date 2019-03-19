@@ -1,6 +1,5 @@
 # Orange Pi Zero based web radio
 
-
 ## I2C peripherals
 
 ### Rotary Encoder
