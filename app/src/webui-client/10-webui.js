@@ -101,7 +101,7 @@ wg.pages.settings = {
                             let updates = await wg.webui.checkForUpdates();
                             div.empty();
                             if (!updates.length) {
-                                DIV("uptodate", "Software is up to date.");
+                                div.append(DIV("uptodate").text("Software is up to date."));
                             } else {
                                 div.append(DIV("log", updates.map(logLine => DIV("line", [
                                     DIV("date").text(new Date(logLine.date).toLocaleDateString()),

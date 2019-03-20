@@ -13,16 +13,11 @@ module.exports = async config => {
         
             let log = await git.log([status.tracking]);
         
-            let updates = [];
-            for (let logLine of log.all) {
-                if (logLine.message.indexOf(" (HEAD -> ") > -1) {
-                    break;
-                }
-                updates.push({
+            let updates = log.all.slice(0, status.behind).map(logLine => ({
                     date: logLine.date,
                     message: logLine.message
-                });
-            }
+            }));
+
             return updates;
         },
 
