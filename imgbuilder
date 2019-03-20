@@ -2,19 +2,22 @@
 
 set -e
 
+APP_NAME=retradio
+GIT_URL=https://github.com/burgrp/retradio.git
 ARMBIAN_7Z_URL=https://dl.armbian.com/orangepizero/archive/Armbian_5.75_Orangepizero_Ubuntu_bionic_next_4.19.20.7z
 NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
-TARGET_IMAGE=/home/paul/Downloads/retradio.img
-TARGET_HOSTNAME=retradio
 EXTRA_SPACE_MB=500
 EXTRA_PACKAGES="mc htop tree python mplayer"
-ROOT_PASSWORD=$TARGET_HOSTNAME
-GIT_URL=https://github.com/burgrp/retradio.git
-GIT_PATH=/opt/$TARGET_HOSTNAME
+ARMBIAN_OVERLAYS="analog-codec i2c0"
+
+TARGET_IMAGE=/tmp/$APP_NAME.img
+TARGET_HOSTNAME=$APP_NAME
+ROOT_PASSWORD=$APP_NAME
+GIT_PATH=/opt/$APP_NAME
 APP_PATH=$GIT_PATH/app
 SERVICE_FILE=$GIT_PATH/app/retradio.service
 
-MOUNT_POINT=/tmp/$TARGET_HOSTNAME
+MOUNT_POINT=/tmp/$APP_NAME
 
 COLOR_HOST_CMD="\e[93m"
 COLOR_TARGET_CMD="\e[94m"
@@ -96,17 +99,17 @@ target "echo $TARGET_HOSTNAME >/etc/hostname"
 target rm /root/.not_logged_in_yet
 target "echo "root:$ROOT_PASSWORD" | chpasswd"
 
-target apt update
-target apt -y install git avahi-daemon usbmount $EXTRA_PACKAGES
+target apt -o Apt::Color=no update
+target apt -o Apt::Color=no -y install git avahi-daemon usbmount $EXTRA_PACKAGES
 
 host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
 
-target git config --global user.email "$TARGET_HOSTNAME@acme.com"
-target git config --global user.name "$TARGET_HOSTNAME"
+target git config --file /root/.gitconfig user.email "$APP_NAME@$TARGET_HOSTNAME"
+target git config --file /root/.gitconfig user.name "$APP_NAME"
 target git clone $GIT_URL $GIT_PATH
-target npm --prefix $APP_PATH install
+target npm --no-color --unsafe-perm --prefix $APP_PATH install
 
-target "cat /boot/armbianEnv.txt | sed 's/^overlays=.*/overlays=analog-codec i2c0/' >/boot/armbianEnv.txt2"
+target "cat /boot/armbianEnv.txt | sed 's/^overlays=.*/overlays=$ARMBIAN_OVERLAYS/' >/boot/armbianEnv.txt2"
 target mv /boot/armbianEnv.txt2 /boot/armbianEnv.txt
 
 target "cat /lib/systemd/system/systemd-udevd.service | sed 's/^MountFlags=.*/MountFlags=shared/' >/lib/systemd/system/systemd-udevd.service2"
