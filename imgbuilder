@@ -101,6 +101,8 @@ target apt -y install git avahi-daemon usbmount $EXTRA_PACKAGES
 
 host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
 
+target git config --global user.email "$TARGET_HOSTNAME@acme.com"
+target git config --global user.name "$TARGET_HOSTNAME"
 target git clone $GIT_URL $GIT_PATH
 target npm --prefix $APP_PATH install
 
