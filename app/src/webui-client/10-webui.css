@@ -43,7 +43,7 @@ button.confirm {
     padding: 1em 2em;
     flex-direction: row;    
     align-items: flex-end;
-    background-color: #870f2f;
+    background-color: blue; /* #870f2f;*/
     color: #e3e3e3;
 }
 
