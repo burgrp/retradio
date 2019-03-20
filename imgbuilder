@@ -10,6 +10,7 @@ EXTRA_SPACE_MB=500
 EXTRA_PACKAGES="mc htop tree python mplayer"
 ARMBIAN_OVERLAYS="analog-codec i2c0"
 
+GIT_BRANCH=release
 TARGET_IMAGE=/tmp/$APP_NAME.img
 TARGET_HOSTNAME=$APP_NAME
 ROOT_PASSWORD=$APP_NAME
@@ -106,7 +107,7 @@ host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components
 
 target git config --file /root/.gitconfig user.email "$APP_NAME@$TARGET_HOSTNAME"
 target git config --file /root/.gitconfig user.name "$APP_NAME"
-target git clone $GIT_URL $GIT_PATH
+target git clone -b $GIT_BRANCH $GIT_URL $GIT_PATH
 target npm --no-color --unsafe-perm --prefix $APP_PATH install
 
 target "cat /boot/armbianEnv.txt | sed 's/^overlays=.*/overlays=$ARMBIAN_OVERLAYS/' >/boot/armbianEnv.txt2"
