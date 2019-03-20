@@ -72,7 +72,8 @@
                 "player": "-> player",
                 "events": "-> events",
                 "update": {
-                    "module": "./update.js"
+                    "module": "./update.js",
+                    "service": "retradio"
                 }
             }
         ]
