@@ -53,6 +53,7 @@ module.exports = async config => {
         },
 
         async download() {
+            await git.stash(["save"]);
             await git.merge(["--ff-only"]);
             await exec("npm", "install");
             await exec("systemctl", "restart", config.service + ".service");
