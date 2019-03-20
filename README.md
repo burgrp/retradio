@@ -17,3 +17,4 @@
 - 0x49 NN 8 Bands switch
 - 0x4A AN 6 Bands switch, BT, AUX
 
+A
