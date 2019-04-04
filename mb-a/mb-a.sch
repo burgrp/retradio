@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:mb-a-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L mb-a-rescue:Orange-Pi-Zero-mb-a-rescue M1
+L device.farm:Orange-Pi-Zero M1
 U 1 1 5C2617B0
 P 8500 2600
 F 0 "M1" H 8500 3750 60  0000 C CNN
@@ -26,29 +25,29 @@ F 3 "" H 7700 3600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:PAM8320-mb-a-rescue U2
+L PAM8320:PAM8320 U2
 U 1 1 5C261D45
 P 3200 6000
 F 0 "U2" H 3200 5900 50  0000 C CNN
 F 1 "PAM8320" H 3200 6100 50  0000 C CNN
-F 2 "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" H 3200 6000 50  0001 C CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 3200 6000 50  0001 C CNN
 F 3 "DOCUMENTATION" H 3200 6000 50  0001 C CNN
 	1    3200 6000
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C2
+L Device:C C2
 U 1 1 5C262007
 P 2250 5950
 F 0 "C2" H 2275 6050 50  0000 L CNN
 F 1 "1u" H 2275 5850 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 2288 5800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 2288 5800 50  0001 C CNN
 F 3 "" H 2250 5950 50  0001 C CNN
 	1    2250 5950
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR01
+L power:GND #PWR01
 U 1 1 5C262101
 P 2000 6100
 F 0 "#PWR01" H 2000 5850 50  0001 C CNN
@@ -59,89 +58,89 @@ F 3 "" H 2000 6100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C3
+L Device:C C3
 U 1 1 5C2621FC
 P 2250 6250
 F 0 "C3" H 2275 6350 50  0000 L CNN
 F 1 "1u" H 2275 6150 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 2288 6100 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 2288 6100 50  0001 C CNN
 F 3 "" H 2250 6250 50  0001 C CNN
 	1    2250 6250
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C7
+L Device:C C7
 U 1 1 5C26234F
 P 3200 5250
 F 0 "C7" V 3150 5100 50  0000 L CNN
 F 1 "100n" V 3150 5350 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3238 5100 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3238 5100 50  0001 C CNN
 F 3 "" H 3200 5250 50  0001 C CNN
 	1    3200 5250
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C6
+L Device:C C6
 U 1 1 5C2623B0
 P 3200 5000
 F 0 "C6" V 3150 4850 50  0000 L CNN
 F 1 "10u" V 3150 5100 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3238 4850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3238 4850 50  0001 C CNN
 F 3 "" H 3200 5000 50  0001 C CNN
 	1    3200 5000
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:CP-mb-a-rescue C5
+L Device:CP C5
 U 1 1 5C2623D4
 P 3200 4750
 F 0 "C5" V 3250 4850 50  0000 L CNN
 F 1 "470u/16V" V 3250 4300 50  0000 L CNN
-F 2 "Capacitors_SMD:CP_Elec_8x10" H 3238 4600 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_8x10" H 3238 4600 50  0001 C CNN
 F 3 "" H 3200 4750 50  0001 C CNN
 	1    3200 4750
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C8
+L Device:C C8
 U 1 1 5C26255D
 P 3200 6750
 F 0 "C8" V 3150 6600 50  0000 L CNN
 F 1 "100n" V 3150 6850 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3238 6600 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3238 6600 50  0001 C CNN
 F 3 "" H 3200 6750 50  0001 C CNN
 	1    3200 6750
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C9
+L Device:C C9
 U 1 1 5C2625C9
 P 3200 7000
 F 0 "C9" V 3150 6850 50  0000 L CNN
 F 1 "10u" V 3150 7100 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3238 6850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3238 6850 50  0001 C CNN
 F 3 "" H 3200 7000 50  0001 C CNN
 	1    3200 7000
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:CP-mb-a-rescue C10
+L Device:CP C10
 U 1 1 5C2625FE
 P 3200 7250
 F 0 "C10" V 3250 7300 50  0000 L CNN
 F 1 "470u/16V" V 3250 6800 50  0000 L CNN
-F 2 "Capacitors_SMD:CP_Elec_8x10" H 3238 7100 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_8x10" H 3238 7100 50  0001 C CNN
 F 3 "" H 3200 7250 50  0001 C CNN
 	1    3200 7250
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C1
+L Device:C C1
 U 1 1 5C262ACC
 P 1850 5850
 F 0 "C1" H 1875 5950 50  0000 L CNN
 F 1 "470n" H 1875 5750 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 1888 5700 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 1888 5700 50  0001 C CNN
 F 3 "" H 1850 5850 50  0001 C CNN
 	1    1850 5850
 	0    1    1    0   
@@ -161,7 +160,7 @@ NoConn ~ 9900 1900
 NoConn ~ 9900 1700
 NoConn ~ 9900 1600
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR02
+L power:GND #PWR02
 U 1 1 5C26312D
 P 8500 4250
 F 0 "#PWR02" H 8500 4000 50  0001 C CNN
@@ -172,7 +171,7 @@ F 3 "" H 8500 4250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:+5V-mb-a-rescue #PWR03
+L power:+5V #PWR03
 U 1 1 5C2632BB
 P 7050 1400
 F 0 "#PWR03" H 7050 1250 50  0001 C CNN
@@ -183,40 +182,40 @@ F 3 "" H 7050 1400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:L-mb-a-rescue L1
+L Device:L L1
 U 1 1 5C26357A
 P 4650 5650
 F 0 "L1" V 4600 5650 50  0000 C CNN
 F 1 "600R" V 4725 5650 50  0000 C CNN
-F 2 "Inductors_SMD:L_0805" H 4650 5650 50  0001 C CNN
+F 2 "Inductor_SMD:L_0805_2012Metric" H 4650 5650 50  0001 C CNN
 F 3 "" H 4650 5650 50  0001 C CNN
 	1    4650 5650
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C12
+L Device:C C12
 U 1 1 5C2635DF
 P 4250 5850
 F 0 "C12" V 4300 5950 50  0000 L CNN
 F 1 "1u" V 4200 5950 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 4288 5700 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4288 5700 50  0001 C CNN
 F 3 "" H 4250 5850 50  0001 C CNN
 	1    4250 5850
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C14
+L Device:C C14
 U 1 1 5C26373B
 P 4850 5450
 F 0 "C14" H 4900 5350 50  0000 L CNN
 F 1 "1n" H 4700 5350 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 4888 5300 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4888 5300 50  0001 C CNN
 F 3 "" H 4850 5450 50  0001 C CNN
 	1    4850 5450
 	-1   0    0    1   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR04
+L power:GND #PWR04
 U 1 1 5C263DC5
 P 4850 5300
 F 0 "#PWR04" H 4850 5050 50  0001 C CNN
@@ -227,40 +226,40 @@ F 3 "" H 4850 5300 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C13
+L Device:C C13
 U 1 1 5C263F13
 P 4250 6150
 F 0 "C13" V 4200 6250 50  0000 L CNN
 F 1 "1u" V 4300 6250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 4288 6000 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4288 6000 50  0001 C CNN
 F 3 "" H 4250 6150 50  0001 C CNN
 	1    4250 6150
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:L-mb-a-rescue L2
+L Device:L L2
 U 1 1 5C263F5C
 P 4650 6350
 F 0 "L2" V 4600 6350 50  0000 C CNN
 F 1 "600R" V 4725 6350 50  0000 C CNN
-F 2 "Inductors_SMD:L_0805" H 4650 6350 50  0001 C CNN
+F 2 "Inductor_SMD:L_0805_2012Metric" H 4650 6350 50  0001 C CNN
 F 3 "" H 4650 6350 50  0001 C CNN
 	1    4650 6350
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C15
+L Device:C C15
 U 1 1 5C263FAA
 P 4850 6550
 F 0 "C15" H 4900 6650 50  0000 L CNN
 F 1 "1n" H 4700 6650 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 4888 6400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4888 6400 50  0001 C CNN
 F 3 "" H 4850 6550 50  0001 C CNN
 	1    4850 6550
 	-1   0    0    1   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR05
+L power:GND #PWR05
 U 1 1 5C264334
 P 4850 6700
 F 0 "#PWR05" H 4850 6450 50  0001 C CNN
@@ -271,7 +270,7 @@ F 3 "" H 4850 6700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:Conn_01x02-mb-a-rescue J2
+L Connector_Generic:Conn_01x02 J2
 U 1 1 5C26458B
 P 6000 6050
 F 0 "J2" H 6000 6150 50  0000 C CNN
@@ -282,7 +281,7 @@ F 3 "" H 6000 6050 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR06
+L power:GND #PWR06
 U 1 1 5C264C05
 P 4000 5000
 F 0 "#PWR06" H 4000 4750 50  0001 C CNN
@@ -293,7 +292,7 @@ F 3 "" H 4000 5000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR07
+L power:GND #PWR07
 U 1 1 5C264C46
 P 4000 7000
 F 0 "#PWR07" H 4000 6750 50  0001 C CNN
@@ -304,7 +303,7 @@ F 3 "" H 4000 7000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR08
+L power:+12V #PWR08
 U 1 1 5C264F39
 P 2450 5000
 F 0 "#PWR08" H 2450 4850 50  0001 C CNN
@@ -315,7 +314,7 @@ F 3 "" H 2450 5000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR09
+L power:+12V #PWR09
 U 1 1 5C264F71
 P 2450 7000
 F 0 "#PWR09" H 2450 6850 50  0001 C CNN
@@ -326,34 +325,34 @@ F 3 "" H 2450 7000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:R-mb-a-rescue R1
+L Device:R R1
 U 1 1 5C26504B
 P 5050 6000
 F 0 "R1" V 4950 5900 50  0000 C CNN
 F 1 "10R" V 5000 6200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 4980 6000 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 4980 6000 50  0001 C CNN
 F 3 "" H 5050 6000 50  0001 C CNN
 	1    5050 6000
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C16
+L Device:C C16
 U 1 1 5C265151
 P 5050 5800
 F 0 "C16" V 5000 5650 50  0000 L CNN
 F 1 "100n" V 4950 5850 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 5088 5650 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 5088 5650 50  0001 C CNN
 F 3 "" H 5050 5800 50  0001 C CNN
 	1    5050 5800
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C17
+L Device:C C17
 U 1 1 5C2651C5
 P 5050 6200
 F 0 "C17" V 5000 6050 50  0000 L CNN
 F 1 "10u" V 4950 6250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 5088 6050 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 5088 6050 50  0001 C CNN
 F 3 "" H 5050 6200 50  0001 C CNN
 	1    5050 6200
 	0    1    1    0   
@@ -415,12 +414,6 @@ Wire Wire Line
 Wire Wire Line
 	1700 5850 1550 5850
 Wire Wire Line
-	8250 4150 8350 4150
-Connection ~ 8650 4150
-Connection ~ 8550 4150
-Connection ~ 8450 4150
-Connection ~ 8350 4150
-Wire Wire Line
 	8500 4150 8500 4250
 Connection ~ 8500 4150
 Wire Wire Line
@@ -479,7 +472,7 @@ Wire Wire Line
 Wire Wire Line
 	3050 7000 2450 7000
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR010
+L power:+12V #PWR010
 U 1 1 5C265745
 P 5350 6000
 F 0 "#PWR010" H 5350 5850 50  0001 C CNN
@@ -497,7 +490,7 @@ Connection ~ 4850 6000
 Wire Wire Line
 	4850 6200 4900 6200
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR011
+L power:GND #PWR011
 U 1 1 5C265A9C
 P 5200 5800
 F 0 "#PWR011" H 5200 5550 50  0001 C CNN
@@ -508,7 +501,7 @@ F 3 "" H 5200 5800 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR012
+L power:GND #PWR012
 U 1 1 5C265B2B
 P 5200 6200
 F 0 "#PWR012" H 5200 5950 50  0001 C CNN
@@ -521,34 +514,34 @@ $EndComp
 Wire Wire Line
 	3050 5000 2450 5000
 $Comp
-L mb-a-rescue:CP-mb-a-rescue C11
+L Device:CP C11
 U 1 1 5C268B83
 P 3500 1200
 F 0 "C11" H 3550 1300 50  0000 L CNN
 F 1 "470u/16V" H 3550 1100 50  0000 L CNN
-F 2 "Capacitors_SMD:CP_Elec_8x10" H 3538 1050 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_8x10" H 3538 1050 50  0001 C CNN
 F 3 "" H 3500 1200 50  0001 C CNN
 	1    3500 1200
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:NCP1117-5.0_SOT223-mb-a-rescue U1
+L Regulator_Linear:NCP1117-5.0_SOT223 U1
 U 1 1 5C268E1B
 P 3000 950
 F 0 "U1" H 2850 1075 50  0000 C CNN
 F 1 "NCP1117-5.0_SOT223" H 3000 1075 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2" H 3000 1150 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 3000 1150 50  0001 C CNN
 F 3 "" H 3100 700 50  0001 C CNN
 	1    3000 950 
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:C-mb-a-rescue C4
+L Device:C C4
 U 1 1 5C269BBD
 P 2500 1200
 F 0 "C4" H 2350 1100 50  0000 L CNN
 F 1 "10u" H 2300 1300 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 2538 1050 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 2538 1050 50  0001 C CNN
 F 3 "" H 2500 1200 50  0001 C CNN
 	1    2500 1200
 	-1   0    0    1   
@@ -562,7 +555,7 @@ Wire Wire Line
 Wire Wire Line
 	3500 950  3500 1050
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR013
+L power:GND #PWR013
 U 1 1 5C26A0A1
 P 2500 1350
 F 0 "#PWR013" H 2500 1100 50  0001 C CNN
@@ -573,7 +566,7 @@ F 3 "" H 2500 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR014
+L power:GND #PWR014
 U 1 1 5C26A0F4
 P 3000 1350
 F 0 "#PWR014" H 3000 1100 50  0001 C CNN
@@ -584,7 +577,7 @@ F 3 "" H 3000 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR015
+L power:GND #PWR015
 U 1 1 5C26A147
 P 3500 1350
 F 0 "#PWR015" H 3500 1100 50  0001 C CNN
@@ -599,7 +592,7 @@ Wire Wire Line
 Connection ~ 2500 950 
 Connection ~ 3500 950 
 $Comp
-L mb-a-rescue:+5V-mb-a-rescue #PWR016
+L power:+5V #PWR016
 U 1 1 5C26A449
 P 3650 950
 F 0 "#PWR016" H 3650 800 50  0001 C CNN
@@ -610,7 +603,7 @@ F 3 "" H 3650 950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR017
+L power:+12V #PWR017
 U 1 1 5C26A664
 P 2350 950
 F 0 "#PWR017" H 2350 800 50  0001 C CNN
@@ -621,7 +614,7 @@ F 3 "" H 2350 950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:Conn_01x02-mb-a-rescue J1
+L Connector_Generic:Conn_01x02 J1
 U 1 1 5C26B058
 P 1350 1250
 F 0 "J1" H 1350 1350 50  0000 C CNN
@@ -632,7 +625,7 @@ F 3 "" H 1350 1250 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR018
+L power:GND #PWR018
 U 1 1 5C26B450
 P 1550 1250
 F 0 "#PWR018" H 1550 1000 50  0001 C CNN
@@ -643,7 +636,7 @@ F 3 "" H 1550 1250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR019
+L power:+12V #PWR019
 U 1 1 5C26B4A6
 P 1550 1150
 F 0 "#PWR019" H 1550 1000 50  0001 C CNN
@@ -654,7 +647,7 @@ F 3 "" H 1550 1150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR020
+L power:+3.3V #PWR020
 U 1 1 5C26CABF
 P 9950 1350
 F 0 "#PWR020" H 9950 1200 50  0001 C CNN
@@ -674,12 +667,12 @@ SDA
 Text Label 7100 1800 2    60   ~ 0
 SCL
 $Comp
-L mb-a-rescue:I2C-6P-mb-a-rescue X1
+L device.farm:I2C-6P X1
 U 1 1 5C2CD93A
 P 4600 2450
 F 0 "X1" H 4600 2950 60  0000 C CNN
 F 1 "I2C-6P" H 4600 2100 60  0000 C CNN
-F 2 "Connectors:IDC_Header_Straight_6pins" H 4750 2600 60  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical" H 4750 2600 60  0001 C CNN
 F 3 "" H 4750 2600 60  0001 C CNN
 	1    4600 2450
 	1    0    0    -1  
@@ -689,7 +682,7 @@ SDA
 Text Label 4950 2500 0    60   ~ 0
 SCL
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR021
+L power:GND #PWR021
 U 1 1 5C2CDA83
 P 4950 2650
 F 0 "#PWR021" H 4950 2400 50  0001 C CNN
@@ -700,7 +693,7 @@ F 3 "" H 4950 2650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L mb-a-rescue:+5V-mb-a-rescue #PWR022
+L power:+5V #PWR022
 U 1 1 5C2CDADC
 P 4950 2150
 F 0 "#PWR022" H 4950 2000 50  0001 C CNN
@@ -711,7 +704,7 @@ F 3 "" H 4950 2150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR023
+L power:+3.3V #PWR023
 U 1 1 5C2CDB35
 P 4950 2250
 F 0 "#PWR023" H 4950 2100 50  0001 C CNN
@@ -740,7 +733,7 @@ NoConn ~ 9900 3600
 NoConn ~ 9900 3500
 NoConn ~ 9900 3300
 $Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG024
+L power:PWR_FLAG #FLG024
 U 1 1 5C2CE227
 P 2000 1850
 F 0 "#FLG024" H 2000 1925 50  0001 C CNN
@@ -751,7 +744,7 @@ F 3 "" H 2000 1850 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:+12V-mb-a-rescue #PWR025
+L power:+12V #PWR025
 U 1 1 5C2CE2EF
 P 2000 1850
 F 0 "#PWR025" H 2000 1700 50  0001 C CNN
@@ -762,7 +755,7 @@ F 3 "" H 2000 1850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG026
+L power:PWR_FLAG #FLG026
 U 1 1 5C2CE564
 P 2000 2300
 F 0 "#FLG026" H 2000 2375 50  0001 C CNN
@@ -779,7 +772,7 @@ AVCC
 Text Label 2400 6250 0    30   ~ 0
 VCLAMP
 $Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG027
+L power:PWR_FLAG #FLG027
 U 1 1 5C2CF089
 P 2000 2400
 F 0 "#FLG027" H 2000 2475 50  0001 C CNN
@@ -792,18 +785,7 @@ $EndComp
 Text Label 2000 2400 0    60   ~ 0
 VCLAMP
 $Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG028
-U 1 1 5C2CF372
-P 2000 1950
-F 0 "#FLG028" H 2000 2025 50  0001 C CNN
-F 1 "PWR_FLAG" V 2000 2250 50  0000 C CNN
-F 2 "" H 2000 1950 50  0001 C CNN
-F 3 "" H 2000 1950 50  0001 C CNN
-	1    2000 1950
-	0    -1   -1   0   
-$EndComp
-$Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG029
+L power:PWR_FLAG #FLG029
 U 1 1 5C2CF3CB
 P 2000 2050
 F 0 "#FLG029" H 2000 2125 50  0001 C CNN
@@ -814,7 +796,7 @@ F 3 "" H 2000 2050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:PWR_FLAG-mb-a-rescue #FLG030
+L power:PWR_FLAG #FLG030
 U 1 1 5C2CF4B1
 P 2000 2150
 F 0 "#FLG030" H 2000 2225 50  0001 C CNN
@@ -825,18 +807,7 @@ F 3 "" H 2000 2150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:+5V-mb-a-rescue #PWR031
-U 1 1 5C2CF572
-P 2000 1950
-F 0 "#PWR031" H 2000 1800 50  0001 C CNN
-F 1 "+5V" V 2000 2150 50  0000 C CNN
-F 2 "" H 2000 1950 50  0001 C CNN
-F 3 "" H 2000 1950 50  0001 C CNN
-	1    2000 1950
-	0    1    1    0   
-$EndComp
-$Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR032
+L power:+3.3V #PWR032
 U 1 1 5C2CF5CB
 P 2000 2050
 F 0 "#PWR032" H 2000 1900 50  0001 C CNN
@@ -847,7 +818,7 @@ F 3 "" H 2000 2050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR033
+L power:GND #PWR033
 U 1 1 5C2CF624
 P 2000 2150
 F 0 "#PWR033" H 2000 1900 50  0001 C CNN
@@ -858,34 +829,34 @@ F 3 "" H 2000 2150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L mb-a-rescue:R-mb-a-rescue R2
+L Device:R R2
 U 1 1 5C2E3068
 P 5450 2050
 F 0 "R2" V 5350 2000 50  0000 C CNN
 F 1 "1k5" V 5350 2150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 5380 2050 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5380 2050 50  0001 C CNN
 F 3 "" H 5450 2050 50  0001 C CNN
 	1    5450 2050
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:R-mb-a-rescue R3
+L Device:R R3
 U 1 1 5C2E32B9
 P 5450 2400
 F 0 "R3" V 5350 2350 50  0000 C CNN
 F 1 "1k5" V 5350 2500 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 5380 2400 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5380 2400 50  0001 C CNN
 F 3 "" H 5450 2400 50  0001 C CNN
 	1    5450 2400
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:R-mb-a-rescue R4
+L Device:R R4
 U 1 1 5C2E3327
 P 5450 2500
 F 0 "R4" V 5550 2450 50  0000 C CNN
 F 1 "1k5" V 5550 2600 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 5380 2500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5380 2500 50  0001 C CNN
 F 3 "" H 5450 2500 50  0001 C CNN
 	1    5450 2500
 	0    1    1    0   
@@ -897,7 +868,7 @@ Wire Wire Line
 Wire Wire Line
 	4950 2500 5300 2500
 $Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR034
+L power:+3.3V #PWR034
 U 1 1 5C2E35B7
 P 5600 2050
 F 0 "#PWR034" H 5600 1900 50  0001 C CNN
@@ -908,7 +879,7 @@ F 3 "" H 5600 2050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR035
+L power:+3.3V #PWR035
 U 1 1 5C2E3619
 P 5600 2400
 F 0 "#PWR035" H 5600 2250 50  0001 C CNN
@@ -919,7 +890,7 @@ F 3 "" H 5600 2400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:+3V3-mb-a-rescue #PWR036
+L power:+3.3V #PWR036
 U 1 1 5C2E367B
 P 5600 2500
 F 0 "#PWR036" H 5600 2350 50  0001 C CNN
@@ -930,7 +901,7 @@ F 3 "" H 5600 2500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L mb-a-rescue:GND-mb-a-rescue #PWR037
+L power:GND #PWR037
 U 1 1 5C548ADA
 P 3950 6050
 F 0 "#PWR037" H 3950 5800 50  0001 C CNN
@@ -969,16 +940,6 @@ Wire Wire Line
 Wire Wire Line
 	2450 5000 2450 5250
 Wire Wire Line
-	8650 4150 8750 4150
-Wire Wire Line
-	8550 4150 8650 4150
-Wire Wire Line
-	8450 4150 8500 4150
-Wire Wire Line
-	8350 4150 8450 4150
-Wire Wire Line
-	8500 4150 8550 4150
-Wire Wire Line
 	7100 1400 7100 1500
 Wire Wire Line
 	4450 5650 4500 5650
@@ -998,4 +959,20 @@ Wire Wire Line
 	3500 950  3650 950 
 Wire Wire Line
 	9900 1350 9900 1400
+Wire Wire Line
+	8250 4150 8350 4150
+Wire Wire Line
+	8500 4150 8550 4150
+Connection ~ 8350 4150
+Wire Wire Line
+	8350 4150 8450 4150
+Connection ~ 8450 4150
+Wire Wire Line
+	8450 4150 8500 4150
+Connection ~ 8550 4150
+Wire Wire Line
+	8550 4150 8650 4150
+Connection ~ 8650 4150
+Wire Wire Line
+	8650 4150 8750 4150
 $EndSCHEMATC

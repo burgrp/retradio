@@ -1,3 +1,2 @@
 (fp_lib_table
-  (lib (name Rotary_Encoder)(type KiCad)(uri "$(KIPRJMOD)/Rotary_Encoder.pretty")(options "")(descr ""))
 )
