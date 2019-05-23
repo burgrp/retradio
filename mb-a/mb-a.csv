@@ -1,0 +1,21 @@
+Quantity,Designator,Designation
+1,J2,Speaker
+1,J1,Power
+1,M1,Orange-Pi-Zero
+1,C1,470n
+4,"C2,C3,C12,C13",1u
+2,"C5,C10",470u/16V
+3,"C6,C9,C17",10u
+5,"C7,C8,C16,C11,C18",100n
+2,"C14,C15",1n
+2,"L1,L2",600R
+1,R1,10R
+3,"R2,R3,R4",1k5
+1,U2,PAM8320
+1,X1,I2C-6P
+2,"C4,C19",100u/12V
+1,R5,100k
+1,R6,30.9k 1%
+1,R7,4.22k 1%
+1,U1,FR8205
+1,L3,6.8uH
