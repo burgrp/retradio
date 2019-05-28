@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name MCU_ST_STM32F01)(type Legacy)(uri ${DF}/MCU_ST_STM32F0.lib)(options "")(descr ""))
-)
