@@ -4,7 +4,7 @@ set -e
 
 APP_NAME=retradio
 GIT_URL=https://github.com/burgrp/retradio.git
-ARMBIAN_7Z_URL=https://dl.armbian.com/orangepizero/archive/Armbian_5.75_Orangepizero_Ubuntu_bionic_next_4.19.20.7z
+ARMBIAN_7Z_URL=https://dl.armbian.com/orangepizero/archive/Armbian_5.83_Orangepizero_Ubuntu_bionic_next_4.19.38.7z
 NODE_GZ_URL=https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-armv7l.tar.gz
 EXTRA_SPACE_MB=500
 EXTRA_PACKAGES="mc htop tree python mplayer"
@@ -105,8 +105,8 @@ target apt -o Apt::Color=no -y install git avahi-daemon usbmount $EXTRA_PACKAGES
 
 host tar -xf $NODE_GZ_PATH --directory $MOUNT_POINT/usr/local --strip-components 1
 
-target git config --file /root/.gitconfig user.email "$APP_NAME@$TARGET_HOSTNAME"
-target git config --file /root/.gitconfig user.name "$APP_NAME"
+target git config --file /etc/gitconfig user.email "$APP_NAME@$TARGET_HOSTNAME"
+target git config --file /etc/gitconfig user.name "$APP_NAME"
 target git clone -b $GIT_BRANCH $GIT_URL $GIT_PATH
 target npm --no-color --unsafe-perm --prefix $APP_PATH install
 
