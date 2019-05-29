@@ -30,23 +30,28 @@ module.exports = async config => {
     let oneshotMedia;
     let resumeAfterOneshot;
 
-    let currentMedia = () => oneshotMedia ? oneshotMedia : stations[bandIndex][stationIndex].url;
+    let currentMedia = () => oneshotMedia ? { url: oneshotMedia } : {
+        ...stations[bandIndex][stationIndex],
+        playlist: stations[bandIndex][stationIndex].url.endsWith(".m3u")
+    };
 
     setInterval(() => mpErrors -= mpErrors ? 1 : 0, 1000);
 
     function mpStart() {
 
+        let media = currentMedia();
+
         let params = [
             "-ao",
             "alsa",
-	    "-mixer-channel",
-	    "Line Out",
+            "-mixer-channel",
+            "Line Out",
             "-quiet",
             "-nolirc",
             "-slave",
             "-af",
             "equalizer=" + getEqualizer() + ",stats,volnorm",
-            currentMedia()
+            ...(media.playlist? ["-playlist", media.url]: [media.url])
         ];
 
         info("mplayer", ...params);
@@ -106,7 +111,8 @@ module.exports = async config => {
 
     async function changeMedia() {
         if (mplayer) {
-            await mpDo("loadfile", currentMedia());
+            let media = currentMedia();
+            await mpDo(media.playlist? "loadlist": "loadfile", media.url);
             await events.emit("stationChanged", bandIndex, stationIndex);
             await asyncWait(2000);
         } else {

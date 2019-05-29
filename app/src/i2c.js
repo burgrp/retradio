@@ -12,7 +12,7 @@ function createDummyDriver() {
             throw new "Dummy driver does not read";
         },
         alert() {
-            return new Promise(() => {});
+            return new Promise(() => { });
         }
     }
 }
@@ -25,11 +25,11 @@ async function createHwI2C() {
 
     const dir = `/sys/class/gpio/gpio${pin}`;
 
-	try {
-		await fs.promises.writeFile("/sys/class/gpio/unexport", pin);
-	} catch {
-	    // fall through
-	}
+    try {
+        await fs.promises.writeFile("/sys/class/gpio/unexport", pin);
+    } catch {
+        // fall through
+    }
 
     await fs.promises.writeFile("/sys/class/gpio/export", pin);
 
@@ -39,56 +39,56 @@ async function createHwI2C() {
     const fd = await fs.promises.open(`${dir}/value`, "r");
 
     function read() {
-	const buffer = Buffer.alloc(1);
-	fs.readSync(fd.fd, buffer, 0, 1, 0);
-	return buffer.toString() === "1";
+        const buffer = Buffer.alloc(1);
+        fs.readSync(fd.fd, buffer, 0, 1, 0);
+        return buffer.toString() === "1";
     }
 
     let interruptCallback;
 
     const poller = new Epoll(function (err, fd, events) {
-	console.info("INT", err, fd, events);
-	if (interruptCallback) {
-//	    interruptCallback();
-	}
-	read();
+        console.info("INT", err, fd, events);
+        if (interruptCallback) {
+            //	    interruptCallback();
+        }
+        read();
     });
 
     read();
     poller.add(fd.fd, Epoll.EPOLLPRI);
 
 
-		const Bus = require("i2c-bus-promised").Bus;
-                const bus = new Bus(0); //TODO configurable I2C bus #
-                await bus.open();
+    const Bus = require("i2c-bus-promised").Bus;
+    const bus = new Bus(0); //TODO configurable I2C bus #
+    await bus.open();
 
 
-                return {
-                    async read(address, length) {
-                        let buffer = Buffer.alloc(length);
-                        let read = await bus.read(parseInt(address), length, buffer);
-                        if (read !== length) {
-                            throw `Could read only ${read} bytes from ${length}`;
-                        }
-                        return Uint8Array.from(buffer);
-                    },
+    return {
+        async read(address, length) {
+            let buffer = Buffer.alloc(length);
+            let read = await bus.read(parseInt(address), length, buffer);
+            if (read !== length) {
+                throw `Could read only ${read} bytes from ${length}`;
+            }
+            return Uint8Array.from(buffer);
+        },
 
-                    async write(address, data) {
-                        let buffer = Buffer.from(data);
-                        let written = await bus.write(parseInt(address), data.length, buffer);
-                        if (written !== data.length) {
-                            throw `Could write only ${read} bytes from ${data.length}`;
-                        }
-                    },
+        async write(address, data) {
+            let buffer = Buffer.from(data);
+            let written = await bus.write(parseInt(address), data.length, buffer);
+            if (written !== data.length) {
+                throw `Could write only ${read} bytes from ${data.length}`;
+            }
+        },
 
         alert() {
             return new Promise((resolve) => {
-		setTimeout(resolve, 100);
-		//interruptCallback = resolve;
-	    });
+                setTimeout(resolve, 100);
+                //interruptCallback = resolve;
+            });
         }
 
-                }
+    }
 
 }
 
@@ -115,15 +115,15 @@ module.exports = async config => {
     let bus;
 
     try {
-	bus = await createHwI2C();
-    } catch(e) {
+        bus = await createHwI2C();
+    } catch (e) {
         error("Hardware I2C driver failed, trying USB.", e.message || e);
-	try {
-	    bus = await require("@device.farm/usb-i2c-driver").open();
-	} catch (e2) {
-    	    error("USB I2C driver failed, falling back to dummy driver.", e2.message || e2);
+        try {
+            bus = await require("@device.farm/usb-i2c-driver").open();
+        } catch (e2) {
+            error("USB I2C driver failed, falling back to dummy driver.", e2.message || e2);
             bus = createDummyDriver();
-	}
+        }
     }
 
     let devices = {};
