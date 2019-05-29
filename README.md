@@ -14,6 +14,4 @@
 - 0x46 ND Band
 
 ### Push buttons
-- 0x49 NN 8 Bands switch
-- 0x4A AN 6 Bands switch, BT, AUX
-
+- 0x49 NN 7 Bands switch
