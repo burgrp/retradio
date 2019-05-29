@@ -1,28 +1,19 @@
 {
 	"folders": [
 		{
-			"path": "encoder/fw"
+			"path": "buttons/fw"
 		},
 		{
-			"path": "encoder/test"
+			"path": "buttons/test"
 		},
 		{
 			"path": "fw-common"
-		},
-		{
-			"path": "/home/paul/df/hw-USB-I2C/fw"
 		},
 		{
 			"path": "/home/paul/df/hw-USB-I2C/driver-js"
 		},
 		{
 			"path": "app"
-		},
-		{
-			"path": "/home/paul/json-pad"
-		},
-		{
-			"path": "/home/paul/df/appglue"
 		}
 	]
 }

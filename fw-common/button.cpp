@@ -3,7 +3,7 @@ class Button : public DebouncedGpio
 	Alert *alert;
 	int flags;
 
-  public:
+public:
 	void init(target::gpio_a::Peripheral *port, int pin, Alert *alert)
 	{
 		this->alert = alert;

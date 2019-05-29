@@ -55,6 +55,9 @@
                 "module": "./drv-encoder.js",
                 "onRotate": "changeBand",
                 "onPush": "resetBand"
+            },
+            "0x49": {
+                "module": "./drv-buttons.js"
             }
         }
     },
