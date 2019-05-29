@@ -51,7 +51,7 @@ module.exports = async config => {
             "-slave",
             "-af",
             "equalizer=" + getEqualizer() + ",stats,volnorm",
-            ...(media.playlist? ["-playlist", media.url]: [media.url])
+            ...(media.playlist ? ["-playlist", media.url] : [media.url])
         ];
 
         info("mplayer", ...params);
@@ -112,7 +112,7 @@ module.exports = async config => {
     async function changeMedia() {
         if (mplayer) {
             let media = currentMedia();
-            await mpDo(media.playlist? "loadlist": "loadfile", media.url);
+            await mpDo(media.playlist ? "loadlist" : "loadfile", media.url);
             await events.emit("stationChanged", bandIndex, stationIndex);
             await asyncWait(2000);
         } else {
@@ -193,9 +193,11 @@ module.exports = async config => {
         },
 
         async playStation(bi, si) {
-            bandIndex = bi;
-            stationIndex = si;
-            await changeMedia();
+            if (bi < stations.length && si < stations[bi].length) {
+                bandIndex = bi;
+                stationIndex = si;
+                await changeMedia();
+            }
         }
 
     }
