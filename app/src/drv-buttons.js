@@ -3,7 +3,7 @@ module.exports = async config => {
         return {
             title: `bands switch`,
             async handleAlert() {
-                let data = Buffer.from(await bus.read(address, 4));
+                let data = Buffer.from(await bus.read(address, 3));
 
                 let protocol = data.readUInt8();
                 if (protocol !== 1) {
@@ -13,8 +13,10 @@ module.exports = async config => {
                 let down = data.readUInt8(1);
                 let up = data.readUInt8(2);
 
-                for (let b = 0; b < 8; b++) {
+                console.info("DOWN:", down);
+                for (let b = 7; b >= 0; b--) {
                     if ((down >> b) & 1) {
+                        console.info("BAND", b);
                         await player.playStation(b, 0);
                         break;
                     }

@@ -1,7 +1,6 @@
 module.exports = async config => {
 
     config.events.on("stationChanged", (bandIndex, stationIndex) => {
-        console.info(bandIndex, stationIndex);
     });
 
     return {
