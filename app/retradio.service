@@ -4,7 +4,7 @@ Description=RETRADIO
 [Service]
 Environment="DEBUG=*" "HTTP_PORT=80"
 WorkingDirectory=/opt/retradio/app
-ExecStart=/usr/local/bin/node src/retradio.js
+ExecStart=/usr/local/bin/node --inspect=localhost:9229 src/retradio.js
 Restart=always
 
 [Install]
