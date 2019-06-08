@@ -27,6 +27,7 @@ module.exports = async config => {
     let noConnectionTold = false;
 
     return {
+        start: flashConfig.start,
         checkNetwork() {
             if (!noConnectionTold) {
                 noConnectionTold = true;
