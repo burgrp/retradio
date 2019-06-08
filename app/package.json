@@ -9,7 +9,6 @@
     "@device.farm/appglue": "^1.0.12",
     "@device.farm/webglue": "^1.0.2",
     "debug": "^4.1.1",
-    "epoll": "^2.0.9",
     "flash-config": "^1.0.7",
     "i2c-bus-promised": "^1.1.3",
     "json-pad": "^1.0.1",

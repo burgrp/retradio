@@ -21,8 +21,6 @@ async function createHwI2C() {
 
     const pin = 198;
 
-    const Epoll = require('epoll').Epoll;
-
     const dir = `/sys/class/gpio/gpio${pin}`;
 
     try {
@@ -36,32 +34,27 @@ async function createHwI2C() {
     await fs.promises.writeFile(`${dir}/direction`, "in");
     await fs.promises.writeFile(`${dir}/edge`, "falling");
 
-    const fd = await fs.promises.open(`${dir}/value`, "r");
-
-    function read() {
-        const buffer = Buffer.alloc(1);
-        fs.readSync(fd.fd, buffer, 0, 1, 0);
-        return buffer.toString() === "1";
-    }
-
     let interruptCallback;
 
-    const poller = new Epoll(function (err, fd, events) {
-        console.info("INT", err, fd, events);
-        if (interruptCallback) {
-            //	    interruptCallback();
+    async function readInterrupt() {
+        let pending = (await fs.promises.readFile(`${dir}/value`)).readUInt8() === "0".charCodeAt(0);
+        if (pending && interruptCallback) {
+            let cb = interruptCallback;
+            interruptCallback = undefined;
+            try {
+                cb();
+            } catch (e) {
+                error("Error in I2C alter callback", e);
+            }
         }
-        read();
-    });
-
-    read();
-    poller.add(fd.fd, Epoll.EPOLLPRI);
-
+        setTimeout(readInterrupt, 10);
+    }
 
     const Bus = require("i2c-bus-promised").Bus;
     const bus = new Bus(0); //TODO configurable I2C bus #
     await bus.open();
 
+    await readInterrupt();
 
     return {
         async read(address, length) {
@@ -83,8 +76,7 @@ async function createHwI2C() {
 
         alert() {
             return new Promise((resolve) => {
-                setTimeout(resolve, 100);
-                //interruptCallback = resolve;
+                interruptCallback = resolve;
             });
         }
 
