@@ -3,10 +3,12 @@
 	"version": "1.0.0",
 	"author": "paul",
 	"dependencies": {
-		"@device.farm/si-stm32-i2c": "^1.0.5",
-		"@device.farm/si-stm32-iwdg": "^1.0.2",
-		"@device.farm/si-stm32-timer": "^1.0.6",
-		"@device.farm/si-stm32f0x0": "^1.0.0",
+		"@device.farm/si-application-events": "^1.0.1",
+		"@device.farm/si-generic-timer": "^1.0.3",
+		"@device.farm/si-stm32-i2c": "^1.0.8",
+		"@device.farm/si-stm32-iwdg": "^1.0.3",
+		"@device.farm/si-stm32-timer": "^1.0.9",
+		"@device.farm/si-stm32f0x0": "^1.0.4",
 		"@retradio/fw-common": "../../fw-common"
 	},
 	"silicon": {
