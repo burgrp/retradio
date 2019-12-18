@@ -1,0 +1,19 @@
+version: "2.3"
+
+services:
+  retradio:
+    container_name: retradio
+    image: burgrp/retradio
+    privileged: true
+    restart: always
+    volumes:
+      - "/dev:/dev"
+      - "/data/retradio:/data"
+    environment: 
+      HTTP_PORT: "80"
+      I2C_BUS: "hw:0"
+      DATA_DIR: "/data"
+    ports:
+      - "80:80"
+    labels:
+      "farm.device.service": "private retradio 80"

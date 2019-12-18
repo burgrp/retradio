@@ -50,9 +50,7 @@ async function createHwI2C() {
         setTimeout(readInterrupt, 10);
     }
 
-    const Bus = require("i2c-bus-promised").Bus;
-    const bus = new Bus(0); //TODO configurable I2C bus #
-    await bus.open();
+    const bus = await require("i2c-bus").openPromisified(0); //TODO configurable I2C bus #
 
     await readInterrupt();
 

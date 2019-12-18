@@ -73,11 +73,7 @@
                 "module": "./webui-server.js",
                 "stations": "-> stations",
                 "player": "-> player",
-                "events": "-> events",
-                "update": {
-                    "module": "./update.js",
-                    "service": "retradio"
-                }
+                "events": "-> events"
             }
         ]
     }

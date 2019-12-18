@@ -27,13 +27,11 @@ module.exports = async config => {
     }
 
     let mpErrors = 0;
-    let oneshotMedia;
-    let resumeAfterOneshot;
 
-    let currentMedia = () => oneshotMedia ? { url: oneshotMedia } : {
+    let currentMedia = () => ({
         ...stations[bandIndex][stationIndex],
         playlist: stations[bandIndex][stationIndex].url.endsWith(".m3u")
-    };
+    });
 
     setInterval(() => mpErrors -= mpErrors ? 1 : 0, 1000);
 
@@ -81,19 +79,11 @@ module.exports = async config => {
         mplayer.on("close", (code) => {
             error(`mplayer closed with code ${code}`);
             mplayer = undefined;
-            let restart = true;
-            // clear oneshotMedia only if played successfully 
-            if (oneshotMedia) {
-                oneshotMedia = undefined;
-                restart = resumeAfterOneshot;
-            }
-            if (restart) {
-                setTimeout(() => {
-                    if (!mplayer) {
-                        mpStart();
-                    }
-                }, 1000);
-            }
+            setTimeout(() => {
+                if (!mplayer) {
+                    mpStart();
+                }
+            }, 1000);
         });
 
     }

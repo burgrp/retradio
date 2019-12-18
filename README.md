@@ -15,3 +15,17 @@
 
 ### Push buttons
 - 0x49 NN 7 Bands switch
+
+## Docker image
+
+Install binfmt
+```shell
+docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
+docker buildx create --name cross
+docker buildx inspect --bootstrap
+```
+
+Build the image
+```shell
+docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
+```

@@ -144,33 +144,3 @@ button.confirm {
     margin-right: 0.5em;
 }
 
-.settings .section .caption {
-    font-size: larger;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
-
-.settings .section .working {
-    color: #5e5e5e;
-}
-
-.settings .section .updates .log .line {
-    flex-direction: row;
-}
-
-.settings .section .updates .log .line>* {
-    margin-right: 1em;
-}
-
-.settings .section .updates .log .line .date {
-    color: #5e5e5e;
-    font-size: smaller;    
-}
-
-.settings .section .updates .log {
-    margin-bottom: 0.5em;
-}
-
-.settings .section .error {
-    color: #d62242;
-}

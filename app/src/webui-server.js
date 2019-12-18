@@ -8,9 +8,7 @@ module.exports = async config => {
         api: {
             webui: {
                 getStations: config.stations.getStations,
-                playStation: config.player.playStation,
-                checkForUpdates: config.update.check,
-                downloadUpdates: config.update.download
+                playStation: config.player.playStation
             }
         }
     }

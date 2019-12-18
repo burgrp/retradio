@@ -91,37 +91,7 @@ wg.pages.home = wg.pages.stations;
 wg.pages.settings = {
     async render(container) {
         container.append(wg.common.page("settings", "Settings", [
-            DIV("settings", [
-                DIV("section", [
-                    DIV("caption").text("Software update"),
-                    DIV("updates", async div => {
-
-                        async function checkForUpdates() {
-                            div.empty().append(DIV("working").text("Checking for updates..."));
-                            let updates = await wg.webui.checkForUpdates();
-                            div.empty();
-                            if (!updates.length) {
-                                div.append(DIV("uptodate").text("Software is up to date."));
-                            } else {
-                                div.append(DIV("log", updates.map(logLine => DIV("line", [
-                                    DIV("date").text(new Date(logLine.date).toLocaleDateString()),
-                                    DIV("message").text(logLine.message)
-                                ])))).append(BUTTON().text("Download updates").click(async () => {
-                                    div.empty().append(DIV("working").text("Downloading updates..."));
-                                    try {
-                                        await wg.webui.downloadUpdates();
-                                        await checkForUpdates();
-                                    } catch (e) {
-                                        div.empty().append(DIV("error").text(e.message || e));
-                                    }
-                                }));
-                            }
-                        }
-                        await checkForUpdates();
-
-                    })
-                ])
-            ])
+            
         ]));
     }
 }
