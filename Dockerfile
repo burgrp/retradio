@@ -10,4 +10,4 @@ RUN npm install
 COPY app/config.json ./
 COPY app/src ./src/
 
-CMD node --inspect=localhost:9229 src/retradio.js
+CMD node src/retradio.js

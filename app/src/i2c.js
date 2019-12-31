@@ -37,17 +37,23 @@ async function createHwI2C() {
     let interruptCallback;
 
     async function readInterrupt() {
-        let pending = (await fs.promises.readFile(`${dir}/value`)).readUInt8() === "0".charCodeAt(0);
-        if (pending && interruptCallback) {
-            let cb = interruptCallback;
-            interruptCallback = undefined;
-            try {
-                cb();
-            } catch (e) {
-                error("Error in I2C alter callback", e);
+        try {
+            let stateStr = await fs.promises.readFile(`${dir}/value`);
+            let pending = stateStr.toString().trim() === "0";
+            //console.info("INT: ", stateStr, pending,interruptCallback);
+            if (pending && interruptCallback) {
+                let cb = interruptCallback;
+                interruptCallback = undefined;
+                try {
+                    cb();
+                } catch (e) {
+                    error("Error in I2C alert callback:", e);
+                }
             }
+        } catch (e) {
+            error("Error in I2C alert check:", e);
         }
-        setTimeout(readInterrupt, 10);
+        setTimeout(readInterrupt, 50);
     }
 
     const bus = await require("i2c-bus").openPromisified(0); //TODO configurable I2C bus #
@@ -57,7 +63,7 @@ async function createHwI2C() {
     return {
         async read(address, length) {
             let buffer = Buffer.alloc(length);
-            let read = await bus.read(parseInt(address), length, buffer);
+            let read = (await bus.i2cRead(parseInt(address), length, buffer)).bytesRead;
             if (read !== length) {
                 throw `Could read only ${read} bytes from ${length}`;
             }
@@ -66,9 +72,9 @@ async function createHwI2C() {
 
         async write(address, data) {
             let buffer = Buffer.from(data);
-            let written = await bus.write(parseInt(address), data.length, buffer);
+            let written = (await bus.i2cWrite(parseInt(address), data.length, buffer)).bytesWritten;
             if (written !== data.length) {
-                throw `Could write only ${read} bytes from ${data.length}`;
+                throw `Could write only ${written} bytes from ${data.length}`;
             }
         },
 
@@ -104,6 +110,7 @@ module.exports = async config => {
 
     let bus;
 
+    info("Initializing I2C bus...");
     try {
         bus = await createHwI2C();
     } catch (e) {
@@ -125,6 +132,9 @@ module.exports = async config => {
             devices[address] = device;
             info(`Detected I2C device ${addrToStr(address)}: ${device.title}`);
         } catch (e) {
+            if (e.code !== "ENXIO") {
+                error(`Error probing I2C device at ${addrToStr(address)}`, e);
+            }
         }
     }
 

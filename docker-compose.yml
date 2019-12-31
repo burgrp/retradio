@@ -8,11 +8,12 @@ services:
     restart: always
     volumes:
       - "/dev:/dev"
+      - "/sys:/sys"
       - "/data/retradio:/data"
     environment: 
       HTTP_PORT: "80"
-      I2C_BUS: "hw:0"
       DATA_DIR: "/data"
+      #DEBUG: "*"
     ports:
       - "80:80"
     labels:

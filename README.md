@@ -29,3 +29,19 @@ Build the image
 ```shell
 docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
 ```
+## DEVICE.FARM
+
+### File system overwrites
+
+`/boot/armbianEnv.txt`:
+
+```
+verbosity=1
+logo=disabled
+console=serial
+disp_mode=1920x1080p60
+overlay_prefix=sun8i-h3
+overlays=analog-codec i2c0
+rootdev=/dev/mmcblk0p1
+rootfstype=ext4
+```
