@@ -17,8 +17,6 @@ module.exports = async config => {
     let bassLevel = 0;
     let aperture;
 
-    let checkNetwork;
-
     function getEqualizer() {
         //let levels = [bassLevel, bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel, trebleLevel];
         let levels = [bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel];
@@ -70,9 +68,6 @@ module.exports = async config => {
                     mplayer.kill();
                     mplayer = undefined;
                 }
-                if (checkNetwork) {
-                    checkNetwork();
-                }
             }
         });
 
@@ -121,8 +116,6 @@ module.exports = async config => {
     mpStart();
 
     return {
-        setCheckNetwork: value => checkNetwork = value,
-
         async playOneshot(media, resume) {
             oneshotMedia = media;
             resumeAfterOneshot = resume;

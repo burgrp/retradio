@@ -9,9 +9,7 @@
     "@device.farm/appglue": "^1.0.13",
     "@device.farm/webglue": "^1.0.5",
     "debug": "^4.1.1",
-    "flash-config": "^1.0.7",
     "i2c-bus": "^5.1.0",
-    "json-pad": "^1.0.1",
-    "simple-git": "^1.129.0"
+    "json-pad": "^1.0.1"
   }
 }
