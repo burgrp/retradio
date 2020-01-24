@@ -45,3 +45,7 @@ overlays=analog-codec i2c0
 rootdev=/dev/mmcblk0p1
 rootfstype=ext4
 ```
+
+```
+docker-compose  --tls -H tcp://docker-deviceID.device.farm:443 up -d
+```
