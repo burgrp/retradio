@@ -13,7 +13,7 @@ function asyncWait(ms) {
 async function start() {
     while(true){
         //console.info("Reading...")
-        console.info(await i2c.read(0x45, 4));
+        console.info(await i2c.read(0x40, 4));
         //console.info("Waiting for alert...");
         await i2c.alert();
         //await asyncWait(1000);

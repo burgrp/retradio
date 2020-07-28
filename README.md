@@ -47,5 +47,5 @@ rootfstype=ext4
 ```
 
 ```
-docker-compose  --tls -H tcp://docker-deviceID.device.farm:443 up -d
+defa proxy <device-id> -- docker-compose up -d
 ```
