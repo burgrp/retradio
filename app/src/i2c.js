@@ -6,10 +6,10 @@ const info = require("debug")("app:info");
 function createDummyDriver() {
     return {
         async read() {
-            throw new "Dummy driver does not read";
+            throw "Dummy driver does not read";
         },
         async write() {
-            throw new "Dummy driver does not read";
+            throw "Dummy driver does not read";
         },
         alert() {
             return new Promise(() => { });

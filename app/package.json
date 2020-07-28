@@ -11,5 +11,8 @@
     "debug": "^4.1.1",
     "i2c-bus": "^5.1.0",
     "json-pad": "^1.0.1"
+  },
+  "devDependencies": {
+    "@device.farm/usb-i2c-driver": "^1.0.4"
   }
 }

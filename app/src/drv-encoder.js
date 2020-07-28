@@ -13,14 +13,21 @@ module.exports = async config => {
                 let rotation = data.readInt16LE(1);
                 let push = (data.readUInt8(3) & 1) === 1;
 
+                function checkAction(action) {
+                    if (typeof player[action] !== "function") {
+                        throw `Player does not implement ${action}.`;
+                    }
+                    return player[action];
+                }
+
                 if (push && config.onPush) {
                     let action = config.onPush;
-                    await player[action]();
+                    await checkAction(action)();
                 }
 
                 if (rotation && config.onRotate) {
                     let action = config.onRotate;
-                    await player[action](rotation, push);
+                    await checkAction(action)(rotation, push);
                 }
 
             }

@@ -15,12 +15,10 @@ module.exports = async config => {
     let stationIndex = 0;
     let trebleLevel = 0;
     let bassLevel = 0;
-    let aperture;
+    let apertureLevel = 0;
 
     function getEqualizer() {
-        //let levels = [bassLevel, bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel, trebleLevel];
         let levels = [bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel];
-        //let levels = [bassLevel, bassLevel / 2, 0, 0, 0, 0, 0, 0, trebleLevel / 2, trebleLevel];
         return levels.map(l => l / 2 - 6).join(":");
     }
 
@@ -105,9 +103,17 @@ module.exports = async config => {
         }
     }
 
-    async function changeEqualizer() {
+    async function updateEqualizer() {
         await mpDo("af_cmdline", "equalizer", getEqualizer());
     }
+
+    async function updateAperature() {
+        trebleLevel = 13 * apertureLevel / 10 -3;
+        bassLevel = 24 * apertureLevel / 10 -12;
+        console.info(trebleLevel, bassLevel);
+        await updateEqualizer();
+    }
+
 
     function changeValue(current, change, min, max) {
         return Math.max(Math.min(current + change, max), min);
@@ -150,29 +156,37 @@ module.exports = async config => {
 
         async changeTreble(change) {
             trebleLevel = changeValue(trebleLevel, change, -12, 12);
-            await changeEqualizer();
+            await updateEqualizer();
         },
 
         async resetTreble() {
             trebleLevel = 0;
-            await changeEqualizer();
+            await updateEqualizer();
         },
 
         async changeBass(change) {
             bassLevel = changeValue(bassLevel, change, -12, 12);
-            await changeEqualizer();
+            await updateEqualizer();
         },
 
         async resetBass() {
             bassLevel = 0;
-            await changeEqualizer();
+            await updateEqualizer();
         },
 
         async toggleAperture() {
-            aperture = !aperture;
-            trebleLevel = aperture ? -3 : +10;
-            bassLevel = aperture ? -12 : +12;
-            await changeEqualizer();
+            apertureLevel = apertureLevel ? 0 : 10;
+            await updateAperature();
+        },
+
+        async changeAperture(change) {
+            apertureLevel = changeValue(apertureLevel, change, 0, 10);
+            await updateAperature();
+        },
+
+        async resetAperture() {
+            apertureLevel = 0;
+            await updateAperature();
         },
 
         async playStation(bi, si) {
