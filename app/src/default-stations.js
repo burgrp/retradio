@@ -13,7 +13,7 @@ module.exports = async config => {
         [
             { "name": "SwissGroove", "url": "http://www.swissgroove.ch/listen.m3u" },
             { "name": "Secret Agent - soma fm", "url": "http://ice1.somafm.com/secretagent-128-mp3" },
-            { "name": "SKY.FM", "url": "http://rblive.it/proxy/sky_mp3?mp=/stream" },
+            { "name": "SKY.FM", "url": "https://rblive80.it/radiobrand2/8342" },
             { "name": "Public Domain Jazz - Swiss Internet Radio", "url": "http://relay.publicdomainproject.org/jazz_swing.mp3" }
         ],
         [

@@ -110,7 +110,6 @@ module.exports = async config => {
     async function updateAperature() {
         trebleLevel = 13 * apertureLevel / 10 -3;
         bassLevel = 24 * apertureLevel / 10 -12;
-        console.info(trebleLevel, bassLevel);
         await updateEqualizer();
     }
 
