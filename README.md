@@ -2,7 +2,7 @@
 
 ## I2C peripherals
 
-### Rotary Encoder
+### Rotary EncoderX
 
 #### Addressing
 
