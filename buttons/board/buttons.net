@@ -41,8 +41,8 @@
       (tstamp 5C2D49F5))
     (comp (ref X2)
       (value SWD)
-      (footprint device.farm:SWD)
-      (libsource (lib device.farm) (part SWD) (description ""))
+      (footprint Drake:SWD)
+      (libsource (lib Drake) (part SWD) (description ""))
       (sheetpath (names /) (tstamps /))
       (tstamp 5C2D529E))
     (comp (ref J1)
@@ -78,7 +78,7 @@
     (comp (ref X1)
       (value I2C-6P)
       (footprint Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical)
-      (libsource (lib device.farm) (part I2C-6P) (description ""))
+      (libsource (lib Drake) (part I2C-6P) (description ""))
       (sheetpath (names /) (tstamps /))
       (tstamp 5C2D4514))
     (comp (ref R2)
@@ -242,7 +242,7 @@
       (fields
         (field (name Reference) H)
         (field (name Value) MountingHole)))
-    (libpart (lib device.farm) (part I2C-6P)
+    (libpart (lib Drake) (part I2C-6P)
       (fields
         (field (name Reference) X)
         (field (name Value) I2C-6P))
@@ -253,7 +253,7 @@
         (pin (num 4) (name 3V3) (type BiDi))
         (pin (num 5) (name 5V) (type BiDi))
         (pin (num 6) (name ALERT) (type BiDi))))
-    (libpart (lib device.farm) (part SWD)
+    (libpart (lib Drake) (part SWD)
       (fields
         (field (name Reference) X)
         (field (name Value) SWD))
@@ -272,8 +272,8 @@
       (uri /home/paul/git/kicad-symbols/MCU_ST_STM32F0.lib))
     (library (logical Mechanical)
       (uri /home/paul/git/kicad-symbols/Mechanical.lib))
-    (library (logical device.farm)
-      (uri /home/paul/df/hw-kicad/device.farm.lib)))
+    (library (logical Drake)
+      (uri /home/paul/df/hw-kicad/Drake.lib)))
   (nets
     (net (code 1) (name "Net-(J4-Pad2)")
       (node (ref R1) (pin 1))
