@@ -55,3 +55,11 @@ rootfstype=ext4
 defa proxy <device-id> -- docker-compose up -d
 ```
 
+```
+git clone https://github.com/device-farm/buildroot.git
+cd buildroot
+git checkout dev
+make df_orangepi_zero_defconfig
+make linux-menuconfig
+
+```
