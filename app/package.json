@@ -6,10 +6,10 @@
   "author": "Pavel Burgr <pb@drake.cz>",
   "license": "ISC",
   "dependencies": {
-    "@device.farm/appglue": "^1.0.13",
-    "@device.farm/webglue": "^1.0.5",
-    "debug": "^4.1.1",
-    "i2c-bus": "^5.1.0",
+    "@device.farm/appglue": "^1.0.14",
+    "@device.farm/webglue": "^1.0.16",
+    "debug": "^4.3.1",
+    "i2c-bus": "^5.2.2",
     "json-pad": "^1.0.1"
   },
   "devDependencies": {

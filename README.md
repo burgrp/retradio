@@ -36,30 +36,7 @@ docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
 
 ## DEVICE.FARM
 
-### File system overwrites
-
-`/boot/armbianEnv.txt`:
-
 ```text
-verbosity=1
-logo=disabled
-console=serial
-disp_mode=1920x1080p60
-overlay_prefix=sun8i-h3
-overlays=analog-codec i2c0
-rootdev=/dev/mmcblk0p1
-rootfstype=ext4
-```
-
-```text
-defa proxy <device-id> -- docker-compose up -d
-```
-
-```
-git clone https://github.com/device-farm/buildroot.git
-cd buildroot
-git checkout dev
-make df_orangepi_zero_defconfig
-make linux-menuconfig
-
+defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD/mb-a/dto
+defa proxy device-id -- docker-compose up -d
 ```
