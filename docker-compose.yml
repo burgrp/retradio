@@ -3,7 +3,7 @@ version: "2.3"
 services:
   retradio:
     container_name: retradio
-    image: burgrp/retradio@sha256:230ee1969874fdd1d624cda84a521e061465cdcc91fad896aaec239231e1d5be
+    image: burgrp/retradio@sha256:d757a48d29931fa3c8bbe49e088400391e106d9d4ab6c24cccddf65a5eda6864
     privileged: true
     restart: always
     volumes:
@@ -13,8 +13,10 @@ services:
     environment: 
       HTTP_PORT: "80"
       DATA_DIR: "/data"
-      DEBUG: "*"
+      DEBUG: "app:err,app:error,mplayer:err"
     ports:
       - "80:80"
+      - "127.0.0.7:9229:9229"
     labels:
-      "farm.device.service": "private retradio 80"
+      "farm.device.services": "80 retradio, 9229 debugger hidden"
+    command: 'sh -c "alsactl init; node --inspect=0.0.0.0:9229 src/retradio.js"'

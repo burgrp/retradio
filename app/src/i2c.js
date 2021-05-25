@@ -24,12 +24,12 @@ async function createHwI2C() {
     const dir = `/sys/class/gpio/gpio${pin}`;
 
     try {
-        await fs.promises.writeFile("/sys/class/gpio/unexport", pin);
+        await fs.promises.writeFile("/sys/class/gpio/unexport", pin.toString());
     } catch {
         // fall through
     }
 
-    await fs.promises.writeFile("/sys/class/gpio/export", pin);
+    await fs.promises.writeFile("/sys/class/gpio/export", pin.toString());
 
     await fs.promises.writeFile(`${dir}/direction`, "in");
     await fs.promises.writeFile(`${dir}/edge`, "falling");
