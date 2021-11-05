@@ -3,7 +3,7 @@ version: "2.3"
 services:
   retradio:
     container_name: retradio
-    image: burgrp/retradio@sha256:d757a48d29931fa3c8bbe49e088400391e106d9d4ab6c24cccddf65a5eda6864
+    image: burgrp/retradio@sha256:fd0402f1870c6d83e018209579f947e64a3e6416cf37dff30e288166c29fdae1
     privileged: true
     restart: always
     volumes:
