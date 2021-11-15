@@ -1,7 +1,0 @@
-"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
-1;"C2,C3,C1";"C_0805";3;"100n";;;
-2;"SW1";"RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm";1;"Rotary_Encoder_Switch";;;
-3;"U1";"SSOP-20_4.4x6.5mm_Pitch0.65mm";1;"STM32F030F4Px";;;
-4;"X1";"IDC_Header_Straight_6pins";1;"I2C-6P";;;
-5;"X2";"SWD";1;"SWD";;;
-6;"J1,J2";"GS3";2;"GS3";;;
