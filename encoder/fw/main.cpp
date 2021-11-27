@@ -8,10 +8,12 @@ const int PIN_ENC_B = 4;
 const int EXT_INT_ENC_A = 2;
 const int EXT_INT_ENC_B = 4;
 
-const int PIN_ENC_P = 24;
+const int PIN_ENC_PUSH = 24;
 
 const int PIN_SDA = 14;
 const int PIN_SCL = 15;
+
+const int KEY_TIMER_MS = 100;
 
 class Device {
 public:
@@ -52,6 +54,22 @@ public:
     }
   } encoder;
 
+  class : public genericTimer::Timer {
+  public:
+    Device *that;
+
+    void init(Device *that) {
+      this->that = that;
+      start(KEY_TIMER_MS / 10);
+    }
+
+    void onTimer() { 
+      that->slave.txData.flags = !(target::PORT.IN >> PIN_ENC_PUSH & 1);
+      start(KEY_TIMER_MS / 10); 
+    }
+
+  } timer;
+
   void init() {
 
     // TC1 for motor PWM
@@ -66,16 +84,8 @@ public:
     while (target::GCLK.STATUS.getSYNCBUSY())
       ;
 
-    // ADC for WNH7070 current sense
-
-    target::PM.APBCMASK.setADC(true);
-
-    target::GCLK.CLKCTRL = target::GCLK.CLKCTRL.bare()
-                               .setID(target::gclk::CLKCTRL::ID::ADC)
-                               .setGEN(target::gclk::CLKCTRL::GEN::GCLK0)
-                               .setCLKEN(true);
-
     encoder.init(this);
+    timer.init(this);
 
     int address = 0x40 + atsamd::configPin::readConfigPin(PIN_ADDR1) + 3 * atsamd::configPin::readConfigPin(PIN_ADDR2);
     slave.init(this, address);
@@ -102,4 +112,10 @@ void initApplication() {
   target::NVIC.IPR[target::interrupts::External::SERCOM0 >> 2].setPRI(target::interrupts::External::SERCOM0 & 0x03, 3);
   target::NVIC.ISER.setSETENA(1 << target::interrupts::External::SERCOM0);
   target::NVIC.ISER.setSETENA(1 << target::interrupts::External::EIC);
+
+  // configure push button
+  target::PORT.DIRCLR = 1 << PIN_ENC_PUSH;
+  target::PORT.PINCFG[PIN_ENC_PUSH].setINEN(true).setPULLEN(true);
+  target::PORT.OUTSET = 1 << PIN_ENC_PUSH;
+
 }

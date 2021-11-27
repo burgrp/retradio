@@ -5,7 +5,7 @@
   "license": "CC BY-SA",
   "dependencies": {
     "@si14/si-application-events": "^1.0.2",
-    "@si14/si-atsamd-configpin": "^1.0.0",
+    "@si14/si-atsamd-configpin": "^1.0.2",
     "@si14/si-atsamd-encoder": "^1.0.3",
     "@si14/si-atsamd-i2c": "^1.0.6",
     "@si14/si-atsamd-safeboot": "^1.0.2",
