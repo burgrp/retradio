@@ -22,8 +22,8 @@ public:
     Device *that;
 
     struct {
-      unsigned char protocol = 1;
-      short position = 0;
+      unsigned char protocol = 2;
+      int position = 0;
       unsigned char flags = 0;
     } __attribute__((packed)) txData;
 
@@ -37,7 +37,6 @@ public:
     virtual int getTxByte(int index) {
       if (index == 0) {
         txData.position = that->encoder.position;
-        that->encoder.position = 0;
       }
       return index < sizeof(txData) ? ((unsigned char *)&txData)[index] : 0;
     }
