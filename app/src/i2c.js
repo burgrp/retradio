@@ -1,92 +1,80 @@
 const fs = require("fs");
-const error = require("debug")("app:error");
-const info = require("debug")("app:info");
+const error = require("debug")("i2c:error");
+const info = require("debug")("i2c:info");
+const debug = require("debug")("i2c:debug");
+const I2C = require("@burgrp/i2c");
+const { resolve } = require("path");
 
+// async function createHwI2C() {
 
-function createDummyDriver() {
-    return {
-        async read() {
-            throw "Dummy driver does not read";
-        },
-        async write() {
-            throw "Dummy driver does not read";
-        },
-        alert() {
-            return new Promise(() => { });
-        }
-    }
-}
+//     const pin = 198;
 
-async function createHwI2C() {
+//     const dir = `/sys/class/gpio/gpio${pin}`;
 
-    const pin = 198;
+//     try {
+//         await fs.promises.writeFile("/sys/class/gpio/unexport", pin.toString());
+//     } catch {
+//         // fall through
+//     }
 
-    const dir = `/sys/class/gpio/gpio${pin}`;
+//     await fs.promises.writeFile("/sys/class/gpio/export", pin.toString());
 
-    try {
-        await fs.promises.writeFile("/sys/class/gpio/unexport", pin.toString());
-    } catch {
-        // fall through
-    }
+//     await fs.promises.writeFile(`${dir}/direction`, "in");
+//     await fs.promises.writeFile(`${dir}/edge`, "falling");
 
-    await fs.promises.writeFile("/sys/class/gpio/export", pin.toString());
+//     let interruptCallback;
 
-    await fs.promises.writeFile(`${dir}/direction`, "in");
-    await fs.promises.writeFile(`${dir}/edge`, "falling");
+//     async function readInterrupt() {
+//         try {
+//             let stateStr = await fs.promises.readFile(`${dir}/value`);
+//             let pending = stateStr.toString().trim() === "0";
+//             //console.info("INT: ", stateStr, pending,interruptCallback);
+//             if (pending && interruptCallback) {
+//                 let cb = interruptCallback;
+//                 interruptCallback = undefined;
+//                 try {
+//                     cb();
+//                 } catch (e) {
+//                     error("Error in I2C alert callback:", e);
+//                 }
+//             }
+//         } catch (e) {
+//             error("Error in I2C alert check:", e);
+//         }
+//         setTimeout(readInterrupt, 50);
+//     }
 
-    let interruptCallback;
+//     const bus = await require("i2c-bus").openPromisified(0); //TODO configurable I2C bus #
 
-    async function readInterrupt() {
-        try {
-            let stateStr = await fs.promises.readFile(`${dir}/value`);
-            let pending = stateStr.toString().trim() === "0";
-            //console.info("INT: ", stateStr, pending,interruptCallback);
-            if (pending && interruptCallback) {
-                let cb = interruptCallback;
-                interruptCallback = undefined;
-                try {
-                    cb();
-                } catch (e) {
-                    error("Error in I2C alert callback:", e);
-                }
-            }
-        } catch (e) {
-            error("Error in I2C alert check:", e);
-        }
-        setTimeout(readInterrupt, 50);
-    }
+//     await readInterrupt();
 
-    const bus = await require("i2c-bus").openPromisified(0); //TODO configurable I2C bus #
+//     return {
+//         async read(address, length) {
+//             let buffer = Buffer.alloc(length);
+//             let read = (await bus.i2cRead(parseInt(address), length, buffer)).bytesRead;
+//             if (read !== length) {
+//                 throw `Could read only ${read} bytes from ${length}`;
+//             }
+//             return Uint8Array.from(buffer);
+//         },
 
-    await readInterrupt();
+//         async write(address, data) {
+//             let buffer = Buffer.from(data);
+//             let written = (await bus.i2cWrite(parseInt(address), data.length, buffer)).bytesWritten;
+//             if (written !== data.length) {
+//                 throw `Could write only ${written} bytes from ${data.length}`;
+//             }
+//         },
 
-    return {
-        async read(address, length) {
-            let buffer = Buffer.alloc(length);
-            let read = (await bus.i2cRead(parseInt(address), length, buffer)).bytesRead;
-            if (read !== length) {
-                throw `Could read only ${read} bytes from ${length}`;
-            }
-            return Uint8Array.from(buffer);
-        },
+//         alert() {
+//             return new Promise((resolve) => {
+//                 interruptCallback = resolve;
+//             });
+//         }
 
-        async write(address, data) {
-            let buffer = Buffer.from(data);
-            let written = (await bus.i2cWrite(parseInt(address), data.length, buffer)).bytesWritten;
-            if (written !== data.length) {
-                throw `Could write only ${written} bytes from ${data.length}`;
-            }
-        },
+//     }
 
-        alert() {
-            return new Promise((resolve) => {
-                interruptCallback = resolve;
-            });
-        }
-
-    }
-
-}
+// }
 
 module.exports = async config => {
 
@@ -108,56 +96,42 @@ module.exports = async config => {
         }
     }
 
-    let bus;
-
     info("Initializing I2C bus...");
-    try {
-        bus = await createHwI2C();
-    } catch (e) {
-        error("Hardware I2C driver failed, trying USB.", e.message || e);
-        try {
-            bus = await require("@device.farm/usb-i2c-driver").open();
-        } catch (e2) {
-            error("USB I2C driver failed, falling back to dummy driver.", e2.message || e2);
-            bus = createDummyDriver();
-        }
-    }
+    let bus = await I2C(process.env.I2C || "sys");
 
-    let devices = {};
+    let devices = [];
 
     for (let address = 0x40; address < 0x78; address++) {
         try {
-            await bus.write(address, []);
+            await bus.i2cRead(address, 1);
             let device = createDevice(address, bus);
-            devices[address] = device;
+            devices.push(device);
             info(`Detected I2C device ${addrToStr(address)}: ${device.title}`);
         } catch (e) {
-            if (e.code !== "ENXIO") {
-                error(`Error probing I2C device at ${addrToStr(address)}`, e);
-            }
+            debug(`Probing I2C device at ${addrToStr(address)}: ${e.message || e}`);
         }
     }
 
-    async function forEachDevice(cb) {
-        for (let device of Object.values(devices)) {
-            try {
-                await cb(device);
-            } catch (e) {
-                error(`Device "${device.title}" thrown exception: ${e.message || e}`);
-            }
-        }
-    }
-
-    async function handleAlert() {
+    async function check() {
         while (true) {
-            await forEachDevice(async device => {
-                await device.handleAlert();
-            });
-            await bus.alert();
+            let period = new Promise(resolve => setTimeout(resolve, 100));
+
+            try {
+                debug("I2C check");
+
+                for (let device of devices) {
+                    await device.check();
+                }
+
+            } catch(e) {
+                error("Error in I2C check loop:", e);
+            }
+
+            await(period);
         }
     }
 
-    handleAlert().catch(e => {
-        error("Error in I2C handleAlert loop", e);
+    check().catch(e => {
+        error("Unhandled error in I2C check loop:", e);
     });
 }

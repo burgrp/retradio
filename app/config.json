@@ -47,16 +47,24 @@
             },
             "0x45": {
                 "module": "./drv-encoder.js",
+                "reduced": true,
                 "onRotate": "changeTuning",
                 "onPush": "resetTuning"
             },
             "0x46": {
                 "module": "./drv-encoder.js",
+                "reduced": true,
                 "onRotate": "changeBand",
                 "onPush": "resetBand"
             },
             "0x49": {
-                "module": "./drv-buttons.js"
+                "module": "./drv-buttons.js",
+                "bands": 8
+            },
+            "0x4A": {
+                "module": "./drv-buttons.js",
+                "bands": 5,
+                "apertures": 3
             }
         }
     },

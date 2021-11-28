@@ -1,6 +1,6 @@
 const spawn = require("child_process").spawn;
-const error = require("debug")("app:error");
-const info = require("debug")("app:info");
+const error = require("debug")("player:error");
+const info = require("debug")("player:info");
 const mplayerOut = require("debug")("mplayer:out");
 const mplayerErr = require("debug")("mplayer:err");
 
@@ -18,8 +18,8 @@ module.exports = async config => {
     let apertureLevel = 0;
 
     function getEqualizer() {
-        let levels = [bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel];
-        return levels.map(l => l / 2 - 6).join(":");
+        let levels = [bassLevel, bassLevel, 2 * bassLevel / 3, bassLevel / 3, 0, 0, trebleLevel / 3, 2 * trebleLevel / 3, trebleLevel, trebleLevel];
+        return levels.map(l => Math.round(l / 2 - 6)).join(":");
     }
 
     let mpErrors = 0;
@@ -97,7 +97,6 @@ module.exports = async config => {
             let media = currentMedia();
             await mpDo(media.playlist ? "loadlist" : "loadfile", media.url);
             await events.emit("stationChanged", bandIndex, stationIndex);
-            await asyncWait(2000);
         } else {
             mpStart();
         }
@@ -180,6 +179,11 @@ module.exports = async config => {
 
         async changeAperture(change) {
             apertureLevel = changeValue(apertureLevel, change, 0, 10);
+            await updateAperature();
+        },
+
+        async setAperture(ap) {
+            apertureLevel = ap;
             await updateAperature();
         },
 
