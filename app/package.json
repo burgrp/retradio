@@ -7,8 +7,8 @@
   "license": "ISC",
   "dependencies": {
     "@burgrp/i2c": "^1.0.6",
-    "@device.farm/appglue": "^1.0.14",
-    "@device.farm/webglue": "^1.0.18",
+    "@burgrp/appglue": "^1.0.14",
+    "@burgrp/webglue": "^1.0.18",
     "debug": "^4.3.3",
     "json-pad": "^1.0.1"
   }

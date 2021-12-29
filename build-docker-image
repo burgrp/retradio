@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -e
+docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
