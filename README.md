@@ -20,10 +20,9 @@
 
 ## Docker image
 
-Install binfmt
+Start buildx builder
 
 ```text
-docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
 docker buildx create --name cross
 docker buildx inspect --bootstrap
 ```
@@ -31,6 +30,7 @@ docker buildx inspect --bootstrap
 Build the image
 
 ```text
+docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
 docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
 ```
 

@@ -6,10 +6,11 @@
   "author": "Pavel Burgr <pb@drake.cz>",
   "license": "ISC",
   "dependencies": {
-    "@burgrp/i2c": "^1.0.6",
     "@burgrp/appglue": "^1.0.14",
+    "@burgrp/i2c": "^1.0.8",
     "@burgrp/webglue": "^1.0.18",
     "debug": "^4.3.3",
+    "i2c-bus": "^5.2.2",
     "json-pad": "^1.0.1"
   }
 }
