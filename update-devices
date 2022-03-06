@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]
+then
+    echo "Use: $0 <id> [<id>]..."
+    echo "To get list of connected devices, run the following in device.farm portal console:"
+    echo '(await wg.portal.getDashboardData()).flatMap(o => o.devices).filter(d=>d.services.some(s=>s.name==="retradio")).map(d=>d.id).join(" ")'
+    exit 1
+fi
+
+for ID in $@
+do
+    echo "Updating $ID"
+    defa proxy $ID -- docker pull burgrp/retradio
+    defa proxy $ID -- docker-compose up -d
+done
