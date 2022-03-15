@@ -46,3 +46,8 @@ defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD
 defa proxy device-id -- docker pull burgrp/retradio
 defa proxy device-id -- docker-compose up -d
 ```
+or 
+
+```sh
+./update-devices device-id ...
+```
