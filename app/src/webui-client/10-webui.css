@@ -68,6 +68,8 @@ button.confirm {
     margin: 2em;
 }
 
+/* --------------- BANDS --------------- */
+
 .bands .switch {
     flex-direction: row;
     padding-bottom: 0.5em;
@@ -144,3 +146,9 @@ button.confirm {
     margin-right: 0.5em;
 }
 
+/* --------------- FOOTER --------------- */
+.footer {
+    font-size: smaller;
+    color: gray;
+    text-align: center;
+}

@@ -11,11 +11,9 @@ module.exports = async config => {
             { "name": "ČRo Wave", "url": "", "url": "http://icecast5.play.cz/crowave-128.mp3" }
         ],
         [
-            //{ "name": "SwissGroove", "url": "", "url": "http://www.swissgroove.ch/listen.m3u" },
-            { "name": "SwissGroove", "url": "", "url": "http://135.125.214.46:80" },
+            { "name": "SwissGroove", "url": "", "url": "http://relay1.swissgroove.ch:80" },
             { "name": "Secret Agent - soma fm", "url": "", "url": "http://ice1.somafm.com/secretagent-128-mp3" },
             { "name": "Seven Inch Soul - soma fm", "url": "", "url": "http://ice4.somafm.com/7soul-128-mp3" },
-            //{ "name": "SKY.FM", "url": "", "url": "https://rblive80.it/radiobrand2/8342" },
             { "name": "Public Domain Jazz - Swiss Internet Radio", "url": "", "url": "http://relay.publicdomainproject.org/jazz_swing.mp3" }
         ],
         [

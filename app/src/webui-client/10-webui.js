@@ -16,7 +16,10 @@ wg.common = {
                     AHREF(key === navigationKey ? "active" : "", { href: key }).text(title)
                 )
             ]),
-            DIV("content", content)
+            DIV("content", content),
+            DIV("footer", [
+                DIV("version").text("version 1.220315.1")
+            ])
         ]);
     },
 
