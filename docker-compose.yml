@@ -16,9 +16,9 @@ services:
       DEBUG: "app:err,app:error"
       #DEBUG: "app:err,app:error,mplayer:err"
       #DEBUG: "*"
-    ports:
-      - "80:80"
-      - "127.0.0.7:9229:9229"
+    #ports:
+      #- "80:80"
+      #- "127.0.0.7:9229:9229"
     labels:
       "farm.device.services": "80 retradio, 9229 debugger hidden"
     command: 'sh -c "alsactl init; node --inspect=0.0.0.0:9229 src/retradio.js"'
