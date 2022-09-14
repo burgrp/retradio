@@ -1,27 +1,27 @@
 module.exports = async config => {
     return [
         [
-            { "name": "ČRo Vltava", "url": "", "url": "http://icecast5.play.cz/cro3-128.mp3" },
-            { "name": "ČRo Plus", "url": "", "url": "http://icecast1.play.cz/croplus128.mp3" },
-            { "name": "ČRo Dvojka", "url": "", "url": "http://icecast7.play.cz/cro2-128.mp3" },
-            { "name": "ČRo Radiožurnál", "url": "", "url": "http://icecast8.play.cz/cro1-128.mp3" },
-            { "name": "ČRo Jazz", "url": "", "url": "http://icecast1.play.cz/crojazz128.mp3" },
-            { "name": "ČRo D-dur", "url": "", "url": "http://icecast5.play.cz/croddur-128.mp3" },
-            { "name": "Classic Praha", "url": "", "url": "http://icecast8.play.cz/classic128.mp3" },
-            { "name": "ČRo Wave", "url": "", "url": "http://icecast5.play.cz/crowave-128.mp3" }
+            { "name": "ČRo Vltava", "url": "http://icecast5.play.cz/cro3-128.mp3" },
+            { "name": "ČRo Plus", "url": "https://rozhlas.stream/plus_mp3_128.mp3" },
+            { "name": "ČRo Dvojka", "url": "http://icecast7.play.cz/cro2-128.mp3" },
+            { "name": "ČRo Radiožurnál", "url": "http://icecast8.play.cz/cro1-128.mp3" },
+            { "name": "ČRo Jazz", "url": "http://icecast1.play.cz/crojazz128.mp3" },
+            { "name": "ČRo D-dur", "url": "http://icecast5.play.cz/croddur-128.mp3" },
+            { "name": "Classic Praha", "url": "http://icecast8.play.cz/classic128.mp3" },
+            { "name": "ČRo Wave", "url": "http://icecast5.play.cz/crowave-128.mp3" }
         ],
         [
-            { "name": "SwissGroove", "url": "", "url": "http://relay1.swissgroove.ch:80" },
-            { "name": "Secret Agent - soma fm", "url": "", "url": "http://ice1.somafm.com/secretagent-128-mp3" },
-            { "name": "Seven Inch Soul - soma fm", "url": "", "url": "http://ice4.somafm.com/7soul-128-mp3" },
-            { "name": "Public Domain Jazz - Swiss Internet Radio", "url": "", "url": "http://relay.publicdomainproject.org/jazz_swing.mp3" }
+            { "name": "SwissGroove", "url": "http://relay1.swissgroove.ch:80" },
+            { "name": "Secret Agent - soma fm", "url": "http://ice1.somafm.com/secretagent-128-mp3" },
+            { "name": "Seven Inch Soul - soma fm", "url": "http://ice4.somafm.com/7soul-128-mp3" },
+            { "name": "Public Domain Jazz - Swiss Internet Radio", "url": "http://relay.publicdomainproject.org/jazz_swing.mp3" }
         ],
         [
-            { "name": "Rádio Pohádka", "url": "", "url": "http://ice3.abradio.cz/pohadka128.mp3" },
-            { "name": "Rádio Povídka", "url": "", "url": "http://ice3.abradio.cz/povidka128.mp3" },
-            { "name": "ČRo Rádio Junior", "url": "", "url": "http://icecast5.play.cz/crojuniormaxi128.mp3" },
-            { "name": "Radio Domino", "url": "", "url": "http://mp3stream4.abradio.cz/domino128.mp3" },
-            { "name": "Rádio Humor", "url": "", "url": "http://mp3stream4.abradio.cz/humor128.mp3" }
+            { "name": "Rádio Pohádka", "url": "http://ice3.abradio.cz/pohadka128.mp3" },
+            { "name": "Rádio Povídka", "url": "http://ice3.abradio.cz/povidka128.mp3" },
+            { "name": "ČRo Rádio Junior", "url": "http://icecast5.play.cz/crojuniormaxi128.mp3" },
+            { "name": "Radio Domino", "url": "http://mp3stream4.abradio.cz/domino128.mp3" },
+            { "name": "Rádio Humor", "url": "http://mp3stream4.abradio.cz/humor128.mp3" }
         ],
         [
             { "name": "BBC - Radio 1", "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one" },
