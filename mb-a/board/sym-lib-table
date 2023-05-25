@@ -1,3 +1,4 @@
 (sym_lib_table
-  (lib (name PAM8320)(type Legacy)(uri ${KIPRJMOD}/PAM8320.lib)(options "")(descr ""))
+  (lib (name "PAM8320")(type "Legacy")(uri "${KIPRJMOD}/PAM8320.lib")(options "")(descr ""))
+  (lib (name "mb-a-rescue")(type "KiCad")(uri "${KIPRJMOD}/mb-a-rescue.kicad_sym")(options "")(descr ""))
 )
