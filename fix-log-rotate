@@ -2,7 +2,7 @@
 
 set -e
 
-ID=pp1aq04n
+ID=$1
 
 echo "Updating $ID, the following command needs to press enter after while..."
 cat | defa ssh $ID "cat >/etc/docker/daemon.json" <<EOF
