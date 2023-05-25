@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+ID=pp1aq04n
+
+echo "Updating $ID, the following command needs to press enter after while..."
+cat | defa ssh $ID "cat >/etc/docker/daemon.json" <<EOF
+{
+"log-driver": "json-file",
+"log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+    }
+}
+EOF
+
+defa proxy $ID docker-compose down
+defa ssh $ID /etc/init.d/docker restart
+echo "Sleeping 20 seconds to let docker restart"
+sleep 20
+defa proxy $ID -- docker-compose up -d
