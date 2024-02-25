@@ -1,0 +1,22 @@
+pkgname=goapp
+pkgver=1.0.0
+pkgrel=0
+pkgdesc="A sample Go application"
+url="https://github.com/your_username/goapp"
+arch="all"
+license="MIT"
+depends=""
+makedepends="go"
+source=.
+
+build() {
+    export GOPATH="$srcdir"
+    go build -o $pkgname
+}
+
+package() {
+    mkdir -p "$pkgdir/usr/bin"
+    install -m755 $pkgname "$pkgdir/usr/bin/"
+}
+
+sha512sums="..."
