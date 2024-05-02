@@ -1,6 +1,13 @@
 module.exports = async config => {
     return [
         [
+            { "name": "Rádio Pohádka", "url": "http://ice3.abradio.cz/pohadka128.mp3" },
+            { "name": "Rádio Povídka", "url": "http://ice3.abradio.cz/povidka128.mp3" },
+            { "name": "ČRo Rádio Junior", "url": "http://icecast5.play.cz/crojuniormaxi128.mp3" },
+            { "name": "Radio Domino", "url": "http://mp3stream4.abradio.cz/domino128.mp3" },
+            { "name": "ČRo Vltava", "url": "http://icecast5.play.cz/cro3-128.mp3" },
+        ],
+        [
             { "name": "ČRo Vltava", "url": "http://icecast5.play.cz/cro3-128.mp3" },
             { "name": "ČRo Plus", "url": "http://amp.cesnet.cz:8000/cro-plus.ogg" },
             { "name": "ČRo Dvojka", "url": "http://icecast7.play.cz/cro2-128.mp3" },

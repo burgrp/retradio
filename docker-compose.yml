@@ -3,7 +3,7 @@ version: "2.3"
 services:
   retradio:
     container_name: retradio
-    image: burgrp/retradio:latest
+    image: burgrp/retradio-bertik:latest
     privileged: true
     restart: always
     volumes:
