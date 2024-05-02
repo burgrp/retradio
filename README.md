@@ -31,7 +31,7 @@ Build the image
 
 ```sh
 docker run --rm --privileged docker/binfmt:820fdd95a9972a5308930a2bdfb8573dd4447ad3
-docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
+docker buildx build --platform linux/arm/v7 . -t burgrp/retradio-bertik --push
 ```
 
 ## DEVICE.FARM
@@ -43,10 +43,10 @@ defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD
 
 ### Retradio service installation
 ```sh
-defa proxy device-id -- docker pull burgrp/retradio
+defa proxy device-id -- docker pull burgrp/retradio-bertik
 defa proxy device-id -- docker-compose up -d
 ```
-or 
+or
 
 ```sh
 ./update-devices device-id ...

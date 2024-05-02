@@ -12,6 +12,6 @@ fi
 for ID in $@
 do
     echo "Updating $ID"
-    defa proxy $ID -- docker pull burgrp/retradio
+    defa proxy $ID -- docker pull burgrp/retradio-bertik
     defa proxy $ID -- docker compose up -d
 done
