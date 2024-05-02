@@ -1,4 +1,4 @@
-FROM node:lts-buster AS builder
+FROM node:latest AS builder
 WORKDIR /retradio
 
 RUN apt-get update
@@ -10,7 +10,7 @@ RUN npm install --only=prod
 COPY app/config.json ./
 COPY app/src ./src/
 
-FROM node:lts-buster-slim
+FROM node:slim
 
 WORKDIR /retradio
 
