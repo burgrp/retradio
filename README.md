@@ -38,7 +38,7 @@ docker buildx build --platform linux/arm/v7 . -t burgrp/retradio --push
 
 ### OS installation
 ```sh
-defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD/mb-a/dto
+defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD/mb-a/dto --root $PWD/mb-a/root
 ```
 
 ### Retradio service installation
@@ -46,7 +46,7 @@ defa install device-id /dev/your-sd-card --wifi=ssid:password --ssh - --dto $PWD
 defa proxy device-id -- docker pull burgrp/retradio
 defa proxy device-id -- docker-compose up -d
 ```
-or 
+or
 
 ```sh
 ./update-devices device-id ...
