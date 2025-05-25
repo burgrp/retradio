@@ -1,4 +1,4 @@
-FROM node:latest AS builder
+FROM node:20-bookworm AS builder
 WORKDIR /retradio
 
 RUN apt-get update
@@ -10,7 +10,7 @@ RUN npm install --only=prod
 COPY app/config.json ./
 COPY app/src ./src/
 
-FROM node:slim
+FROM node:20-slim
 
 WORKDIR /retradio
 
