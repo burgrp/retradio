@@ -5,18 +5,15 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gopxl/beep"
-	"github.com/gopxl/beep/mp3"
-	"github.com/gopxl/beep/speaker"
+	"github.com/gopxl/beep/v2"
+	"github.com/gopxl/beep/v2/mp3"
+	"github.com/gopxl/beep/v2/speaker"
 )
 
 func main() {
-	// f, err := os.Open("/home/paul/tmp/16 - Stayin' Alive.mp3")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 
-	url := "http://relay1.swissgroove.ch:80"
+	//url := "http://relay1.swissgroove.ch:80"
+	url := "http://amp.cesnet.cz:8000/cro3.ogg"
 	// open url as a stream
 	resp, err := http.Get(url)
 	if err != nil {
@@ -25,6 +22,7 @@ func main() {
 	defer resp.Body.Close()
 
 	streamer, format, err := mp3.Decode(resp.Body)
+	//streamer, format, err := vorbis.Decode(resp.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
