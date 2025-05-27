@@ -23,8 +23,8 @@ func main() {
 
 	bus.Send("Hello, world!")
 
-	//url := "http://relay1.swissgroove.ch:80"
-	url := "http://amp.cesnet.cz:8000/cro3.ogg"
+	url := "http://relay1.swissgroove.ch:80"
+	//url := "http://amp.cesnet.cz:8000/cro3.ogg"
 	// open url as a stream
 	resp, err := http.Get(url)
 	if err != nil {
