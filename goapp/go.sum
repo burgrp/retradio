@@ -1,3 +1,5 @@
+github.com/burgrp/go-event v1.0.0 h1:rSD5a7llXfwzoRzDVB+gDTnpdJrUsgbJas2DZUcuZIM=
+github.com/burgrp/go-event v1.0.0/go.mod h1:y8I8HIQOtPYbwX/FqfeYjfudnH/Kyar09nvMqNXb37w=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/ebitengine/oto/v3 v3.3.2 h1:VTWBsKX9eb+dXzaF4jEwQbs4yWIdXukJ0K40KgkpYlg=
