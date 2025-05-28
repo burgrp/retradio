@@ -6,7 +6,7 @@ type Station struct {
 }
 
 type Settings struct {
-	StationSets [][]Station `yaml:"stations"`
+	Stations [][]Station `yaml:"stations"`
 }
 
 type SettingsChanged *Settings

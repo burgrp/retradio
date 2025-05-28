@@ -1,1 +1,2 @@
 user_settings: user-settings.yaml
+default_stations: http://retradio.drake.cz/default-stations.json

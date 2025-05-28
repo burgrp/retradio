@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"retradio/pkg/common"
+	stations "retradio/pkg/stations/impl"
 	"syscall"
 	"time"
 
@@ -25,6 +26,7 @@ func main() {
 
 	system.Init(bus, logger)
 	user.Init(bus, logger)
+	stations.Init(bus, logger)
 
 	bus.Unlock()
 
