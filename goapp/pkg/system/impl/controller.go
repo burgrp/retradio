@@ -12,7 +12,7 @@ import (
 
 func Init(bus *event.EventBus, logger *slog.Logger) {
 
-	bus.Listen(func(_ common.ApplicationStarted) {
+	bus.Listen(func(common.ApplicationStarted) {
 
 		if len(os.Args) != 2 {
 			panic("use: retradio [config.yaml]")

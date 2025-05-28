@@ -7,6 +7,10 @@ type Station struct {
 
 type Settings struct {
 	Stations [][]Station `yaml:"stations"`
+	Tuning   struct {
+		Set     int `yaml:"set"`
+		Station int `yaml:"station"`
+	} `yaml:"tuning"`
 }
 
 type SettingsChanged *Settings

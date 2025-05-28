@@ -1,1 +1,2 @@
-__debug_bin*
+/cmd/__debug_bin*
+/user-settings.yaml
