@@ -1,7 +1,6 @@
 package impl
 
 import (
-	"log"
 	"log/slog"
 	"net/http"
 	"retradio/pkg/common"
@@ -20,6 +19,8 @@ import (
 func Init(bus *event.EventBus, logger *slog.Logger) {
 
 	var currentUrl string
+
+	var stop func()
 
 	bus.Listen(func(userSettings user.SettingsChanged) {
 
@@ -42,6 +43,10 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 
 			go func() {
 
+				if stop != nil {
+					stop()
+				}
+
 				logger.Info("Playing URL", "url", station.URL)
 
 				resp, err := http.Get(station.URL)
@@ -49,7 +54,6 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 					logger.Error("Failed to get stream URL", "url", station.URL, "error", err)
 					return
 				}
-				defer resp.Body.Close()
 
 				var streamer beep.StreamSeekCloser
 				var format beep.Format
@@ -84,22 +88,21 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 					return
 				}
 
-				if err != nil {
-					log.Fatal(err)
+				stop = func() {
+					logger.Info("Stopping playback")
+					resp.Body.Close()
+					streamer.Close()
 				}
-				defer streamer.Close()
 
 				speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/1))
 
-				done := make(chan bool)
 				speaker.Play(beep.Seq(streamer, beep.Callback(func() {
-					done <- true
+					speaker.Close()
+					logger.Info("Playback finished")
 				})))
 
-				<-done
+				logger.Info("Playback started", "url", station.URL)
 
-				speaker.Close()
-				logger.Info("Playback finished")
 			}()
 		}
 	})
