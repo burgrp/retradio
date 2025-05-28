@@ -1,28 +1,16 @@
-package main
+package impl
 
 import (
 	"log"
 	"net/http"
 	"time"
 
-	event "github.com/burgrp/go-event/pkg"
 	"github.com/gopxl/beep/v2"
 	"github.com/gopxl/beep/v2/mp3"
 	"github.com/gopxl/beep/v2/speaker"
 )
 
-func main() {
-
-	bus := event.NewEventBus("retradio")
-
-	bus.Listen(func(msg string) {
-		log.Println("Received message:", msg)
-	})
-
-	bus.Unlock()
-
-	bus.Send("Hello, world!")
-
+func Play() {
 	url := "http://relay1.swissgroove.ch:80"
 	//url := "http://amp.cesnet.cz:8000/cro3.ogg"
 	// open url as a stream
