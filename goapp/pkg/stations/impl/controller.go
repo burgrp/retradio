@@ -16,37 +16,36 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 
 	var systemConfig *system.Configuration
 
+	loadDefaultStations := func() ([][]user.Station, error) {
+		url := systemConfig.DefaultStations
+		logger.Debug("Loading default stations from", "url", url)
+
+		response, err := http.Get(url)
+		if err != nil {
+			return nil, err
+		}
+		defer response.Body.Close()
+
+		body, err := io.ReadAll(response.Body)
+		if err != nil {
+			return nil, err
+		}
+
+		var stations [][]user.Station
+
+		err = json.Unmarshal(body, &stations)
+		if err != nil {
+			return nil, err
+		}
+
+		return stations, nil
+	}
+
 	bus.Listen(func(systemConfigLoaded system.ConfigurationLoaded) {
 		systemConfig = systemConfigLoaded
 	})
 
 	bus.Listen(func(userSettings user.SettingsChanged) {
-
-		loadDefaultStations := func() ([][]user.Station, error) {
-			url := systemConfig.DefaultStations
-			logger.Debug("Loading default stations from", "url", url)
-
-			response, err := http.Get(url)
-			if err != nil {
-				return nil, err
-			}
-			defer response.Body.Close()
-
-			body, err := io.ReadAll(response.Body)
-			if err != nil {
-				return nil, err
-			}
-
-			var stations [][]user.Station
-
-			err = json.Unmarshal(body, &stations)
-			if err != nil {
-				return nil, err
-			}
-
-			return stations, nil
-		}
-
 		if len(userSettings.Stations) == 0 {
 			logger.Info("No stations configured, loading defaults")
 			go func() {
@@ -62,7 +61,6 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 				}
 			}()
 		}
-
 	})
 
 }
