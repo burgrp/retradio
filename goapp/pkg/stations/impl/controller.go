@@ -5,6 +5,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"retradio/pkg/player"
 	"retradio/pkg/system"
 	"retradio/pkg/user"
 	"time"
@@ -60,6 +61,38 @@ func Init(bus *event.EventBus, logger *slog.Logger) {
 					time.Sleep(5 * time.Second)
 				}
 			}()
+		}
+
+		if userSettings.Tuning.Set < 0 {
+			userSettings.Tuning.Set = 0
+		}
+
+		if userSettings.Tuning.Station < 0 {
+			userSettings.Tuning.Station = 0
+		}
+
+		if userSettings.Tuning.Set >= len(userSettings.Stations) {
+			userSettings.Tuning.Set = 0 //len(userSettings.Stations) - 1
+		}
+
+		if userSettings.Tuning.Set != -1 {
+
+			if userSettings.Tuning.Station >= len(userSettings.Stations[userSettings.Tuning.Set]) {
+				userSettings.Tuning.Station = 0 //len(userSettings.Stations[userSettings.Tuning.Set]) - 1
+			}
+
+			if userSettings.Tuning.Station != -1 {
+
+				station := userSettings.Stations[userSettings.Tuning.Set][userSettings.Tuning.Station]
+				bus.Send(player.Play(station.URL))
+
+				go func() {
+					time.Sleep(5 * time.Second)
+					userSettings.Tuning.Station++
+					bus.Send(user.SaveSettings(userSettings))
+				}()
+
+			}
 		}
 	})
 
