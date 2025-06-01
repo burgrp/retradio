@@ -20,6 +20,17 @@ func TestPlayAndStop(t *testing.T) {
 	require.NoError(t, impl.Play("http://ice4.somafm.com/7soul-128-mp3", slog.Default(), stop))
 }
 
+func TestPlayLoop(t *testing.T) {
+
+	stop := make(chan struct{})
+
+	go func() {
+		time.Sleep(10 * time.Second)
+		close(stop)
+	}()
+	require.NoError(t, impl.Play("file://./cow.mp3", slog.Default(), stop))
+}
+
 func TestPlayMore(t *testing.T) {
 
 	stations := []string{
